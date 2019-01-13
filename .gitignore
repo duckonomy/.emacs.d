@@ -1,1 +1,7 @@
+*
 secret.el
+!*/
+!lib/
+!README.org
+!bookmarks
+!init.el
