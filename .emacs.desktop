@@ -1,0 +1,55 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Fri Aug 10 18:42:16 2018
+;; Desktop file format version 208
+;; Emacs version 26.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23405 24056 989595 0) (desktop . "208") "duckwho@duckwho" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYEL-Sarasa Mono J-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 20) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#ABB2BF") (background-color . "#282C34") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 1) (right-fringe . 1) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#528BFF") (environment) (frameset--id . "F26C-0363-8D66-18B4") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (frameset--text-pixel-width . 1838) (frameset--text-pixel-height . 968) (height . 56) (width . 262) (left . 10) (top . 42)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 68) (min-pixel-width . 70) (min-pixel-height-ignore . 68) (min-pixel-width-ignore . 21) (min-pixel-height-safe . 17) (min-pixel-width-safe . 14)) leaf (pixel-width . 1840) (pixel-height . 951) (total-width . 262) (total-height . 55) (normal-height . 1.0) (normal-width . 1.0) (buffer "translator" (selected . t) (hscroll . 0) (fringes 1 1 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist '((111 file . "~/usr/docs/org.org")))
+(setq file-name-history '("/home/duckwho/translator" "/home/duckwho/hello/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/duckwho/translator"
+  "translator"
+  'fundamental-mode
+  '(global-auto-revert-mode override-global-mode ivy-mode smartparens-mode anzu-mode yas-minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23405 24054 106973 1000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/duckwho/hello/.emacs.desktop"
+  ".emacs.desktop"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode override-global-mode ivy-mode smartparens-mode anzu-mode flycheck-mode company-mode yas-minor-mode rainbow-delimiters-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23405 24051 292724 391000) (buffer-file-coding-system . emacs-mule-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "hello"
+  'dired-mode
+  '(auto-revert-mode global-auto-revert-mode override-global-mode ivy-mode anzu-mode yas-minor-mode)
+  180
+  '(nil nil)
+  t
+  '("/home/duckwho/hello/")
+  '((buffer-display-time 23405 24054 89368 340000))
+  '((mark-ring nil)))
+
