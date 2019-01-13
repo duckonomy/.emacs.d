@@ -110,6 +110,10 @@ Execute shell scripts in config
 		  :height 120
 		  ;; :height 170
 		  :family "Roboto Condensed")
+#+END_SRC
+
+***** COMMENT More
+#+BEGIN_SRC emacs-lisp
 
 ;;   (set-face-attribute 'mode-line nil 
 ;; 		  :family "Roboto Condensed"
@@ -217,49 +221,54 @@ Execute shell scripts in config
                       :inherit 'variable-pitch 
                       :family "Roboto Condensed" 
                       :height 2.0)
+)
+#+END_SRC
 
-  ;; (custom-theme-set-faces 'user
-  ;;   		  `(org-level-4 ((t (:foreground "#98C379" :height 1.0)))))
+***** COMMENT More
+#+BEGIN_SRC emacs-lisp
+(
+(custom-theme-set-faces 'user
+  		  `(org-level-4 ((t (:foreground "#98C379" :height 1.0)))))
 
-  ;; (dolist (face '(org-block-begin-line
-  ;;   	          org-block-end-line))
-  ;;   (set-face-attribute face nil 
-  ;;   		            :weight 'bold 
-  ;;   		            ;; :background "#434A5B"
-  ;;   		            ;; :foreground "#B4BCD1"
-  ;;   		            :background "#59534E"
-  ;;   		            :foreground "#B9B2AC"
-  ;;                       ))
+(dolist (face '(org-block-begin-line
+  	          org-block-end-line))
+  (set-face-attribute face nil 
+  		            :weight 'bold 
+  		            ;; :background "#434A5B"
+  		            ;; :foreground "#B4BCD1"
+  		            :background "#59534E"
+  		            :foreground "#B9B2AC"
+                      ))
 
-  ;; (dolist (face '(org-table
-  ;;   	          org-code))
-  ;;   (set-face-attribute face nil 
-  ;;   		            :weight 'bold
-  ;;   		            :inherit 'fixed-pitch)
-  ;;   :foreground "#8EE58E")
+(dolist (face '(org-table
+  	          org-code))
+  (set-face-attribute face nil 
+  		            :weight 'bold
+  		            :inherit 'fixed-pitch)
+  :foreground "#8EE58E")
 
-  ;; (set-face-attribute 'org-block nil 
-  ;;   	              :weight 'bold
-  ;;   	              :inherit 'fixed-pitch 
-  ;;   	              ;; :foreground "#ABB2BF"
-  ;;   	              :foreground "#A89984"
-  ;;                     ;; A89984
-  ;;                     ;; :background "#343948")
-  ;;                     :background "#3C3836")
+(set-face-attribute 'org-block nil 
+  	              :weight 'bold
+  	              :inherit 'fixed-pitch 
+  	              ;; :foreground "#ABB2BF"
+  	              :foreground "#A89984"
+                    ;; A89984
+                    ;; :background "#343948")
+                    :background "#3C3836")
 
-  ;; (set-face-attribute 'org-hide nil 
-  ;;   	              ;; :background "#282C34"))
-  ;;   	              :background "#282828")
+(set-face-attribute 'org-hide nil 
+  	              ;; :background "#282C34"))
+  	              :background "#282828")
 
-  ;; (set-face-attribute 'line-number nil 
-  ;;   	              ;; :background "#282C34"))
-  ;;   	              :background "#282828")
+(set-face-attribute 'line-number nil 
+  	              ;; :background "#282C34"))
+  	              :background "#282828")
 
-  ;; (set-face-attribute 'line-number-current-line nil 
-  ;;   	              ;; :background "#282C34"))
-  ;;   	              :background "#282828")
+(set-face-attribute 'line-number-current-line nil 
+  	              ;; :background "#282C34"))
+  	              :background "#282828")
 
-  )
+)
 #+END_SRC
 
 ***** org-light-fonts
@@ -689,12 +698,6 @@ When deleting frames, delete buffer as well
 
 *** Remove whitespace
 #+BEGIN_SRC emacs-lisp
-;; (add-hook 'before-save-hook 'my-prog-nuke-trailing-whitespace)
-
-;; (defun my-prog-nuke-trailing-whitespace ()
-;;   (when (derived-mode-p 'prog-mode)
-;;     (delete-trailing-whitespace)))
-
 (defun clean-white ()
   (add-hook 'before-save-hook #'whitespace-cleanup nil t))
 (defun clean-trail ()
@@ -826,7 +829,7 @@ This has to come before show-paren-mode
 (global-visual-line-mode t)
 #+END_SRC
 
-****** TODO COMMENT Word wrapping (don't understand)
+****** TODO COMMENT Word wrapping
 #+BEGIN_SRC emacs-lisp
 ;; (toggle-truncate-lines t)
 (set-default 'truncate-lines t)
@@ -1059,7 +1062,7 @@ Overflowing text when word wrap is off
 #+END_SRC
 
 ***** Scrolling
-****** TODO Scroll error (don't understand)
+****** TODO Scroll error
 #+BEGIN_SRC emacs-lisp
 (setq-default scroll-error-top-bottom t)
 #+END_SRC
@@ -1168,7 +1171,7 @@ bookmark-save-flag 1)
              (local-set-key (kbd "<tab>") 'completion-at-point)))
 #+END_SRC
 
-**** Epa-file (don't understand)
+**** TODO Epa-file
 #+BEGIN_SRC emacs-lisp
 (epa-file-enable)
 (setq epa-file-name-regexp "\\.\\(gpg\\|asc\\)$")
@@ -2037,15 +2040,6 @@ Doom theme for neotree
   (setq ivy-display-style 'fancy)
   (setq ivy-wrap t)
 
-  ;; (set-face-attribute 'ivy-current-match nil 
-  ;;   	  ;; :height 170
-  ;;         :weight 'bold
-  ;;         :underline t
-  ;;         :background "#fffffa"
-  ;;         :foreground "#777777"
-  ;;         ;; :background "#fffffa"
-  ;;         )
-
   (defun my-ivy-switch-buffer (regex-list)
     (let ((ivy-ignore-buffers regex-list))
       (ivy-switch-buffer)))
@@ -2065,6 +2059,18 @@ Doom theme for neotree
   (with-eval-after-load 'ivy
     (setq ivy-initial-inputs-alist nil))
 )
+#+END_SRC
+
+******* TODO COMMENT
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'ivy-current-match nil 
+  	  ;; :height 170
+        :weight 'bold
+        :underline t
+        :background "#fffffa"
+        :foreground "#777777"
+        ;; :background "#fffffa"
+        )
 #+END_SRC
 
 *******  ivy-xref
@@ -2313,24 +2319,13 @@ This is for additional functionality
   )
 #+END_SRC
 
-*** Autopair[Smartparens]
+*** Smartparens
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
   :ensure t
   :init
   (smartparens-global-mode 1)
   )
-;; (use-package autopair
-;;   :diminish""
-;;   :ensure t
-;;   :init
-;;   (autopair-global-mode))
-  ;; :config
-  ;; (add-hook 'elisp-mode-hook
-  ;;       #'(lambda ()
-  ;;       (setq autopair-dont-activate t) ;; for emacsen < 24
-  ;;       (autopair-mode -1))             ;; for emacsen >= 24
-  ;;       ))
 #+END_SRC
 
 *** Expand-region
@@ -2790,7 +2785,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
   :ensure t)
 #+END_SRC
 
-*** Tabbar
+*** COMMENT Tabbar
 #+BEGIN_SRC emacs-lisp
 ;; ;; ;; Note: for tabbar 2.0 use 
 ;; ;; ;; tabbar-default not tabbar-default-face,
@@ -3017,25 +3012,6 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 
 ***** Cquery
 #+BEGIN_SRC emacs-lisp
-;; ;; (defun cquery-enable ()
-;; ;;   (condition-case nil
-;; ;;       (lsp-cquery-enable)
-;; ;;     (user-error nil)))
-;; (use-package cquery
-;;   :ensure t
-;;   ;; :commands lsp-cquery-enable
-;;   ;; :hook 
-;;   ;; (c-mode . cquery-enable)
-;;   ;; (c++-mode . cquery-enable)
-;;   ;; (c-mode . lsp-cquery-enable)
-;;   :config
-;;   (add-hook 'c-mode-common-hook #'lsp-cquery-enable)
-;;   (setq cquery-executable "/usr/bin/cquery")
-;;   (setq cquery-extra-init-params '(:completion (:detailedLabel t))))
-;; )
-
-
-
   (use-package cquery
     :ensure t
     :bind
@@ -3050,23 +3026,6 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
       (condition-case nil (lsp) (user-error nil)))
     (add-hook 'c-mode-hook #'cquery//enable)
     (add-hook 'c++-mode-hook #'cquery//enable))
-
-;; (defun cquery//enable ()
-;;   (condition-case nil
-;;       ;; (lsp-cquery-enable)
-;;     (lsp-mode)
-;;     (user-error nil)))
-
-;;   (use-package cquery
-;;     ;; :commands lsp-cquery-enable
-;;     :init (add-hook 'c-mode-hook #'cquery//enable)
-;;           (add-hook 'c++-mode-hook #'cquery//enable))
-
-;; (require 'cquery)
-;; (setq cquery-executable "/usr/bin/cquery")
-
-;; Also see lsp-project-whitelist lsp-project-blacklist cquery-root-matchers
-
 #+END_SRC
 
 ***** lsp-rust
@@ -3125,7 +3084,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
   (setq lsp-java--workspace-folders (list "~/usr/code/java")))
 #+END_SRC
 
-***** lsp-python
+***** COMMENT lsp-python
 #+BEGIN_SRC emacs-lisp
 ;; (require 'lsp-mode)
 ;; (require 'lsp-python)
@@ -3134,7 +3093,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 ;; (add-hook 'python-mode-hook #'lsp-python-enable)
 #+END_SRC
 
-***** lsp-go
+***** COMMENT lsp-go
 #+BEGIN_SRC emacs-lisp
 ;; (add-hook 'go-mode-hook #'lsp-go-enable)
 #+END_SRC
@@ -3173,7 +3132,10 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-hook 'js2-mode-hook #'setup-tide-mode)
+#+END_SRC
 
+***** TODO COMMENT usepackage tide
+#+BEGIN_SRC 
 ;; (use-package tide
 ;;   :ensure t
 ;;   :after (typescript-mode company flycheck)
@@ -3265,64 +3227,21 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 )
 #+END_SRC
 
-**** Irony (C/C++)
+**** COMMENT Irony (C/C++)
 #+BEGIN_SRC emacs-lisp
-;; (use-package irony
-;;   ;; :diminish ""
-;;   :init
-;;   (add-hook 'c++-mode-hook 'irony-mode)
-;;   (add-hook 'c-mode-hook 'irony-mode)
-;;   (add-hook 'objc-mode-hook 'irony-mode)
+(use-package irony
+  ;; :diminish ""
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
 
-;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-;;   (setq c-default-style "linux"
-;;         ;; c-basic-offset 8)
-;;         c-basic-offset 4)
-
-
-;;   ;;   (defun on-off-fci-before-company(command)
-;;   ;;     (when (string= "show" command)
-;;   ;;       (turn-off-fci-mode))
-;;   ;;     (when (string= "hide" command)
-;;   ;;       (turn-on-fci-mode)))
-
-;;   ;; (advice-add 'company-call-frontends :before #'on-off-fci-before-company)
-;;   ;; :config
-;;   ;; (defun c-lineup-arglisimt-tabs-only (ignored)
-;;   ;;   "Line up argument lists by tabs, not spaces"
-;;   ;;   (let* ((anchor (c-langelem-pos c-syntactic-element))
-;;   ;;          (column (c-langelem-2nd-pos c-syntactic-element))
-;;   ;;          (offset (- (1+ column) anchor))
-;;   ;;          (steps (floor offset c-basic-offset)))
-;;   ;;     (* (max steps 1)
-;;   ;;        c-basic-offset)))
-
-;;   ;; (add-hook 'c-mode-common-hook
-;;   ;;           (lambda ()
-;;   ;;             ;; Add kernel style
-;;   ;;             (c-add-style
-;;   ;;              "linux-tabs-only"
-;;   ;;              '("linux" (c-offsets-alist
-;;   ;;                         (arglist-cont-nonempty
-;;   ;;                          c-lineup-gcc-asm-reg
-;;   ;;                          c-lineup-arglist-tabs-only))))))
-
-;;   ;; (add-hook 'c-mode-hook
-;;   ;;           (lambda ()
-;;   ;;             (let ((filename (buffer-file-name)))
-;;   ;;               ;; Enable kernel mode for the appropriate files
-;;   ;;               (when (and filename
-;;   ;;                          (string-match (expand-file-name "~/src/linux-trees")
-;;   ;;                                        filename))
-;;   ;;                 (setq indent-tabs-mode t)
-;;   ;;                 (setq show-trailing-whitespace t)
-;;   ;;                 (c-set-style "linux-tabs-only"))))))
-;;   )
-;; ;; (add-hook 'c++-mode-hook 'irony-mode)
-;; ;; (add-hook 'c-mode-hook 'irony-mode)
-;; ;; (add-hook 'objc-mode-hook 'irony-mode)
-;; ;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (setq c-default-style "linux"
+        ;; c-basic-offset 8)
+        c-basic-offset 4)
+  )
 #+END_SRC
 
 **** Rust
@@ -3382,14 +3301,6 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 
 **** C#
 #+BEGIN_SRC emacs-lisp
-;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
-
-;; (eval-after-load
-;;  'company
-;;  '(add-to-list 'company-backends 'company-omnisharp))
-;; (setq omnisharp-debug t)
-;; (setq process-connection-type nil)
-
 (use-package omnisharp
   :after csharp-mode
   :preface
@@ -3420,14 +3331,6 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 
   (progn
     (bind-key "C-c r r" #'omnisharp-run-code-action-refactoring omnisharp-mode-map)))
-;; (use-package omnisharp
-;;   :hook (csharp-mode . omnisharp-mode)
-;;   :custom (omnisharp-imenu-support t)
-;;   :bind (:map omnisharp-mode-map
-;;               ([remap xref-find-definitions] . omnisharp-go-to-definition)
-;;               ([remap xref-find-references] . omnisharp-find-usages)
-;;               ;; `xref-pop-marker-stack' works as expected.
-;;               ([remap indent-region] . omnisharp-code-format-region)))
 #+END_SRC
 
 * Deps
