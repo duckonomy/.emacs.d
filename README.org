@@ -110,6 +110,7 @@ Execute shell scripts in config
 		  :height 120
 		  ;; :height 170
 		  :family "Roboto Condensed")
+)
 #+END_SRC
 
 ***** COMMENT More
@@ -348,7 +349,7 @@ Execute shell scripts in config
   (add-hook 'org-mode-hook 'org-light-fonts))
 #+END_SRC
 
-**** COMMENT Moody-mode-line
+**** Moody-mode-line
 #+BEGIN_SRC emacs-lisp
 (use-package minions
   :config (minions-mode 1))
@@ -361,7 +362,7 @@ Execute shell scripts in config
 )
 #+END_SRC
 
-**** COMMENT Mode line
+**** Mode line
 ***** my--mode-line-fill
 #+BEGIN_SRC emacs-lisp
 (defun my--mode-line-fill (reserve)
@@ -504,7 +505,7 @@ Modifies ESC behavior in handling buffers
       (comment-dwim arg)))
 #+END_SRC
 
-*** prev-window
+*** COMMENT prev-window
 For cycling between multiple windows
 #+BEGIN_SRC emacs-lisp
 (defun prev-window ()
