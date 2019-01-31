@@ -12,7 +12,7 @@
           (lambda () (setq gc-cons-threshold (* 20 1024 1024))))
 #+END_SRC
 
-*** Load private files
+*** COMMENT Load private files
 #+BEGIN_SRC emacs-lisp
 (load "~/.emacs.d/lib/secret.el")
 #+END_SRC
@@ -347,19 +347,6 @@ Execute shell scripts in config
   (my-light-fonts)
   (org-light-fonts)
   (add-hook 'org-mode-hook 'org-light-fonts))
-#+END_SRC
-
-**** Moody-mode-line
-#+BEGIN_SRC emacs-lisp
-(use-package minions
-  :config (minions-mode 1))
-
-(use-package moody
-  :config
-  (setq x-underline-at-descent-line t)
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode)
-)
 #+END_SRC
 
 **** Mode line
@@ -765,7 +752,9 @@ When deleting frames, delete buffer as well
   (eshell 'N))
 #+END_SRC
 
-** Core Configuration (No repo or external package deps)
+** Core Configuration
+This is for built-in emacs configurations
+
 *** Appearance
 **** Text
 ***** Fonts & Colors
@@ -967,7 +956,8 @@ Make redundant buffers unique
 (setq-default  mode-line-default-help-echo nil)
 #+END_SRC
 
-****** Appearance
+****** COMMENT Appearance
+
 ******* TODO COMMENT mode-line-format change
 #+BEGIN_SRC emacs-lisp
 (setq-default mode-line-format
@@ -1018,17 +1008,6 @@ Make redundant buffers unique
                    row
                    (my--mode-line-fill col-length)
                    col)))))
-#+END_SRC
-
-****** TODO Doom mode-line (use my own)
-#+BEGIN_SRC emacs-lisp
-(use-package doom-modeline
-  :ensure t
-  :defer t
-  :hook 
-  (after-init . doom-modeline-init)
-  :config (column-number-mode 1)
-  )
 #+END_SRC
 
 ***** Fringe
@@ -1287,6 +1266,23 @@ Enable ~downcase-region~, ~set-goal-column~, ~narrow-to-region~, ~scroll-left~, 
 (setq tramp-default-method "ssh")
 #+END_SRC
 
+**** edit-as-root
+#+BEGIN_SRC emacs-lisp
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (counsel-find-file (concat "/sudo:root@localhost:"
+                         (read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+(global-set-key (kbd "C-x C-a") #'sudo-edit)
+#+END_SRC
+
 *** Keybindings for built-in modes
 **** Emacs functionality
 ***** Font resize
@@ -1395,15 +1391,14 @@ This is a better version of ~zap-to-char~
 #+END_SRC
 
 ** Package Configuration
-*** Melpa
-**** Package management
-***** Package initialization
-****** Disable package-enable-at-startup
+*** Package management
+**** Package initialization
+***** Disable package-enable-at-startup
 #+BEGIN_SRC emacs-lisp
 (setq package-enable-at-startup nil)
 #+END_SRC
 
-****** Add repos to list
+***** Add repos to list
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
@@ -1411,17 +1406,17 @@ This is a better version of ~zap-to-char~
              )
 #+END_SRC
 
-****** Initialize packages 
+***** Initialize packages 
 #+BEGIN_SRC emacs-lisp
 (package-initialize)
 #+END_SRC
 
-****** Enable async package bytecomp
+***** Enable async package bytecomp
 #+BEGIN_SRC emacs-lisp
-(async-bytecomp-package-mode 1)
+  ;; (async-bytecomp-package-mode 1)
 #+END_SRC
 
-***** Use-package
+**** Use-package
 Make managing packages easier
 #+BEGIN_SRC emacs-lisp
 (unless (package-installed-p 'use-package)
@@ -1432,7 +1427,7 @@ Make managing packages easier
   (require 'use-package))
 #+END_SRC
 
-***** COMMENT Paradox
+**** COMMENT Paradox
 #+BEGIN_SRC emacs-lisp
 ;; (use-package paradox
 ;;   :ensure t
@@ -1446,7 +1441,7 @@ Make managing packages easier
 ;;   )
 #+END_SRC
 
-***** Diminish
+**** Diminish
 #+BEGIN_SRC emacs-lisp
 (use-package diminish
   :ensure t
@@ -1491,8 +1486,8 @@ Make managing packages easier
 )
 #+END_SRC
 
-**** User Interface
-***** Theme package (atom-one-dark)
+*** User Interface
+**** Theme package (atom-one-dark)
 #+BEGIN_SRC emacs-lisp
 (use-package atom-one-dark-theme
   :ensure t
@@ -1561,7 +1556,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** COMMENT Apropospriate-theme
+**** COMMENT Apropospriate-theme
 #+BEGIN_SRC emacs-lisp
 (use-package apropospriate-theme
   :ensure t
@@ -1630,7 +1625,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** COMMENT Eink-theme
+**** COMMENT Eink-theme
 #+BEGIN_SRC emacs-lisp
 (use-package eink-theme
   :ensure t
@@ -1641,7 +1636,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** COMMENT Monotropic-theme
+**** COMMENT Monotropic-theme
 #+BEGIN_SRC emacs-lisp
 (use-package monotropic-theme
   :ensure t
@@ -1652,7 +1647,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** COMMENT Grayscale-theme
+**** COMMENT Grayscale-theme
 #+BEGIN_SRC emacs-lisp
 (use-package grayscale-theme
   :ensure t
@@ -1663,7 +1658,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** COMMENT Gruvbox-theme
+**** COMMENT Gruvbox-theme
 #+BEGIN_SRC emacs-lisp
 (use-package gruvbox-theme
   :ensure t
@@ -1732,7 +1727,7 @@ Make managing packages easier
 )
 #+END_SRC
 
-***** Korean Font (must come after because of flickering)
+**** Korean Font (must come after because of flickering)
 #+BEGIN_SRC emacs-lisp
 (if (daemonp)
     (progn
@@ -1743,18 +1738,61 @@ Make managing packages easier
   (set-fontset-font t 'hangul (font-spec :name "NanumBarunGothic")))
 #+END_SRC
 
-***** All-the-icons
+**** highlight TODO
+#+BEGIN_SRC emacs-lisp
+(use-package hl-todo
+  :ensure t
+  :config
+  (global-hl-todo-mode 1))
+#+END_SRC
+
+**** All-the-icons
  #+BEGIN_SRC emacs-lisp
   (use-package all-the-icons
     :ensure t
     :demand
     :init
     :config
-    (setq inhibit-compacting-font-caches t)
+    ;; (setq inhibit-compacting-font-caches t)
  )
 #+END_SRC
 
-***** Stripe-buffers
+**** TODO COMMENT Moody-mode-line
+#+BEGIN_SRC emacs-lisp
+(use-package minions
+  :config (minions-mode 1))
+
+(use-package moody
+  :config
+  (setq x-underline-at-descent-line t)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode)
+)
+#+END_SRC
+
+**** TODO Doom mode-line (use my own)
+I may replace this for a more minimal solution (moody-mode-line maybe???).
+But for now, it has a bunch of functionality and is really pretty
+#+BEGIN_SRC emacs-lisp
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :hook 
+  (after-init . doom-modeline-init)
+  :config (column-number-mode 1)
+  (setq doom-modeline-icon t)
+  (setq doom-modeline-major-mode-icon t)
+  (setq doom-modeline-major-mode-color-icon nil)
+  (setq doom-modeline-minor-modes nil)
+  (setq doom-modeline-persp-name t)
+  (setq doom-modeline-lsp t)
+  (setq doom-modeline-github t)
+
+  )
+#+END_SRC
+
+**** Stripe-buffers
+Stripes dired buffers
 #+BEGIN_SRC emacs-lisp
 (use-package stripe-buffer
   :ensure t
@@ -1762,24 +1800,24 @@ Make managing packages easier
   :init (add-hook 'dired-mode-hook 'stripe-buffer-mode))
 #+END_SRC
 
-***** Olivetti
+**** Olivetti
+Writeroom-like package
 #+BEGIN_SRC emacs-lisp
 (use-package olivetti
   :ensure t)
 #+END_SRC
 
-***** Rainbow-delimiters
+**** Rainbow-delimiters
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters
   :ensure t
   :commands rainbow-delimiters-mode
   :config (setq rainbow-delimiters-max-face-count 3)
   :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  )
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 #+END_SRC
 
-***** COMMENT Tabbar
+**** COMMENT Tabbar
 #+BEGIN_SRC emacs-lisp
 ;; ;; ;; Note: for tabbar 2.0 use 
 ;; ;; ;; tabbar-default not tabbar-default-face,
@@ -1936,8 +1974,8 @@ Make managing packages easier
 ;; )
 #+END_SRC
 
-**** Emacs Functionality
-***** Projectile
+*** Emacs Functionality
+**** Projectile
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :ensure t
@@ -1953,13 +1991,13 @@ Make managing packages easier
 ;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 #+END_SRC
 
-***** Async
+**** Async
 #+BEGIN_SRC emacs-lisp
   (use-package async
     :ensure t)
 #+END_SRC
 
-***** Neotree
+**** Neotree
 #+BEGIN_SRC emacs-lisp
 (use-package neotree
   :ensure t
@@ -1978,8 +2016,8 @@ Make managing packages easier
     ))
 #+END_SRC
 
-****** Doom theme
-Doom theme for neotree
+***** TODO Doom theme
+Doom theme for neotree (Should move to appearance)
 #+BEGIN_SRC emacs-lisp
 (use-package doom-themes
   :diminish ""
@@ -1994,7 +2032,7 @@ Doom theme for neotree
         doom-themes-enable-italic t))
 #+END_SRC
 
-***** Ace-window
+**** Ace-window
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
   :ensure t
@@ -2017,9 +2055,9 @@ Doom theme for neotree
   )
 #+END_SRC
 
-***** Menu system
+**** Menu system
+***** Ivy
 ****** Ivy
-******* Ivy
 #+BEGIN_SRC emacs-lisp
 (use-package ivy :ensure t
   :diminish (ivy-mode . "") ; does not display ivy in the modeline
@@ -2058,11 +2096,10 @@ Doom theme for neotree
 
   ;; Get rid of caret(^) in the beginning with M-x
   (with-eval-after-load 'ivy
-    (setq ivy-initial-inputs-alist nil))
-)
+    (setq ivy-initial-inputs-alist nil)))
 #+END_SRC
 
-******* TODO COMMENT
+****** TODO COMMENT For light theme
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'ivy-current-match nil 
   	  ;; :height 170
@@ -2074,22 +2111,22 @@ Doom theme for neotree
         )
 #+END_SRC
 
-*******  ivy-xref
+****** COMMENT ivy-xref
 #+BEGIN_SRC emacs-lisp
 (use-package ivy-xref
   :ensure t
   :init (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 #+END_SRC
 
-****** Counsel
-******* Smex
+***** Counsel
+****** Smex
 This is for additional functionality
 #+BEGIN_SRC emacs-lisp
 (use-package smex 
   :ensure t)
 #+END_SRC
 
-******* Counsel
+****** Counsel
 #+BEGIN_SRC emacs-lisp
 (use-package counsel :ensure t
   :bind*                           ; load counsel when pressed
@@ -2113,8 +2150,8 @@ This is for additional functionality
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+END_SRC
 
-******* Counsel-etags
-******* Counsel-projectile
+****** Counsel-etags
+****** Counsel-projectile
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile
   :ensure t
@@ -2122,7 +2159,7 @@ This is for additional functionality
   :config (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 #+END_SRC
 
-****** Swiper
+***** Swiper
 #+BEGIN_SRC emacs-lisp
 (use-package swiper
   :ensure t
@@ -2135,7 +2172,13 @@ This is for additional functionality
   (global-set-key (kbd "C-s") 'swiper))
 #+END_SRC
 
-***** Visual-fill-column
+**** Company
+#+BEGIN_SRC emacs-lisp
+(use-package company
+  :ensure t)
+#+END_SRC
+
+**** Visual-fill-column
 #+BEGIN_SRC emacs-lisp
 (use-package visual-fill-column :defer t
   :ensure t
@@ -2537,7 +2580,7 @@ This is for additional functionality
 *** Flycheck
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
-  :ensure
+  :ensure t
   :commands (global-flycheck-mode)
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -2552,6 +2595,7 @@ This is for additional functionality
 *** Flycheck-inline
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-inline
+  :ensure t
   :init
   (with-eval-after-load 'flycheck
     (global-flycheck-inline-mode))
@@ -2904,110 +2948,82 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 #+END_SRC
 
 *** Languages
-**** LSP
-***** Core
-****** lsp-mode
+**** Language Server Protocol
+***** lsp-mode
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-mode
+  :commands lsp
   :ensure t
-  :init (setq lsp-inhibit-message nil ; you may set this to t to hide messages from message area
+  :hook ((prog-major-mode . lsp-prog-major-mode-enable)
+         (lsp-after-open-hook . lsp-enable-imenu)
+         (prog-mode . lsp))
+  :init (setq lsp-inhibit-message nil
               lsp-eldoc-render-all nil
-              lsp-highlight-symbol-at-point nil)
-  :config
-  (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)  
-  (require 'lsp-clients)
-  (add-hook 'prog-mode-hook 'lsp)
-  )
+              lsp-highlight-symbol-at-point nil))
 #+END_SRC
 
-****** company-lsp
-#+BEGIN_SRC emacs-lisp
-(use-package company-lsp
-  :ensure t
-  :config
-  (setq company-lsp-enable-recompletion t)
-  (add-to-list 'company-backends 'company-lsp)
-  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
-)
-#+END_SRC
-
-****** lsp-ui
+***** lsp-ui
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-ui
+  :commands lsp-ui-mode
   :ensure t
+  :hook (lsp-mode . lsp-ui-mode)
   :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  ;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   (setq lsp-ui-sideline-enable t
         lsp-ui-sideline-show-symbol t
         lsp-ui-sideline-show-hover t
         lsp-ui-sideline-show-code-actions t
-        lsp-ui-sideline-update-mode 'point)
-)
+        lsp-ui-sideline-update-mode 'point))
 #+END_SRC
 
-***** Cquery
+***** company-lsp
 #+BEGIN_SRC emacs-lisp
-  (use-package cquery
-    :ensure t
-    :bind
-    (:map c++-mode-map
-          ("C-b" . clang-format-buffer)
-          ("C-d" . duplicate-thing))
-    :commands lsp
-    ;; :commands lsp-cquery-enable
-    :init
-    (require 'cquery)
-    (defun cquery//enable ()
-      (condition-case nil (lsp) (user-error nil)))
-    (add-hook 'c-mode-hook #'cquery//enable)
-    (add-hook 'c++-mode-hook #'cquery//enable))
-#+END_SRC
-
-***** lsp-rust
-#+BEGIN_SRC emacs-lisp
-(with-eval-after-load 'lsp-mode
-  (setq lsp-rust-rls-command '("rustup" "run" "stable" "rls"))
-  (require 'lsp-rust))
-(add-hook 'rust-mode-hook #'lsp-rust-enable)
-;; (add-hook 'rust-mode-hook #'flycheck-mode)
-#+END_SRC
-
-***** lsp-html
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-html
+(use-package company-lsp
+  :commands company-lsp
   :ensure t
   :config
-  (defun my-html-mode-setup ()
-    (when (eq major-mode 'web-mode)
-      ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
-      ;; fires for scss-mode because scss-mode is derived from css-mode)
-      (lsp-html-enable)))
-  ;; (add-hook 'html-mode-hook #'lsp-html-enable)
-  (add-hook 'web-mode-hook #'my-html-mode-setup)
-  )
+  (setq company-lsp-enable-recompletion t)
+  (add-to-list 'company-backends 
+               'company-lsp)
+  (setq company-transformers nil 
+        company-lsp-async t 
+        company-lsp-cache-candidates nil))
 #+END_SRC
 
-***** lsp-css
+**** C/C++
+***** cquery
 #+BEGIN_SRC emacs-lisp
-(use-package lsp-css
+(use-package cquery
   :ensure t
-  :config
-  (defun my-css-mode-setup ()
-    (when (eq major-mode 'css-mode)
-      ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
-      ;; fires for scss-mode because scss-mode is derived from css-mode)
-      (lsp-css-enable)))
-  (add-hook 'css-mode-hook #'my-css-mode-setup)
-  (add-hook 'less-mode-hook #'lsp-less-enable)
-  (add-hook 'sass-mode-hook #'lsp-scss-enable)
-  (add-hook 'scss-mode-hook #'lsp-scss-enable)
-  )
+  ;; :bind
+  ;; (:map c++-mode-map
+  ;;       ("C-b" . clang-format-buffer)
+  ;;       ("C-d" . duplicate-thing))
+  :commands lsp
+  ;; :commands lsp-cquery-enable
+  :init
+  (require 'cquery)
+  (setq cquery-executable "/home/duckonomy/.nix-profile/bin/cquery")
+  (defun cquery//enable ()
+    (condition-case nil (lsp) (user-error nil)))
+  (add-hook 'c-mode-hook #'cquery//enable)
+  (add-hook 'c++-mode-hook #'cquery//enable))
 #+END_SRC
 
-***** lsp-java
+**** Python
+***** COMMENT lsp-python
 #+BEGIN_SRC emacs-lisp
-;; (add-hook 'java-mode-hook #'lsp-java-enable)
+;; (require 'lsp-mode)
+;; (require 'lsp-python)
+;; (require 'lsp-clients)
+;; (add-hook 'python-mode-hook 'lsp)
+;; (add-hook 'python-mode-hook #'lsp-python-enable)
+#+END_SRC
+
+**** Java
+***** COMMENT lsp-java
+#+BEGIN_SRC emacs-lisp
 (use-package lsp-java
   :ensure t
   :requires (lsp-ui-flycheck lsp-ui-sideline)
@@ -3020,33 +3036,17 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
   (setq lsp-java--workspace-folders (list "~/usr/code/java")))
 #+END_SRC
 
-***** COMMENT lsp-python
-#+BEGIN_SRC emacs-lisp
-;; (require 'lsp-mode)
-;; (require 'lsp-python)
-;; (require 'lsp-clients)
-;; (add-hook 'python-mode-hook 'lsp)
-;; (add-hook 'python-mode-hook #'lsp-python-enable)
-#+END_SRC
-
-***** COMMENT lsp-go
-#+BEGIN_SRC emacs-lisp
-;; (add-hook 'go-mode-hook #'lsp-go-enable)
-#+END_SRC
-
 **** JS
-***** Js2-mode
+***** js2-mode
 #+BEGIN_SRC emacs-lisp
 (use-package js2-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  ;; Better imenu
-  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-  )
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode))
 #+END_SRC
 
-***** Tide
+***** tide
 #+BEGIN_SRC emacs-lisp
 (defun setup-tide-mode ()
   (interactive)
@@ -3055,22 +3055,18 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-(add-hook 'js2-mode-hook #'setup-tide-mode)
+(use-package tide
+  :ensure t
+  :hook ((typescript-mode . setup-tide-mode)
+         (js2-mode . setup-tide-mode)
+         (before-save-hook . tide-format-before-save))
+  :config
+  (setq company-tooltip-align-annotations t))
 #+END_SRC
 
-***** TODO COMMENT usepackage tide
+***** TODO COMMENT use package tide
 #+BEGIN_SRC 
 ;; (use-package tide
 ;;   :ensure t
@@ -3139,6 +3135,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 #+END_SRC
 
 **** Web
+***** web-mode
 #+BEGIN_SRC emacs-lisp
 (use-package web-mode
   :ensure t
@@ -3163,27 +3160,59 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 )
 #+END_SRC
 
-**** COMMENT Irony (C/C++)
+***** COMMENT lsp-html
 #+BEGIN_SRC emacs-lisp
-(use-package irony
-  ;; :diminish ""
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-  (setq c-default-style "linux"
-        ;; c-basic-offset 8)
-        c-basic-offset 4)
+(use-package lsp-html
+  :ensure t
+  :config
+  (defun my-html-mode-setup ()
+    (when (eq major-mode 'web-mode)
+      ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
+      ;; fires for scss-mode because scss-mode is derived from css-mode)
+      (lsp-html-enable)))
+  ;; (add-hook 'html-mode-hook #'lsp-html-enable)
+  (add-hook 'web-mode-hook #'my-html-mode-setup)
   )
 #+END_SRC
 
-**** Rust
+***** COMMENT lsp-css
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-css
+  :ensure t
+  :config
+  (defun my-css-mode-setup ()
+    (when (eq major-mode 'css-mode)
+      ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
+      ;; fires for scss-mode because scss-mode is derived from css-mode)
+      (lsp-css-enable)))
+  (add-hook 'css-mode-hook #'my-css-mode-setup)
+  (add-hook 'less-mode-hook #'lsp-less-enable)
+  (add-hook 'sass-mode-hook #'lsp-scss-enable)
+  (add-hook 'scss-mode-hook #'lsp-scss-enable)
+  )
+#+END_SRC
+
+**** Rust (lsp)
+***** rust-mode
 #+BEGIN_SRC emacs-lisp
 (use-package rust-mode
   :ensure t)
+#+END_SRC
+
+***** flycheck-rust
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck-rust
+  :ensure t)
+#+END_SRC
+
+***** lsp-rust
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-rust
+  :ensure t
+  :hook ((rust-mode . lsp-rust-enable)
+         (rust-mode . flycheck-mode))
+  :config 
+  (setq lsp-rust-rls-command '("rustup" "run" "stable" "rls")))
 #+END_SRC
 
 **** Git
@@ -3230,6 +3259,15 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 (set-fontset-font t 'hangul (font-spec :name "NanumBarunGothic"))
 #+END_SRC
 
+**** Go
+***** COMMENT lsp-go
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-go
+  :ensure t
+  :hook ((go-mode . lsp-go-enable)))
+;; (add-hook 'go-mode-hook #'lsp-go-enable)
+#+END_SRC
+
 **** XML
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.csproj\\'" . nxml-mode))
@@ -3259,11 +3297,10 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 
       (local-set-key (kbd "C-c C-c") #'recompile)))
   :init
-
   (progn
     (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t))
   :config
-  (setq omnisharp-server-executable-path "/home/duckwho/.emacs.d/bin/omnisharp")
+  (setq omnisharp-server-executable-path "/home/duckonomy/.emacs.d/bin/omnisharp")
 
   (progn
     (bind-key "C-c r r" #'omnisharp-run-code-action-refactoring omnisharp-mode-map)))
@@ -3276,6 +3313,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 *** ~npm i -g vscode-html-languageserver-bin~ for lsp-html
 *** ~npm i -g vscode-css-languageserver-bin~ for lsp-css
 *** ~npm i -g bash-language-server~ for lsp-sh
+
 * COMMENT Roadmap
 ** Cycle through similar buffers(multi-term with terminals, eshell with eshell)
 ** Name terminals as unique buffers

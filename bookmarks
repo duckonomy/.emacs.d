@@ -38,7 +38,7 @@
  (rear-context-string . "7-24 Tue 10:49]\n")
  (position . 111))
 ("todo"
- (filename . "~/usr/docs/todo.org")
+ (filename . "~/Documents/TODO.org")
  (front-context-string . "# School(next we")
  (rear-context-string)
  (position . 1))
@@ -78,7 +78,7 @@
  (rear-context-string . "31 Feb 13 10:19 ")
  (position . 241))
 ("dotemacs"
- (filename . "~/.emacs.org")
+ (filename . "~/.emacs.d/README.org")
  (front-context-string . "  ;; `window-div")
  (rear-context-string . "_SRC emacs-lisp\n")
  (position . 58995))
