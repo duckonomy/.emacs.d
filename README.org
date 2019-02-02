@@ -1426,7 +1426,7 @@ This is a better version of ~zap-to-char~
 
 ***** Enable async package bytecomp
 #+BEGIN_SRC emacs-lisp
-  ;; (async-bytecomp-package-mode 1)
+(async-bytecomp-package-mode 1)
 #+END_SRC
 
 **** Use-package
@@ -3193,9 +3193,7 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 #+BEGIN_SRC emacs-lisp
 (use-package emmet-mode 
   :ensure t
-  :config
-  (add-hook 'web-mode 'emmet-mode)
-)
+  :hook ((web-mode . emmet-mode)))
 #+END_SRC
 
 ***** COMMENT lsp-html
@@ -3357,36 +3355,41 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 ** Subword modules support
 *** camel case aware
 *** lisp aware
-** Bugs
+** Bugs [2/3]
 *** DONE make anzu work (currently not showing) 
 Not really a problem since I now use swiper
-*** make org-toggle-comment work properly
-*** remove deprecated functions
-** Modeline
-*** Setup Github Branch
-*** Setup Flycheck errors
-** Flycheck or flymake
-*** Setup keybindings
-** Parinfer/Paredit/Lispy
-*** Setup and keybindings
-** Debugging interface
-** JS Framework development && HTML/CSS development setup
-*** Make emmet a hook
-** Ace-window
-*** Setup and keybindings
-** Org
-*** Setup org agenda
-** LSP
-*** Setup everything with Lsp-ui working
-** Mail
-*** Set up gnus or mu4e
-*** maybe make a ground-up self-hosted mail server utility that is easy to set up
-**** And just make a client for emacs
-** Refactor
-*** Separate GUI Configs from regular settings so guis are immutable in some sense(rather there is a clear delineation)
-** If window is sole window don't kill but just close buffer else kill buffer and close window
-*** How to get number of user windows
-** get rid of escape binding inside multi-term
+*** DONE make org-toggle-comment work properly
+This works Now
+*** TODO remove deprecated functions
+** Modeline [2/2]
+*** DONE Setup Github Branch [DOOM-modeline]
+*** DONE Setup Flycheck errors [DOOM-modeline]
+** Flycheck or flymake [0/1]
+*** TODO Setup keybindings
+** Parinfer/Paredit/Lispy [0/1]
+*** TODO Setup and keybindings
+** Debugging interface [0/1]
+*** TODO placeholder
+** JS Framework development && HTML/CSS development setup [1/1]
+*** DONE Make emmet a hook
+** Ace-window [1/1]
+*** DONE Setup and keybindings (not much really todo??? not sure why this was a thing)
+** Org [0/3]
+*** TODO Setup org agenda
+*** TODO org-note
+*** TODO various org aliases and functions to improve workflow
+** LSP [1/1]
+*** DONE Setup everything with Lsp-ui working
+** Mail [0/1]
+*** TODO Set up emacs/notmuch/msmtp/mbsync(isync)/gnus
+** IRC [0/1]
+*** TODO switch from terminal weechat to circe or weechat.el or erc 
+** Refactor [0/1]
+*** TODO Separate GUI Configs from regular settings so guis are immutable in some sense(rather there is a clear delineation)
+** If window is sole window don't kill but just close buffer else kill buffer and close window [0/1]
+*** TODO How to get number of user windows
+** get rid of escape binding inside multi-term [0/1]
+*** TODO What is this?
 ** Todo list
 *** ivy buffer that hides unecessary stuff
 *** Now
@@ -3399,9 +3402,8 @@ Not really a problem since I now use swiper
 ******* error/messages with other messages
 ******* blacklists
 ***** Better kill buffer mechanism
-****** map rotation to c-r because c-s is ~swiper~
-****** map kill to c-q
-****** After kill, go to related buffer
+****** TODO map rotation to c-r because c-s is ~swiper~ - don't know why?****** TODO map kill to c-q
+****** TODO After kill, go to related buffer
 ***** Better tabbar
 ***** Fix kill them buffers
 ****** make it kill frame on last tab
@@ -3411,6 +3413,7 @@ Not really a problem since I now use swiper
 **** Optimize
 ***** remove possible bottlenecks
 ***** remove blocking issues
+***** Make gnus asynchronous
 **** TODO Cider(clojure)
 **** TODO Slime(clisp)
 **** TODO Ensime(scala)
