@@ -50,6 +50,16 @@ Execute shell scripts in config
 #+BEGIN_SRC emacs-lisp
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((shell . t)))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (R . t)
+   (dot . t)
+   (haskell . t)
+   (python . t)
+   (shell . t)
+   (C . t)
+   ))
 #+END_SRC
 
 **** Don't prompt for confirmation when evaluating org-babel
@@ -97,18 +107,21 @@ Execute shell scripts in config
 		  :weight 'bold
 		  :height 104 
 		  ;; :height 150
+          :slant 'normal
 		  :family "Sarasa Mono H")
 
   (set-face-attribute 'default nil 
 		  :weight 'bold
 		  :height 104 
 		  ;; :height 150
+          :slant 'normal
 		  :family "Sarasa Mono H")
 
   (set-face-attribute 'variable-pitch nil 
 		  :weight 'medium
 		  :height 120
 		  ;; :height 170
+          :slant 'normal
 		  :family "Roboto Condensed")
 )
 #+END_SRC
@@ -2190,6 +2203,7 @@ This is for additional functionality
 
 *** Org
 **** Org
+***** Init
 #+BEGIN_SRC emacs-lisp
 (use-package org
   :ensure t :ensure htmlize
@@ -2199,7 +2213,9 @@ This is for additional functionality
   ;; (bind-key "C-M-i" (surround-text-with "/") org-mode-map)
   ;; (bind-key "C-M-=" (surround-text-with "=") org-mode-map)
   ;; (bind-key "C-M-`" (surround-text-with "~") org-mode-map)
-
+#+END_SRC
+***** Bind
+#+BEGIN_SRC emacs-lisp
   :bind (
          :map org-mode-map
          ("C-c l" . org-store-link)
@@ -2223,20 +2239,41 @@ This is for additional functionality
          ("<C-S-down>" . org-shiftmetadown)
          ("C-t" . org-todo)
          ("C-S-T" . org-insert-todo-heading))
-  :config
-  (progn
-    (setq org-directory "~/usr/docs")
+#+END_SRC
+***** Org-appearance
+#+BEGIN_SRC emacs-lisp
+:config
+(progn
+  (font-lock-add-keywords 'org-mode
+                          '(("^ +\\([-*]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  (setq org-src-preserve-indentation nil 
+        org-edit-src-content-indentation 0)
+  ;; (setq org-ellipsis " ⌄ ")
+  (setq org-hide-emphasis-markers t)
+  (setq org-hide-leading-stars t)
+  (setq org-startup-indented t)
+  (setq org-src-tab-acts-natively t)
+  (setq org-src-fontify-natively t)
+  (setq org-pretty-entities t)
+  (org-clock-persistence-insinuate)
+  (setq org-use-speed-commands t)
+  (use-package org-habit)
+  (org-load-modules-maybe t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)) ;; inline latex
+#+END_SRC
+
+***** Org-agenda
+#+BEGIN_SRC emacs-lisp
+    (setq org-directory "~/Documents")
     ;; (setq org-agenda-files '("~/usr/docs"))
     (setq org-agenda-files 
-          (list "~/usr/docs/gtd.org" "~/org/docs/todo.org" "~/usr/docs/personal.org"))
-    (setq org-mobile-directory "~/usr/docs")
+          (list "~/Documents/gtd.org" "~/Documents/todo.org" "~/Documents/personal.org"))
+    (setq org-mobile-directory "~/Documents")
     ;; (setq org-default-notes-file (concat org-directory "/org.org"))
-    (setq org-latex-listings t)
-    ;; (setq org-todo-keywords '((sequence "TODO" "|" "DONE")))
+
     (setq org-agenda-skip-scheduled-if-done t)
 
-    ;; (setq org-todo-keywords
-    ;;       '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
     (setq org-agenda-sorting-strategy
           '((agenda habit-down time-up priority-down category-keep)
             (todo category-up priority-down)
@@ -2267,42 +2304,38 @@ This is for additional functionality
     ;;   '(("t" "Task" entry (file+headline "" "Tasks")
     ;;      "* TODO %?\n  %U\n  %a")))
     (setq org-refile-allow-creating-parent-nodes 'confirm)
-    (setq org-src-fontify-natively t)
     (setq org-use-speed-commands t)
     (setq org-clock-mode-line-total 'current)
     (setq org-publish-project-alist
           '(("html"
-             :base-directory "~/dev/"
+             :base-directory "~/Development/"
              :base-extension "org"
-             :publishing-directory "~/dev/"
+             :publishing-directory "~/Development/"
              :publishing-function org-publish-org-to-html)
             ("pdf"
-             :base-directory "~/usr/docs/essays/"
+             :base-directory "~/Documents/Essay/pdf/"
              :base-extension "org"
-             :publishing-directory "~/usr/docs/essays/pdf/"
+             :publishing-directory "~/Documents/Essay/pdf/"
              :publishing-function org-publish-org-to-pdf)
             ("all" :components ("html" "pdf"))))
-    (setq org-src-tab-acts-natively t)
-    (setq org-latex-logfiles-extensions (quote ("lof" "lot" "tex" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
-    (setq org-src-preserve-indentation nil 
-          org-edit-src-content-indentation 0)
-    ;; (setq org-ellipsis " ")
-    ;; (setq org-ellipsis " ⌄ ")
-    ;; (setq org-ellipsis " ▼ ")
-    (setq org-hide-emphasis-markers t)
-    (setq org-hide-leading-stars t)
-    (setq org-startup-indented t)
-    (setq org-pretty-entities t)
-    (org-clock-persistence-insinuate)
-    (setq org-use-speed-commands t)
-    (use-package org-habit)
-    (org-load-modules-maybe t)
-    (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+#+END_SRC
 
-    (font-lock-add-keywords 'org-mode
-                            '(("^ +\\([-*]\\) "
-                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-    ))
+***** Org-latex export
+#+BEGIN_SRC emacs-lisp
+(setq org-latex-logfiles-extensions (quote ("lof" "lot" "tex" "tex~" "aux" 
+                                            "idx" "log" "out" "toc" "nav" 
+                                            "snm" "vrb" "dvi" "fdb_latexmk" 
+                                            "blg" "brf" "fls" "entoc" "ps" 
+                                            "spl" "bbl")))
+
+(setq org-latex-listings 'minted
+      org-latex-packages-alist '(("" "minted"))
+      org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+)
+)
 #+END_SRC
 
 **** Org-bullets
@@ -2538,6 +2571,11 @@ This is for additional functionality
              evil-surround-region)
   :config
   (global-evil-surround-mode 1))
+#+END_SRC
+
+*** Mail
+#+BEGIN_SRC emacs-lisp
+
 #+END_SRC
 
 *** Rainbow-delimiters
@@ -3313,7 +3351,6 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 *** ~npm i -g vscode-html-languageserver-bin~ for lsp-html
 *** ~npm i -g vscode-css-languageserver-bin~ for lsp-css
 *** ~npm i -g bash-language-server~ for lsp-sh
-
 * COMMENT Roadmap
 ** Cycle through similar buffers(multi-term with terminals, eshell with eshell)
 ** Name terminals as unique buffers
@@ -3321,7 +3358,8 @@ If you do not like default setup, modify it, with (KEY . COMMAND) format."
 *** camel case aware
 *** lisp aware
 ** Bugs
-*** make anzu work (currently not showing)
+*** DONE make anzu work (currently not showing) 
+Not really a problem since I now use swiper
 *** make org-toggle-comment work properly
 *** remove deprecated functions
 ** Modeline
