@@ -187,7 +187,8 @@ Set Fixed-width font
 (set-face-attribute 'fixed-pitch nil 
 		:weight 'bold
 		;; :height 104 
-		:height 0.8
+		;; :height 0.8
+		:height 1.0
         :slant 'normal
 		:family "Sarasa Mono H")
 #+END_SRC
@@ -198,10 +199,12 @@ Sans font for text-modes
 		  :weight 'medium
 		  ;; :height 120
 		  ;; :height 104
-		  :height 1.3
+		  ;; :height 1.3
+		  :height 1.0
 		  ;; :height 170
           :slant 'normal
 		  :family "Roboto Condensed"
+		  ;; :family "Libre Baskerville"
 )
 #+END_SRC
 
@@ -246,35 +249,38 @@ Sane org-levels
 		        org-block-end-line))
   (set-face-attribute face nil 
 			          :weight 'bold 
-			          :background "#434A5B"
-			          :foreground "#B4BCD1"
+			          ;; :background "#434A5B"
+			          ;; :foreground "#B4BCD1"
+			          :background "#454747"
+			          :foreground "#999999"
                       ))
 
 (set-face-attribute 'org-block nil 
   	                :weight 'bold
   	                :inherit 'fixed-pitch 
-  	                :foreground "#ABB2BF"
-                    :background "#343948")
+  	                ;; :foreground "#ABB2BF"
+                    ;; :background "#343948"
+)
 
-(set-face-attribute 'org-hide nil 
-  	                :background "#282C34")
+;; (set-face-attribute 'org-hide nil 
+;;   	                :background "#282C34")
 
-(dolist (face '(org-table
-  	            org-code))
-  (set-face-attribute face nil 
-  		              :weight 'bold
-  		              :inherit 'fixed-pitch)
-  :foreground "#8EE58E")
+;; (dolist (face '(org-table
+;;   	            org-code))
+;;   (set-face-attribute face nil 
+;;   		              :weight 'bold
+;;   		              :inherit 'fixed-pitch)
+;;   :foreground "#8EE58E")
 #+END_SRC
 
 Sane org-document-title
 #+BEGIN_SRC emacs-lisp
-  (set-face-attribute 'org-document-title nil 
-  		      :weight 'bold 
-  		      :inherit 'variable-pitch 
-  		      ;; :family "Roboto Condensed" 
-  		      :foreground "#AFEEEE"
-  		      :height 1.5)
+  ;; (set-face-attribute 'org-document-title nil 
+  ;; 		      :weight 'bold 
+  ;; 		      :inherit 'variable-pitch 
+  ;; 		      ;; :family "Roboto Condensed" 
+  ;; 		      :foreground "#AFEEEE"
+  ;; 		      :height 1.5)
 )
 #+END_SRC
 
@@ -292,21 +298,23 @@ Sane org-document-title
   ;;   	  ;; :box '(:line-width 5 :color "#665C54")
   ;;         )
 
-  ;; (set-face-attribute 'mode-line-inactive nil 
-  ;;   	  :family "Roboto Condensed"
-  ;;   	  :height 120
-  ;;         ;; :foreground "#222222"
-  ;;   	  ;; :height 170
-  ;;         :weight 'regular
-  ;;   	  ;; :box '(:line-width 10 :color "#181A1F")
-  ;;   	  ;; :box '(:line-width 5 :color "#3C3836")
-  ;;         )
+  (set-face-attribute 'mode-line-inactive nil 
+    	  ;; :family "Roboto Condensed"
+    	  ;; :height 120
+          ;; :foreground "#222222"
+    	  ;; :height 170
+          ;; :weight 'regular
+          :background "#151515"
+    	  ;; :box '(:line-width 10 :color "#181A1F")
+    	  ;; :box '(:line-width 5 :color "#3C3836")
+          )
 
-  (set-face-attribute 'line-number nil 
-  	                  :background "#282C34")
+  ;; (set-face-attribute 'line-number nil 
+  ;; 	                  :background "#282C34")
 
-  (set-face-attribute 'line-number-current-line nil 
-  	                  :background "#282C34"))
+  ;; (set-face-attribute 'line-number-current-line nil 
+  ;; 	                  :background "#282C34")
+)
 #+END_SRC
 
 **** Font lock
@@ -357,10 +365,23 @@ Sane org-document-title
 *** Theme
 **** Theme package (atom-one-dark)
 #+BEGIN_SRC emacs-lisp
-(use-package atom-one-dark-theme
+;; (use-package atom-one-dark-theme
+(use-package doom-themes
   :ensure t
   :init
-  (load-theme 'atom-one-dark t)
+  ;; (load-theme 'atom-one-dark t)
+  (load-theme 'doom-tomorrow-night t)
+  (base-fonts)
+  (org-fonts)
+  (extra-fonts))
+#+END_SRC
+
+**** TODO COMMENT Poet-theme
+#+BEGIN_SRC emacs-lisp
+(use-package poet-theme
+  :ensure t
+  :config
+  (load-theme 'poet t)
   (base-fonts)
   (org-fonts)
   (extra-fonts))
@@ -441,13 +462,24 @@ Sane org-document-title
 
 **** TODO Doom mode-line (use my own)
 I may replace this for a more minimal solution (moody-mode-line maybe???).
-But for now, it has a bunch of functionality and is really pretty
+But for now, it has a bunch of functionality and is really pretty  
+
 #+BEGIN_SRC emacs-lisp
 (use-package doom-modeline
   :ensure t
   :defer t
-  :hook 
-  (after-init . doom-modeline-mode)
+  ;; :hook 
+  ;; (after-init . doom-modeline-mode)
+  :init
+  (if (daemonp)
+      (progn
+        (add-hook 'after-make-frame-functions
+                  (lambda (frame)
+                    (with-selected-frame frame
+                      (doom-modeline-mode))
+                    )))
+    (doom-modeline-mode))
+
   :config (column-number-mode 1)
   (setq doom-modeline-icon t)
   (setq doom-modeline-major-mode-icon t)
@@ -458,6 +490,19 @@ But for now, it has a bunch of functionality and is really pretty
   (setq doom-modeline-github t)
   (setq doom-modeline-height 45)
   (setq doom-modeline-bar-width 8)
+
+
+
+
+  (doom-modeline-def-modeline 'my-simple-line
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info minor-modes input-method buffer-encoding major-mode process vcs checker))
+  (defun setup-custom-doom-modeline ()
+    (doom-modeline-set-modeline 'my-simple-line 'default))
+
+  (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline)
+
+
   )
 #+END_SRC
 
@@ -1664,20 +1709,26 @@ Doom theme for neotree (Should move to appearance)
   :ensure t
   :bind      ("C-q" . ace-window)
   :config
-  ;; (custom-set-faces
-  ;;  '(aw-leading-char-face
-  ;;    ((t (:inherit ace-jump-face-foreground :height 1.0 :foreground "#FF8686")))))
+  (custom-set-faces
+   '(aw-leading-char-face
+     ((t (:inherit ace-jump-face-foreground :height 1.0 :foreground "#FF8686")))))
 
-  ;; (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  ;; (defvar aw-dispatch-alist
-  ;;   '((?x aw-delete-window " Ace - Delete Window")
-  ;;     (?m aw-swap-window " Ace - Swap Window")
-  ;;     (?n aw-flip-window)
-  ;;     (?v aw-split-window-vert " Ace - Split Vert Window")
-  ;;     (?b aw-split-window-horz " Ace - Split Horz Window")
-  ;;     (?i delete-other-windows " Ace - Maximize Window")
-  ;;     (?o delete-other-windows))
-  ;;   "List of actions for `aw-dispatch-default'.")
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+	(?m aw-swap-window "Swap Windows")
+	(?M aw-move-window "Move Window")
+	(?c aw-copy-window "Copy Window")
+	(?j aw-switch-buffer-in-window "Select Buffer")
+	(?n aw-flip-window)
+	(?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+	(?c aw-split-window-fair "Split Fair Window")
+	(?v aw-split-window-vert "Split Vert Window")
+	(?b aw-split-window-horz "Split Horz Window")
+	(?o delete-other-windows "Delete Other Windows")
+	(?? aw-show-dispatch-help))
+  "List of actions for `aw-dispatch-default'.")
+  (setq aw-background nil)
   )
 #+END_SRC
 
@@ -2244,6 +2295,28 @@ Highlight TODOs
   (global-hl-todo-mode 1))
 #+END_SRC
 
+*** COMMENT Flyspell
+Not using it because in org “c-<” maps to something else
+#+BEGIN_SRC emacs-lisp
+(use-package flyspell
+  :init
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'text-mode-hook 'flyspell-mode)
+)
+#+END_SRC
+
+*** Typo-mode
+#+BEGIN_SRC emacs-lisp
+(use-package typo
+  :ensure t
+  :init 
+  ;; (typo-global-mode 1)
+  (add-hook 'text-mode-hook 'typo-mode)
+  (add-hook 'org-mode-hook 'typo-mode)
+)
+
+#+END_SRC
+
 *** Flycheck
 **** flycheck
 #+BEGIN_SRC emacs-lisp
@@ -2296,6 +2369,7 @@ Highlight TODOs
   :init
   (add-hook 'prog-mode-hook 'company-mode)
   (add-hook 'comint-mode-hook 'company-mode)
+  (add-hook 'org-mode-hook 'company-mode)
   :config
   ;; (global-company-mode)
   ;; Quick-help (popup documentation for suggestions).
@@ -2464,6 +2538,7 @@ Highlight TODOs
   (add-hook 'java-mode-hook  'lsp-ui-sideline-mode)
   (setq lsp-java--workspace-folders (list "~/usr/code/java")))
 #+END_SRC
+
 *** Web
 **** HTML
 ***** web-mode
@@ -2486,7 +2561,8 @@ Highlight TODOs
 #+BEGIN_SRC emacs-lisp
 (use-package emmet-mode 
   :ensure t
-  :hook ((web-mode . emmet-mode)))
+  :hook ((web-mode . emmet-mode))
+  :hook ((rjsx-mode . emmet-mode)))
 #+END_SRC
 
 ***** COMMENT lsp-html
@@ -2616,20 +2692,20 @@ Highlight TODOs
       (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))))
 #+END_SRC
 
-**** Rust (lsp)
-***** rust-mode
+*** Rust (lsp)
+**** rust-mode
 #+BEGIN_SRC emacs-lisp
 (use-package rust-mode
   :ensure t)
 #+END_SRC
 
-***** flycheck-rust
+**** flycheck-rust
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-rust
   :ensure t)
 #+END_SRC
 
-***** lsp-rust
+**** lsp-rust
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-rust
   :ensure t
@@ -2639,20 +2715,20 @@ Highlight TODOs
   (setq lsp-rust-rls-command '("rustup" "run" "stable" "rls")))
 #+END_SRC
 
-**** Git
-***** Git-commit??//
+*** Git
+**** Git-commit??//
 #+BEGIN_SRC emacs-lisp
 (use-package git-commit
   :ensure t)
 #+END_SRC
 
-***** Magit(more modifications)
+**** Magit(more modifications)
 #+BEGIN_SRC emacs-lisp
 (use-package magit
   :ensure t)
 #+END_SRC
 
-**** Markdown
+*** Markdown
 #+BEGIN_SRC emacs-lisp
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib/github-markdown-preview.el"))
 ;; (require 'github-markdown-preview)
@@ -2667,8 +2743,8 @@ Highlight TODOs
   :init (setq markdown-command "multimarkdown"))
 #+END_SRC
 
-**** LaTeX
-***** Auctex
+*** LaTeX
+**** Auctex
 #+BEGIN_SRC emacs-lisp
 (use-package auctex
   :defer t
@@ -2683,8 +2759,8 @@ Highlight TODOs
 (set-fontset-font t 'hangul (font-spec :name "NanumBarunGothic"))
 #+END_SRC
 
-**** Go
-***** COMMENT lsp-go
+*** Go
+**** COMMENT lsp-go
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-go
   :ensure t
@@ -2692,12 +2768,12 @@ Highlight TODOs
 ;; (add-hook 'go-mode-hook #'lsp-go-enable)
 #+END_SRC
 
-**** XML
+*** XML
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.csproj\\'" . nxml-mode))
 #+END_SRC
 
-**** C#
+*** C#
 #+BEGIN_SRC emacs-lisp
 (use-package omnisharp
   :after csharp-mode
