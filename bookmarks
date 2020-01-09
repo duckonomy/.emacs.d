@@ -1,85 +1,32 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("awesome"
- (filename . "~/.config/awesome/rc.lua")
- (front-context-string . "--[[\n\n   Awesome")
+(("notes"
+ (filename . "~/Documents/notes.org")
+ (front-context-string . "* Tasks\n** TODO ")
  (rear-context-string)
  (position . 1))
-("src"
- (filename . "~/usr/src/")
- (front-context-string . "code\n  drwxr-xr-")
- (rear-context-string . "96 Jul 18 16:16 ")
- (position . 225))
-("todo-break"
- (filename . "~/usr/docs/todo-break.org")
- (front-context-string)
- (rear-context-string)
- (position . 3))
-("now"
- (filename . "~/usr/docs/now.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
-("goodat"
- (filename . "~/usr/docs/hobby/reallywanttobegoodat.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
-("hobbies"
- (filename . "~/usr/docs/hobby/README.md")
- (front-context-string . "\n- gaming\n  - St")
- (rear-context-string . " III\n- streaming")
- (position . 218))
 ("org-capture-last-stored"
- (filename . "~/usr/docs/org.org")
- (front-context-string . "* NEXT Respond t")
- (rear-context-string . "7-24 Tue 10:49]\n")
- (position . 111))
-("todo"
- (filename . "~/Documents/TODO.org")
- (front-context-string . "# School(next we")
- (rear-context-string)
- (position . 1))
-("homework-232"
- (filename . "~/lib/school/232/")
- (front-context-string . "homework05\n  -rw")
- (rear-context-string . "96 Mar  3 22:30 ")
- (position . 749))
-("projects-214"
- (filename . "~/lib/school/214/projects/")
+ (filename . "~/Documents/notes.org")
+ (front-context-string . "** TODO lksjdlfk")
+ (rear-context-string . "rg::*Org][Org]]\n")
+ (position . 270))
+("journal"
+ (filename . "~/Documents/Journal/")
  (front-context-string)
- (rear-context-string . "96 Mar  5 13:45 ")
- (position . 450))
-("labs-214"
- (filename . "~/lib/school/214/labs/")
- (front-context-string . "..\n  drwxr-xr-x ")
- (rear-context-string . "96 Feb  1 20:50 ")
- (position . 186))
-("books"
- (filename . "~/usr/books/")
- (front-context-string . "Cracking the Cod")
- (rear-context-string . "95 Feb 11 11:29 ")
- (position . 487))
-("docs"
- (filename . "~/usr/docs/")
- (front-context-string . "'\n  -rw-r--r--  ")
- (rear-context-string . "87 Feb 21 13:32 ")
- (position . 238))
-("notes"
- (filename . "~/usr/docs/notes/")
- (front-context-string . "bio161\n  drwxr-x")
- (rear-context-string . "96 Jan 30 18:26 ")
- (position . 236))
-("essays"
- (filename . "~/usr/docs/essays/")
- (front-context-string . "essays.pdf\n  -rw")
- (rear-context-string . "31 Feb 13 10:19 ")
- (position . 241))
+ (rear-context-string . "46 Jan  8 01:09 ")
+ (position . 251))
+("ledger-2020"
+ (filename . "~/Documents/Ledger/2020.ledger")
+ (position . 0))
+("sxhkdrc"
+ (filename . "~/.config/sxhkd/sxhkdrc")
+ (position . 0))
+("todo"
+ (filename . "~/Documents/todo.org")
+ (position . 0))
 ("dotemacs"
- (filename . "~/.emacs.d/README.org")
- (front-context-string . "  ;; `window-div")
- (rear-context-string . "_SRC emacs-lisp\n")
- (position . 58995))
+ (filename . "~/.config/emacs/README.org")
+ (position . 0))
 )
