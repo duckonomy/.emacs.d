@@ -1,6 +1,7 @@
 *
 !*/
 !lib/
+!eshell/alias
 !README.org
 !bookmarks
 !init.el
