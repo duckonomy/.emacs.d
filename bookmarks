@@ -2,16 +2,11 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("notes"
- (filename . "~/Documents/notes.org")
+(("schedule"
+ (filename . "~/Documents/schedule.org")
  (front-context-string . "* Tasks\n** TODO ")
  (rear-context-string)
  (position . 1))
-("org-capture-last-stored"
- (filename . "~/Documents/notes.org")
- (front-context-string . "** TODO lksjdlfk")
- (rear-context-string . "rg::*Org][Org]]\n")
- (position . 270))
 ("journal"
  (filename . "~/Documents/Journal/")
  (front-context-string)

@@ -285,8 +285,6 @@ Create ~custom.el~ for auto-generated configurations outside my ~init.el~
     :ensure nil
     :custom
     (custom-file "~/.config/emacs/custom.el"))
-  ;; :init
-  ;; (load custom-file 'noerror)
 #+END_SRC
 
 **** Messages
@@ -410,7 +408,7 @@ Create ~custom.el~ for auto-generated configurations outside my ~init.el~
 #+end_src
 
 **** Format
-***** COMMENT Basic
+***** Basic
 #+BEGIN_SRC emacs-lisp
 (use-package format
   :ensure nil
@@ -426,18 +424,19 @@ Create ~custom.el~ for auto-generated configurations outside my ~init.el~
 			word-wrap nil)))))
 #+END_SRC
 
-***** COMMENT Visual-fill-column
+***** Visual-fill-column
 #+BEGIN_SRC emacs-lisp
-(use-package visual-fill-column
-  :defer t
-  :ensure t
-  :custom
-  (visual-fill-column-center-text nil)
-  (visual-fill-column-width fill-column)
-  (split-window-preferred-function 'visual-line-mode-split-window-sensibly))
+  (use-package visual-fill-column
+    :defer t
+    :ensure t
+    :custom
+    (visual-fill-column-center-text nil)
+    (visual-fill-column-width fill-column)
+    ;; (split-window-preferred-function 'visual-line-mode-split-window-sensibly)
+  )
 #+END_SRC
 
-***** COMMENT Indentation
+***** Indentation
 #+begin_src emacs-lisp
     (use-package indentation
       :ensure nil
@@ -580,76 +579,6 @@ Animated images loop forever rather than playing once
 #+END_SRC
 
 **** Faces & Language & Encoding
-***** Faces
-#+begin_src emacs-lisp
-  (use-package faces
-    :ensure nil
-    :defer t
-    :preface
-    (defvar duckonomy/font "Sarasa Mono H"
-      "Main font")
-    (defvar duckonomy/font-vp "Roboto"
-      "Variable pitch font")
-    (defvar duckonomy/font-kr "NanumBarunGothic"
-      "Korean font")
-    (defvar duckonomy/font-ch "Noto Sans CJK SC"
-      "Chinese font")
-    (defvar duckonomy/font-ja "Source Han Code JP" 
-      "Japanese font")
-    (defvar duckonomy/font-fallback "Courier New"
-      "Fallback font")
-    (defun duckonomy/use-font (&optional frame)
-      "Set fonts with this."
-      (when frame
-        (select-frame frame))
-      (set-face-attribute 'default nil
-                          :weight 'bold
-                          :height 150
-                          :slant 'normal
-                          :family duckonomy/font)
-      (set-face-attribute 'fixed-pitch nil
-                          :weight 'bold
-                          :height 1.0
-                          :slant 'normal
-                          :family duckonomy/font)
-      (set-face-attribute 'variable-pitch nil
-                          :weight 'medium
-                          :height 1.2
-                          :slant 'normal
-                          :family duckonomy/font-vp)
-      (set-fontset-font t 'hangul 
-                        (font-spec 
-                         :name duckonomy/font-kr
-                         :weight 'bold))
-      (set-fontset-font t 'chinese-gbk
-                        (font-spec 
-                         :family duckonomy/font-ch
-                         :weight 'bold))
-      (set-fontset-font t 'japanese-jisx0213.2004-1
-                        (font-spec 
-                         :family duckonomy/font-ja
-                         :weight 'bold))
-      (dolist (face '(font-lock-comment-delimiter-face
-                      font-lock-comment-face))
-        (set-face-attribute face nil :slant 'italic :weight 'medium)))
-    (defun set-buffer-variable-pitch ()
-      "Configurations that come with variable pitch."
-      (interactive)
-      (setq line-spacing 5)
-      (variable-pitch-mode t))
-    :init
-    (if (daemonp)
-        (progn
-          (add-hook 'after-make-frame-functions
-                    (lambda (frame)
-                      (with-selected-frame frame
-                        (duckonomy/use-font)))))
-      (duckonomy/use-font))
-    :hook (((org-mode eww-mode markdown-mode Info-mode) . set-buffer-variable-pitch))
-    :custom
-    (global-font-lock-mode t))
-#+end_src
-
 ***** Language
 #+BEGIN_SRC emacs-lisp
 (use-package languages
@@ -738,94 +667,6 @@ Animated images loop forever rather than playing once
      :ensure org-plus-contrib
      :mode ("\\.org\\'" . org-mode)
      :preface
-     (defun org-fonts (bg fg bg-light fg-light font)
-       "This provides org fonts."
-       (set-face-attribute 'org-level-1 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-2 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-3 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-4 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-5 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-6 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-7 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-       (set-face-attribute 'org-level-8 nil
-                           :foreground fg
-                           :family font
-                           :height 1.4
-                           :weight 'bold)
-
-       (dolist (face '(org-block-begin-line
-                       org-block-end-line))
-         (set-face-attribute face nil
-                             :weight 'bold
-                             :background bg-light
-                             :foreground fg-light))
-       (set-face-attribute 'org-block nil
-                           :weight 'bold
-                           :inherit 'fixed-pitch)
-       (set-face-attribute 'org-todo nil
-                           :weight 'bold
-                           :box '(:line-width 1 :color "#D8ABA7")
-                           :foreground "#D8ABA7"
-                           :background "#FFE6E4")
-       (set-face-attribute 'org-done nil
-                           :weight 'bold
-                           :box '(:line-width 1 :color "#BBBBBB")
-                           :foreground "#A3BAA4"
-                           :background "#DBF2D3")
-       (set-face-attribute 'org-code nil
-                           :inherit 'fixed-pitch)
-       (set-face-attribute 'org-hide nil
-                           :background bg)
-       (set-face-attribute 'org-special-keyword nil
-                           :height 1.4)
-       (set-face-attribute 'org-table nil
-                           :height 1.4
-                           :weight 'bold
-                           :inherit 'fixed-pitch)
-       (defface org-bullets-face
-         '(
-           (t (
-               :foreground "#42B983"
-               :family "Roboto Condensed"
-               :weight bold
-               :height 1.4
-               )))
-         ;; This document is necessary as an argument
-         "face font for org-bullets"
-         :group 'org-faces)
-
-       (set-face-attribute 'org-document-title nil
-                           :weight 'bold
-                           :inherit 'variable-pitch
-                           :height 1.7))
 
      (defun my-org-comment-dwim (&optional arg)
        "Org-comment ARG dwim."
@@ -857,9 +698,8 @@ Animated images loop forever rather than playing once
             ("C-(" . org-backward-element)
             ("<M-tab>" . org-force-cycle-archived)
             ("<C-tab>" . nil))
-     ;; :hook (org-mode . (lambda() (org-fonts "#282828" "#C5C8C6" "#454545" "#7C6F64" "Roboto")))
-     :hook (org-mode . (lambda() (org-fonts "#FAFAFA" "#383A42" "#C6C7C7" "#5C5E6B" "Roboto")))
      :config
+
      (font-lock-add-keywords 'org-mode
                              '(("^ +\\([-*]\\) "
                                 (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
@@ -891,16 +731,6 @@ Animated images loop forever rather than playing once
      (org-use-speed-commands t)
      (org-adapt-indentation t)
      (auto-fill-mode t)
-     ;; Commented
-     ;; (defun reflash-indentation ()
-     ;;   "Fix org-indent issues, center line."
-     ;;   (interactive)
-     ;;   (org-indent-mode 1)
-     ;;   (recenter-top-bottom)
-     ;;   )
-     ;; (define-key key-minor-mode-map (kbd "C-l") 'reflash-indentation)
-
-     ;; (setq org-format--options (plist-put org-format-latex-options (:foreground "#fff" :scale 1.8))) ;; inline latex
      (org-format-latex-options
       '(:foreground "#fff"
                     :background default
@@ -910,9 +740,9 @@ Animated images loop forever rather than playing once
                     :html-scale 2.4))
      (org-directory "~/Documents")
      (org-agenda-files
-      (list (concat org-directory "/personal.org") (concat org-directory "/todo.org")))
+      (list (concat org-directory "/schedule.org") (concat org-directory "/todo.org")))
      (org-mobile-directory "~/Documents")
-     (org-default-notes-file (concat org-directory "/notes.org"))
+     (org-default-notes-file (concat org-directory "/schedule.org"))
 
      (org-agenda-skip-scheduled-if-done t)
 
@@ -923,7 +753,6 @@ Animated images loop forever rather than playing once
         (search category-keep)))
      (org-confirm-babel-evaluate nil)
 
-     ;; (setq org-log-done t)
      (org-clock-persist t)
      (org-file-apps
       '((auto-mode . emacs)
@@ -941,9 +770,9 @@ Animated images loop forever rather than playing once
       '(("w" todo "WAITING" nil)
         ("n" todo "NEXT" nil)
         ("d" "Agenda + Next Actions" ((agenda) (todo "NEXT")))))
-     ;; (org-capture-templates
-     ;;   '(("t" "Task" entry (file+headline "" "Tasks")
-     ;;      "* TODO %?\n  %U\n  %a")))
+     (org-capture-templates
+       '(("t" "Task" entry (file+headline "" "Tasks")
+          "* TODO %?\n  %U\n  %a")))
      (org-refile-allow-creating-parent-nodes 'confirm)
      (org-use-speed-commands t)
      (org-clock-mode-line-total 'current)
@@ -1011,7 +840,19 @@ Animated images loop forever rather than playing once
      :hook (org-mode . (lambda () (org-bullets-mode 1)))
      :custom
      (org-bullets-bullet-list '("#" "#" "#" "•" "•" "•" "•" "•" "•" "•" "•" "•" "•" "•" ))
-     (org-bullets-face-name (quote org-bullets-face)))
+     (org-bullets-face-name (quote org-bullets-face))
+     :init
+      (defface org-bullets-face
+        '(
+          (t (
+              :foreground "#42B983"
+              :family "Roboto Condensed"
+              :weight bold
+              :height 1.4
+              )))
+        ;; This document is necessary as an argument
+        "face font for org-bullets"
+        :group 'org-faces))
  #+END_SRC
 
 ***** Babel
@@ -1191,11 +1032,218 @@ the path down to MAX-LEN"
 ** Extensions
 This contains all settings and applications that are fundamentally built on top of external applications.
 *** Settings
-**** Theme
+**** Tabs: Bug report not-enabling :hook and :bind and doom-colors (active bar )are not set properly on server-client
+Really only using this for grouping functionality (should make your own lol). Or create some kind of a margin mode that only margins out code and not text.
+#+begin_src emacs-lisp
+    (use-package centaur-tabs
+      :ensure nil
+      :load-path "~/.config/emacs/tabs"
+      :config
+      (setq centaur-tabs-style "bar"
+            centaur-tabs-height 50
+            centaur-tabs-set-icons nil
+            centaur-tabs-set-modified-marker nil
+            centaur-tabs-show-navigation-buttons nil)
+      (centaur-tabs-headline-match)
+
+      (setq centaur-tabs-gray-out-icons 'buffer)
+      (setq centaur-tabs-cycle-scope 'tabs)
+      (centaur-tabs-enable-buffer-reordering)
+      (setq centaur-tabs-adjust-buffer-order t)
+
+      (centaur-tabs-mode t)
+
+      (setq uniquify-separator "/")
+      (setq uniquify-buffer-name-style 'forward)
+      (defun centaur-tabs-buffer-groups ()
+        (list
+         (cond
+          ((memq major-mode '(eshell-mode
+                              shell-mode
+                              vterm-mode
+                              term-mode))
+           "Eshell")
+          ((or (string-equal "*" (substring (buffer-name) 0 1))
+               (memq major-mode '(magit-process-mode
+                                  magit-status-mode
+                                  magit-diff-mode
+                                  magit-log-mode
+                                  magit-file-mode
+                                  magit-blob-mode
+                                  magit-blame-mode
+                                  )))
+           "Emacs")
+          ((derived-mode-p 'prog-mode)
+           "Editing")
+          ((derived-mode-p 'dired-mode)
+           "Dired")
+          ((memq major-mode '(helpful-mode
+                              help-mode))
+           "Help")
+          ((memq major-mode '(org-mode
+                              org-agenda-clockreport-mode
+                              org-src-mode
+                              org-agenda-mode
+                              org-beamer-mode
+                              org-indent-mode
+                              org-bullets-mode
+                              org-cdlatex-mode
+                              org-agenda-log-mode
+                              diary-mode))
+           "OrgMode")
+          (t
+           (centaur-tabs-get-group-name (current-buffer))))))
+
+      ;; Hack for now
+      (bind-key "<C-tab>" 'centaur-tabs-forward)
+      (bind-key "<C-iso-lefttab>" 'centaur-tabs-backward)
+      (bind-key "C-c t s" 'centaur-tabs-counsel-switch-group)
+      (bind-key "C-c t p" 'centaur-tabs-group-by-projectile-project)
+      (bind-key "C-c t g" 'centaur-tabs-group-buffer-groups)
+      ;; Hack for now
+      ;; (add-hook 'dashboard-mode-hook 'centaur-tabs-local-mode)
+      ;; (add-hook 'calendar-mode-hook 'centaur-tabs-local-mode)
+      ;; (add-hook 'org-agenda-mode-hook 'centaur-tabs-local-mode)
+      ;; (add-hook 'helpful-mode-hook 'centaur-tabs-local-mode)
+  )
+#+end_src
+
+**** Modeline
 ***** Doom
 #+begin_src emacs-lisp
-  (use-package doom-themes
+  (use-package doom-modeline
     :ensure t
+    :init
+    (doom-modeline-mode)
+    :custom
+    (doom-modeline-icon t)
+    (doom-modeline-major-mode-icon t)
+    (doom-modeline-major-mode-color-icon nil)
+    (doom-modeline-minor-modes nil)
+    (doom-modeline-persp-name t)
+    (doom-modeline-lsp t)
+    (doom-modeline-github t)
+    (doom-modeline-height 60)
+    (doom-modeline-bar-width 8))
+#+end_src
+
+***** Minions
+#+BEGIN_SRC emacs-lisp
+(use-package minions
+  :ensure t
+  :init (minions-mode 1)
+  :custom
+  (minions-mode-line-lighter "#"))
+#+END_SRC
+
+**** Faces
+#+begin_src emacs-lisp
+  (use-package faces
+    :ensure nil
+    :defer t
+    :preface
+    (defvar duckonomy/font "Sarasa Mono H"
+      "Main font")
+
+    (defvar duckonomy/font-vp "Roboto"
+      "Variable pitch font")
+
+    (defvar duckonomy/font-kr "NanumBarunGothic"
+      "Korean font")
+
+    (defvar duckonomy/font-ch "Noto Sans CJK SC"
+      "Chinese font")
+
+    (defvar duckonomy/font-ja "Source Han Code JP" 
+      "Japanese font")
+
+    (defvar duckonomy/font-fallback "Courier New"
+      "Fallback font")
+
+    (defun duckonomy/use-font (&optional frame)
+      "Set fonts with this."
+      (when frame
+        (select-frame frame))
+
+      (set-face-attribute 'default nil
+                          :weight 'bold
+                          :height 150
+                          :slant 'normal
+                          :family duckonomy/font)
+
+      (set-face-attribute 'fixed-pitch nil
+                          :weight 'bold
+                          :height 1.0
+                          :slant 'normal
+                          :family duckonomy/font)
+
+      (set-face-attribute 'variable-pitch nil
+                          :weight 'medium
+                          :height 1.2
+                          :slant 'normal
+                          :family duckonomy/font-vp)
+
+      (dolist (face '(org-block-begin-line
+                      org-block-end-line))
+        (set-face-attribute face nil
+                            :weight 'bold))
+
+      (set-fontset-font t 'hangul 
+                        (font-spec 
+                         :name duckonomy/font-kr
+                         :weight 'bold))
+
+      (set-fontset-font t 'chinese-gbk
+                        (font-spec 
+                         :family duckonomy/font-ch
+                         :weight 'bold))
+
+      (set-fontset-font t 'japanese-jisx0213.2004-1
+                        (font-spec 
+                         :family duckonomy/font-ja
+                         :weight 'bold))
+
+      (dolist (face '(font-lock-comment-delimiter-face
+                      font-lock-comment-face))
+        (set-face-attribute face nil :slant 'italic :weight 'medium)))
+
+    (defun set-buffer-variable-pitch ()
+      "Configurations that come with variable pitch."
+      (interactive)
+      (setq line-spacing 5)
+      (variable-pitch-mode t))
+    :init
+    (if (daemonp)
+        (progn
+          (add-hook 'after-make-frame-functions
+                    (lambda (frame)
+                      (with-selected-frame frame
+                        (duckonomy/use-font)))))
+      (duckonomy/use-font))
+    :hook (((org-mode eww-mode markdown-mode Info-mode) . set-buffer-variable-pitch))
+    :custom
+    (global-font-lock-mode t))
+#+end_src
+
+**** Theme
+#+BEGIN_SRC emacs-lisp
+  (use-package theme
+    :ensure nil
+    :defer t
+    :load-path "themes"
+    :preface
+    (defun load-light-theme ()
+      (interactive)
+      (load-theme 'doom-solarized-light t))
+    (defun load-dark-theme ()
+      (interactive)
+      (load-theme 'doom-gruvbox t))
+    (defun load-wil-theme ()
+      (interactive)
+      (load-theme `wilmersdorf t))
+    :init
+    (add-to-list 'custom-theme-load-path "~/.config/emacs/themes")
+    (load-dark-theme)
     :custom
     (doom-themes-enable-bold t)    ; if nil, bold is universally disabled
     (doom-themes-enable-italic t) ; if nil, italics is universally disabled
@@ -1206,56 +1254,6 @@ This contains all settings and applications that are fundamentally built on top 
     (doom-themes-treemacs-config)
     ;; Corrects (and improves) org-mode's native fontification.
     (doom-themes-org-config))
-#+end_src
-
-***** Default
-#+BEGIN_SRC emacs-lisp
-  (use-package theme
-    :ensure nil
-    :defer t
-    :preface
-    (defun load-light-theme ()
-      (interactive)
-      (load-theme 'doom-one-light t))
-    (defun load-dark-theme ()
-      (interactive)
-      (load-theme 'doom-gruvbox t))
-    :init
-    (load-light-theme))
-#+END_SRC
-
-**** Modeline
-***** Doom
-#+begin_src emacs-lisp
-(use-package doom-modeline
-  :ensure t
-  :init
-  (if (daemonp)
-      (progn
-        (add-hook 'after-make-frame-functions
-                  (lambda (frame)
-                    (with-selected-frame frame
-                      (doom-modeline-mode)))))
-    (doom-modeline-mode))
-  :custom
-  (doom-modeline-icon t)
-  (doom-modeline-major-mode-icon t)
-  (doom-modeline-major-mode-color-icon nil)
-  (doom-modeline-minor-modes nil)
-  (doom-modeline-persp-name t)
-  (doom-modeline-lsp t)
-  (doom-modeline-github t)
-  (doom-modeline-height 60)
-  (doom-modeline-bar-width 8))
-#+end_src
-
-***** Minions
-#+BEGIN_SRC emacs-lisp
-(use-package minions
-  :ensure t
-  :init (minions-mode 1)
-  :custom
-  (minions-mode-line-lighter "#"))
 #+END_SRC
 
 **** Buffers
@@ -1608,97 +1606,6 @@ Have to set up other mc commands (not just set ha ha)
     :ensure t)
 #+end_src
 
-***** TODO Tabs: Bug report not-enabling :hook and :bind and doom-colors (active bar )are not set properly on server-client
-Really only using this for grouping functionality (should make your own lol). Or create some kind of a margin mode that only margins out code and not text.
-#+begin_src emacs-lisp
-    (use-package centaur-tabs
-      :ensure t
-      :config
-      (setq centaur-tabs-style "alternate"
-            centaur-tabs-height 50
-            centaur-tabs-set-icons nil
-            centaur-tabs-set-modified-marker nil
-            centaur-tabs-show-navigation-buttons nil)
-      (centaur-tabs-headline-match)
-
-      (setq centaur-tabs-gray-out-icons 'buffer)
-      (setq centaur-tabs-cycle-scope 'tabs)
-      (centaur-tabs-enable-buffer-reordering)
-      (setq centaur-tabs-adjust-buffer-order t)
-
-      ;; (centaur-tabs-mode t)
-      (if (daemonp)
-          (progn
-            (add-hook 'after-make-frame-functions
-                      (lambda (frame)
-                        (with-selected-frame frame
-                          (centaur-tabs-mode t)))))
-        (centaur-tabs-mode t))
-
-      (setq uniquify-separator "/")
-      (setq uniquify-buffer-name-style 'forward)
-      (defun centaur-tabs-buffer-groups ()
-        (list
-         (cond
-          ;; ((not (eq (file-remote-p (buffer-file-name)) nil))
-          ;; "Remote")
-          ((memq major-mode '(eshell-mode
-                              shell-mode
-                              vterm-mode
-                              term-mode))
-           "Eshell")
-          ((or (string-equal "*" (substring (buffer-name) 0 1))
-               (memq major-mode '(magit-process-mode
-                                  magit-status-mode
-                                  magit-diff-mode
-                                  magit-log-mode
-                                  magit-file-mode
-                                  magit-blob-mode
-                                  magit-blame-mode
-                                  )))
-           "Emacs")
-          ((derived-mode-p 'prog-mode)
-           "Editing")
-          ((derived-mode-p 'dired-mode)
-           "Dired")
-          ((memq major-mode '(helpful-mode
-                              help-mode))
-           "Help")
-          ((memq major-mode '(org-mode
-                              org-agenda-clockreport-mode
-                              org-src-mode
-                              org-agenda-mode
-                              org-beamer-mode
-                              org-indent-mode
-                              org-bullets-mode
-                              org-cdlatex-mode
-                              org-agenda-log-mode
-                              diary-mode))
-           "OrgMode")
-          (t
-           (centaur-tabs-get-group-name (current-buffer))))))
-
-      ;; Hack for now (just edit centaur-tabs.el)
-      ;; (set-face-attribute 'centaur-tabs-active-bar-face nil
-      ;;                     :background "#FE8019")
-      ;; (set-face-attribute 'centaur-tabs-unselected nil
-      ;;                     :background "#F0F0F0")
-      ;; (set-face-attribute 'centaur-tabs-unselected-modified nil
-      ;;                     :background "#F0F0F0")
-      ;; Hack for now
-      (bind-key "<C-tab>" 'centaur-tabs-forward)
-      (bind-key "<C-iso-lefttab>" 'centaur-tabs-backward)
-      (bind-key "C-c t s" 'centaur-tabs-counsel-switch-group)
-      (bind-key "C-c t p" 'centaur-tabs-group-by-projectile-project)
-      (bind-key "C-c t g" 'centaur-tabs-group-buffer-groups)
-      ;; Hack for now
-      ;; (add-hook 'dashboard-mode-hook 'centaur-tabs-local-mode)
-      ;; (add-hook 'calendar-mode-hook 'centaur-tabs-local-mode)
-      ;; (add-hook 'org-agenda-mode-hook 'centaur-tabs-local-mode)
-      ;; (add-hook 'helpful-mode-hook 'centaur-tabs-local-mode)
-  )
-#+end_src
-
 ***** Bookmarks
 Default bookmark file & save bookmark at every save
 #+begin_src emacs-lisp
@@ -1841,6 +1748,14 @@ This is for additional functionality
   ;; advise swiper to recenter on exit
   (advice-add 'swiper :after #'bjm-swiper-recenter))
 #+END_SRC
+
+***** FZF
+#+begin_src emacs-lisp
+  (use-package "fzf" 
+    :ensure nil
+    :init (setenv "FZF_DEFAULT_COMMAND" "fd --type f")
+    :config)
+#+end_src
 
 **** Keybindings
 ***** Bind-key
@@ -2442,6 +2357,8 @@ Don't hook to text-mode because it messes up quotes in org-mode. Only use on dem
 +Things like ~C-M-h~ do not work right now+
 Seems to be something deeper lol  xkeyboard fix doesn't work either
 ** Internal
+*** Themes
+ - https://daylerees.github.io/
 *** Flyspell pos-tip
 *** Debugging
 *** Emacs mode for prose
