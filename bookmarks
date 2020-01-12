@@ -2,11 +2,16 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
+(("linux"
+ (filename . "~/Documents/Linux.org")
+ (front-context-string . "* Partitioning\n#")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
  (filename . "~/Documents/schedule.org")
- (front-context-string . "** TODO Email CI")
- (rear-context-string . "2020-01-10 Fri>\n")
- (position . 1057))
+ (front-context-string . "** TODO emacs\n\n ")
+ (rear-context-string . "1-10 Fri 19:41]\n")
+ (position . 2006))
 ("schedule"
  (filename . "~/Documents/schedule.org")
  (front-context-string . "* Tasks\n** TODO ")

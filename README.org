@@ -1036,7 +1036,7 @@ This contains all settings and applications that are fundamentally built on top 
 Really only using this for grouping functionality (should make your own lol). Or create some kind of a margin mode that only margins out code and not text.
 #+begin_src emacs-lisp
     (use-package centaur-tabs
-      :ensure nil
+      :ensure t
       :load-path "~/.config/emacs/tabs"
       :config
       (setq centaur-tabs-style "bar"
@@ -1753,6 +1753,7 @@ This is for additional functionality
 #+begin_src emacs-lisp
   (use-package "fzf" 
     :ensure nil
+    :defer t
     :init (setenv "FZF_DEFAULT_COMMAND" "fd --type f")
     :config)
 #+end_src
@@ -1936,11 +1937,11 @@ Too laggy for now. Mouse disappearing. Screen size bug. Make it more pretty
      :commands lsp)
 
    ;; optionally
-   (use-package lsp-ui :commands lsp-ui-mode)
+   (use-package lsp-ui :ensure t :commands lsp-ui-mode)
    ;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-   (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+   (use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
    ;; optionally if you want to use debugger
-   (use-package dap-mode)
+   (use-package dap-mode :ensure t)
    ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
  #+END_SRC
 
@@ -2046,6 +2047,21 @@ Should disable this in html (sgml)
    :init
    (modern-c++-font-lock-global-mode t))
  #+END_SRC
+
+***** Rust
+***** Rust mode
+#+begin_src emacs-lisp
+  (use-package rust-mode
+    :ensure t
+    :hook (rust-mode . (lambda () (setq indent-tabs-mode nil))))
+#+end_src
+
+****** Flycheck Rust
+#+begin_src emacs-lisp
+  (use-package flycheck-rust
+    :ensure t
+    :hook (rust-mode . flycheck-rust-setup))
+#+end_src
 
 ***** Web
 ****** HTML/CSS
@@ -2343,6 +2359,7 @@ Don't hook to text-mode because it messes up quotes in org-mode. Only use on dem
  - mbsync
  - msmtp
 ** password-store
+** Use emacs as a ~$PAGER~
 ** ~mlocate~ (for ~locate~)
 ** ~fzf~ (for ~counsel-fzf~)
 ** ~ag~ (for ~counsel-ag~)
@@ -2510,7 +2527,7 @@ Use EPA
  - Make overlays seamless
  - Learn basic keys
  - Fix lsp-ui so that it is simpler
-*** Web
+*** DONE Web
  - Web-beautify
  - Emacs 27
  - Make emmet a hook to web-mode
