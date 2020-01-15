@@ -9,9 +9,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Documents/schedule.org")
- (front-context-string . "** TODO emacs\n\n ")
- (rear-context-string . "1-10 Fri 19:41]\n")
- (position . 2006))
+ (front-context-string . "** TODO Go to Ta")
+ (rear-context-string . "*Goals][Goals]]\n")
+ (position . 7051))
 ("schedule"
  (filename . "~/Documents/schedule.org")
  (front-context-string . "* Tasks\n** TODO ")

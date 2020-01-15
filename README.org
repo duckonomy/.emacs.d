@@ -1384,9 +1384,9 @@ Really only using this for grouping functionality (should make your own lol). Or
     :diminish undo-tree-mode
     :config
     (progn
-      (global-undo-tree-mode 1)
       (defalias 'redo 'undo-tree-redo)
       (defalias 'undo 'undo-tree-undo))
+    :hook ((text-mode prog-mode fundamental-mode) . undo-tree-mode)
     :bind (("C-/" . undo)
            ("C-S-/" . redo)
            ("C-?" . redo)
