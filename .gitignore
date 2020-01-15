@@ -1,6 +1,8 @@
 *
+backup/
 !*/
 !lib/
+!docs/
 !eshell/alias
 !README.org
 !bookmarks
