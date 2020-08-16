@@ -1,0 +1,2 @@
+* VC
+#+INCLUDE: "~/.config/emacs/modules/vc/modules-git.el" src emacs-lisp

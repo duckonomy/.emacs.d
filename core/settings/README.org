@@ -1,0 +1,20 @@
+* Settings
+Opinionated personal emacs settings with sanitized defaults.
+
+=NOTE=: Packages with ~defer t~ are arbitrary are are not defined inside emacs with a ~(provide 'foo)~. Although some do have a built-in way of calling it, I wanted to group them semantically.
+
+*Default Emacs*
+
+Settings that are defined in Emacs C source code.
+#+INCLUDE: "~/.config/emacs/core/settings/core-default.el" src emacs-lisp
+
+*Startup*
+#+INCLUDE: "~/.config/emacs/core/settings/core-startup.el" src emacs-lisp
+
+# *Server*
+
+# This is for focusing on Emacs when run from the command line
+# #+INCLUDE: "~/.config/emacs/core/settings/core-server.el" src emacs-lisp
+
+*Language*
+#+INCLUDE: "~/.config/emacs/core/settings/core-language.el" src emacs-lisp

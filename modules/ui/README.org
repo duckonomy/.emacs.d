@@ -1,0 +1,22 @@
+* UI
+*Faces*
+#+INCLUDE: "~/.config/emacs/modules/ui/modules-faces.el" src emacs-lisp
+
+*Theme*
+#+INCLUDE: "~/.config/emacs/modules/ui/modules-theme.el" src emacs-lisp
+
+# *Icons*
+# #+INCLUDE: "~/.config/emacs/modules/ui/modules-icons.el" src emacs-lisp
+
+*Modeline*
+
+Move Modeline Top and add Git stuff
+#+INCLUDE: "~/.config/emacs/modules/ui/modules-modeline.el" src emacs-lisp
+
+# *Tooltip*
+# #+INCLUDE: "~/.config/emacs/modules/ui/modules-tooltip.el" src emacs-lisp
+
+# *Rainbow Identifier*
+#
+# Should disable this in html (sgml)
+# #+INCLUDE: "~/.config/emacs/modules/ui/modules-rainbow-identifier.el" src emacs-lisp

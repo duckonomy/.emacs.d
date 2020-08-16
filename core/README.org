@@ -1,0 +1,20 @@
+* Core
+#+INCLUDE: "~/.config/emacs/core/settings/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/ui/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/files/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/editor/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/org/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/remote/README.org"
+
+# #+INCLUDE: "~/.config/emacs/core/cli/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/performance/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/media/README.org"
+
+#+INCLUDE: "~/.config/emacs/core/buffers/README.org"

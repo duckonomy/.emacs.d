@@ -1,0 +1,8 @@
+* Remote
+*VC*
+
+Enter a file symlinked to a git-controlled file without a prompt
+#+INCLUDE: "~/.config/emacs/core/remote/core-vc.el" src emacs-lisp
+
+*Tramp*
+#+INCLUDE: "~/.config/emacs/core/remote/core-tramp.el" src emacs-lisp

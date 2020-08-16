@@ -1,0 +1,28 @@
+* Files
+*Files*
+#+INCLUDE: "~/.config/emacs/core/files/core-files.el" src emacs-lisp
+
+*Custom file*
+
+Create ~custom.el~ for auto-generated configurations outside my ~init.el~
+#+INCLUDE: "~/.config/emacs/core/files/core-custom-file.el" src emacs-lisp
+
+*Auto Revert*
+
+Automatically update changes to file
+#+INCLUDE: "~/.config/emacs/core/files/core-auto-revert.el" src emacs-lisp
+
+*Dired*
+#+INCLUDE: "~/.config/emacs/core/files/core-dired.el" src emacs-lisp
+
+*EDiff*
+#+INCLUDE: "~/.config/emacs/core/files/core-ediff.el" src emacs-lisp
+
+# *EPA*
+# #+INCLUDE: "~/.config/emacs/core/files/core-epa-file.el" src emacs-lisp
+
+*History*
+#+INCLUDE: "~/.config/emacs/core/files/core-history.el" src emacs-lisp
+
+*Recentf*
+#+INCLUDE: "~/.config/emacs/core/files/core-recentf.el" src emacs-lisp

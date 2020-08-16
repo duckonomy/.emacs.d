@@ -1,0 +1,24 @@
+* Correction
+*Flycheck* 
+
+Slow switch to flymake?
+#+INCLUDE: "~/.config/emacs/modules/correction/modules-flycheck.el" src emacs-lisp
+
+# *Flymake*
+# posframe doesn't work but needed for eglot
+# https://ladicle.com/post/config/
+# https://github.com/Ladicle/flymake-posframe
+#+INCLUDE: "~/.config/emacs/modules/correction/modules-flymake.el" src emacs-lisp
+
+# *Flyspell*
+#
+# This should be fixed and selectively hooked
+#
+# =FIXED=: Not using it because in org “c-<” maps to something else
+# =TODO=: Make hook to disable on larger org files like this one, or maybe just specific files
+# #+INCLUDE: "~/.config/emacs/modules/correction/modules-flyspell.el" src emacs-lisp
+
+# *Typo*
+
+# Don't hook to text-mode because it messes up quotes in org-mode. Only use on demand. (or create a prose major mode)
+# #+INCLUDE: "~/.config/emacs/modules/correction/modules-typo.el" src emacs-lisp

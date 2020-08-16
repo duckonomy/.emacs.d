@@ -1,0 +1,32 @@
+* Languages
+*LSP*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-lsp.el" src emacs-lisp
+
+*C/C++*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-c.el" src emacs-lisp
+
+*Go*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-go.el" src emacs-lisp
+
+*LaTeX*
+
+https://nasseralkmim.github.io/notes/2016/08/21/my-latex-environment/
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-latex.el" src emacs-lisp
+
+*Markdown*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-markdown.el" src emacs-lisp
+
+*Rust*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-rust.el" src emacs-lisp
+
+*Web*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-web.el" src emacs-lisp
+
+*JS*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-js.el" src emacs-lisp
+
+*XML*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-xml.el" src emacs-lisp
+
+*OpenGL*
+#+INCLUDE: "~/.config/emacs/modules/languages/modules-opengl.el" src emacs-lisp

@@ -1,0 +1,32 @@
+* Editor
+*Delete Selection*
+#+INCLUDE: "~/.config/emacs/core/editor/core-delsel.el" src emacs-lisp
+
+*Format*
+#+INCLUDE: "~/.config/emacs/core/editor/core-format.el" src emacs-lisp
+
+*Eldoc*
+#+INCLUDE: "~/.config/emacs/core/editor/core-eldoc.el" src emacs-lisp
+
+*ISearch*
+#+INCLUDE: "~/.config/emacs/core/editor/core-isearch.el" src emacs-lisp
+
+*Simple*
+#+INCLUDE: "~/.config/emacs/core/editor/core-simple.el" src emacs-lisp
+
+*Parentheses*
+#+INCLUDE: "~/.config/emacs/core/editor/core-parentheses.el" src emacs-lisp
+
+*Save Place*
+
+Jumps to previously editing place in file
+#+INCLUDE: "~/.config/emacs/core/editor/core-saveplace.el" src emacs-lisp
+
+*Novice*
+
+Enable ~downcase-region~, ~set-goal-column~, ~narrow-to-region~, ~scroll-left~, ~erase-buffer~, ~downcase-region~
+#+INCLUDE: "~/.config/emacs/core/editor/core-novice.el" src emacs-lisp
+
+*Scroll*
+#+INCLUDE: "~/.config/emacs/core/editor/core-scroll.el" src emacs-lisp
+

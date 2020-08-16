@@ -1,0 +1,13 @@
+* CLI
+*Shell*
+
+(Should move to languages)
+ Check for shebang magic in file after save, make executable if found.
+ Make script executable on save
+#+INCLUDE: "~/.config/emacs/core/cli/shell.el" src emacs-lisp
+   - TODO Clear buffer
+   - TODO Hook to set environment variables in remote environments (e.g. ~PAGER~ to ~cat~ since shell doesn't handle curses programs well (e.g. ~less~))
+
+*EShell*
+#+INCLUDE: "~/.config/emacs/core/cli/eshell.el" src emacs-lisp
+

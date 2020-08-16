@@ -1,0 +1,33 @@
+* UI
+*Window*
+#+INCLUDE: "~/.config/emacs/core/ui/core-window.el" src emacs-lisp
+
+*Frame*
+
+Set frame padding (~internal-border~)
+#+INCLUDE: "~/.config/emacs/core/ui/core-frame.el" src emacs-lisp
+
+*Buffer*
+#+INCLUDE: "~/.config/emacs/core/ui/core-buffer.el" src emacs-lisp
+
+*Minibuffer*
+#+INCLUDE: "~/.config/emacs/core/ui/core-minibuffer.el" src emacs-lisp
+
+*Modeline*
+#+INCLUDE: "~/.config/emacs/core/ui/core-modeline.el" src emacs-lisp
+
+*Cursor*
+#+INCLUDE: "~/.config/emacs/core/ui/core-cursor.el" src emacs-lisp
+
+*Line Numbers*
+#+INCLUDE: "~/.config/emacs/core/ui/core-line-numbers.el" src emacs-lisp
+
+*Message*
+#+INCLUDE: "~/.config/emacs/core/ui/core-messages.el" src emacs-lisp
+
+*Disable UI Elements*
+#+INCLUDE: "~/.config/emacs/core/ui/core-ui.el" src emacs-lisp
+
+*Visual Bell*
+#+INCLUDE: "~/.config/emacs/core/ui/core-visual-bell.el" src emacs-lisp
+

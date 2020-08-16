@@ -1,0 +1,3 @@
+* PDF
+Eats up startup time
+#+INCLUDE: "~/.config/emacs/modules/pdf/modules-pdf-tools.el" src emacs-lisp

@@ -1,0 +1,24 @@
+* Organization
+*Buffer*
+#+INCLUDE: "~/.config/emacs/modules/organization/modules-buffer.el" src emacs-lisp
+
+*Window*
+#+INCLUDE: "~/.config/emacs/modules/organization/modules-window.el" src emacs-lisp
+
+# *Treemacs*
+# #+INCLUDE: "~/.config/emacs/modules/organization/modules-treemacs.el" src emacs-lisp
+
+*Bookmarks*
+
+Default bookmark file & save bookmark at every save
+#+INCLUDE: "~/.config/emacs/modules/organization/modules-bookmarks.el" src emacs-lisp
+
+# *Projectile*
+# #+INCLUDE: "~/.config/emacs/modules/organization/modules-projectile.el" src emacs-lisp
+
+# *Tabs*
+#
+# Bug report not-enabling :hook and :bind and doom-colors (active bar )are not set properly on server-client
+# Really only using this for grouping functionality (should make your own lol). Or create some kind of a margin mode that only margins out code and not text.
+# #+INCLUDE: "~/.config/emacs/modules/organization/modules-tabs.el" src emacs-lisp
+

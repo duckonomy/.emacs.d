@@ -1,0 +1,2 @@
+* Buffers
+#+INCLUDE: "~/.config/emacs/core/buffers/core-ibuffer.el" src emacs-lisp

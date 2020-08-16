@@ -1,0 +1,10 @@
+* Media
+# *Doc-View*
+#
+# Doc-view-continuous
+# #+INCLUDE: "~/.config/emacs/core/media/core-doc-view.el" src emacs-lisp
+
+*Images*
+
+Animated images loop forever rather than playing once
+#+INCLUDE: "~/.config/emacs/core/media/core-image.el" src emacs-lisp

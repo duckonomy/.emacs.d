@@ -1,0 +1,30 @@
+* Modules
+This contains all settings and settings that are fundamentally built on top of external applications.
+
+#+INCLUDE: "~/.config/emacs/modules/ui/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/editor/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/organization/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/menu/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/correction/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/completion/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/languages/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/cli/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/vc/README.org"
+
+# #+INCLUDE: "~/.config/emacs/modules/notifications/README.org"
+
+# #+INCLUDE: "~/.config/emacs/modules/pdf/README.org"
+
+# #+INCLUDE: "~/.config/emacs/modules/mail/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/ledger/README.org"
+
+#+INCLUDE: "~/.config/emacs/modules/prose/README.org"

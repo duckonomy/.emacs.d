@@ -1,9 +1,10 @@
 *
 backup/
-!*/
 !lib/
 !docs/
 !eshell/alias
 !README.org
 !bookmarks
 !init.el
+!core/*
+!modules/*

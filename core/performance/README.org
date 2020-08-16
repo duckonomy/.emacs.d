@@ -1,0 +1,4 @@
+* Performance
+#+INCLUDE: "~/.config/emacs/core/performance/core-performance.el" src emacs-lisp
+
+TODO: Fix Async

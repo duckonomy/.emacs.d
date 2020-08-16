@@ -1,0 +1,15 @@
+* Menu
+*Ivy*
+#+INCLUDE: "~/.config/emacs/modules/menu/modules-ivy.el" src emacs-lisp
+
+*Counsel*
+
+~smex~ is for additional functionality like reordering like recently/frequently used commands
+Checkout ~counsel-etags~ and ~counsel-projectile~
+#+INCLUDE: "~/.config/emacs/modules/menu/modules-counsel.el" src emacs-lisp
+
+*Swiper*
+#+INCLUDE: "~/.config/emacs/modules/menu/modules-swiper.el" src emacs-lisp
+
+# *FZF*
+# #+INCLUDE: "~/.config/emacs/modules/menu/modules-fzf.el" src emacs-lisp

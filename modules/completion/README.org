@@ -1,0 +1,9 @@
+* Completion
+*Company*
+
+Commented posframe because
+Too laggy for now. Mouse disappearing. Screen size bug. Make it more pretty
+#+INCLUDE: "~/.config/emacs/modules/completion/modules-company.el" src emacs-lisp
+
+*Yasnippets*
+#+INCLUDE: "~/.config/emacs/modules/completion/modules-yasnippets.el" src emacs-lisp

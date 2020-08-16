@@ -1,0 +1,34 @@
+* Editor
+*Evil*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-evil.el" src emacs-lisp 
+
+*Anzu*
+
+~cons-mode-line-p~ disables display in modeline
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-anzu.el" src emacs-lisp
+
+*Avy*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-avy.el" src emacs-lisp
+
+*Delimiters*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-delimiters.el" src emacs-lisp
+
+*Expand*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-expand.el" src emacs-lisp
+
+*Keybindings*
+
+https://emacs.stackexchange.com/questions/7832/how-to-bind-c-for-real
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-keybindings.el" src emacs-lisp
+
+*Multi Cursor*
+
+Have to set up other mc commands (not just set ha ha)
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-multi-cursor.el" src emacs-lisp
+
+*Undo Tree*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-undo-tree.el" src emacs-lisp
+
+*Whitespace*
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-whitespace.el" src emacs-lisp
+
