@@ -1,5 +1,6 @@
 *
 backup/
+!*/
 !lib/
 !docs/
 !eshell/alias
