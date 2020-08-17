@@ -1,9 +1,0 @@
-#+TITLE: Emacs configuration file
-#+AUTHOR: Duckonomy
-#+BABEL: :cache yes
-#+PROPERTY: header-args :tangle yes
-
-#+INCLUDE: "~/.config/emacs/core/README.org"
-
-#+INCLUDE: "~/.config/emacs/modules/README.org"
-

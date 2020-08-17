@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; no-byte-compile: t; -*-
+
 (defvar core-dir
   (expand-file-name "core" user-emacs-directory))
 
