@@ -1,0 +1,2 @@
+;;; Generated package description from /home/duckonomy/.config/emacs/elpa/berrys-dark-theme-20191201.1609/berrys-dark-theme.el  -*- no-byte-compile: t -*-
+(define-package "berrys-dark-theme" "20191201.1609" "A light, clean and elegant theme" '((emacs "24.1")) :commit "888a14206b2fb3dc45b5273aeb05075f3e0b5f60" :authors '(("Slava Buzin" . "v8v.buzin@gmail.com")) :maintainer '("Slava Buzin" . "v8v.buzin@gmail.com") :url "https://github.com/vbuzin/berrys-dark-theme")

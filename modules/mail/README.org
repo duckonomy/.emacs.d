@@ -1,4 +1,0 @@
-* Mail
-Eats up too much startup time
-#+INCLUDE: "~/.config/emacs/modules/mail/modules-notmuch.el" src emacs-lisp
-

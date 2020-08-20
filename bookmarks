@@ -1,0 +1,49 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("awesome"
+ (filename . "~/.config/awesome/rc.lua")
+ (front-context-string . "-- If LuaRocks i")
+ (rear-context-string)
+ (position . 1))
+("Developer"
+ (filename . "~/Documents/Developer.org")
+ (front-context-string . "\n - Disable Keyb")
+ (rear-context-string . "adow\n - FreeSync")
+ (position . 4773))
+("linux"
+ (filename . "~/Documents/Linux.org")
+ (front-context-string . "* Partitioning\n#")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
+ (filename . "~/Documents/schedule.org")
+ (front-context-string . "** TODO Eunjin i")
+ (rear-context-string . "::*Calc][Calc]]\n")
+ (position . 21294))
+("schedule"
+ (filename . "~/Documents/schedule.org")
+ (front-context-string . "* Tasks\n** TODO ")
+ (rear-context-string)
+ (position . 1))
+("journal"
+ (filename . "~/Documents/Journal/")
+ (front-context-string)
+ (rear-context-string . "46 Jan  8 01:09 ")
+ (position . 251))
+("ledger-2020"
+ (filename . "~/Documents/Ledger/2020.ledger")
+ (position . 0))
+("sxhkdrc"
+ (filename . "~/.config/sxhkd/sxhkdrc")
+ (position . 0))
+("todo"
+ (filename . "~/Documents/todo.org")
+ (position . 0))
+("dotemacs"
+ (filename . "~/.config/emacs/")
+ (front-context-string . "auto\n  drwx-----")
+ (rear-context-string . "96 Aug 13 23:07 ")
+ (position . 259))
+)

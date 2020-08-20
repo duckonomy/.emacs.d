@@ -1,106 +1,91 @@
-(defvar modules-dir
-  (expand-file-name "modules" user-emacs-directory))
+(add-to-list 'load-path (file-name-directory load-file-name))
 
-(defvar ui-dir
-  (expand-file-name "ui" modules-dir))
-(defvar editor-dir
-  (expand-file-name "editor" modules-dir))
+(defconst duck-emacs-dir
+  (file-truename user-emacs-directory))
 
-(defvar organization-dir
-  (expand-file-name "organization" modules-dir))
-(defvar menu-dir
-  (expand-file-name "menu" modules-dir))
-;; (defvar correction-dir
-;;   (expand-file-name "correction" modules-dir))
-;; (defvar completion-dir
-;;   (expand-file-name "completion" modules-dir))
-;; (defvar languages-dir
-;;   (expand-file-name "languages" modules-dir))
-(defvar cli-dir
-  (expand-file-name "cli" modules-dir))
-(defvar vc-dir
-  (expand-file-name "vc" modules-dir))
-; (defvar notifications-dir
-;   (expand-file-name "notifications" modules-dir))
-; (defvar pdf-dir
-;   (expand-file-name "pdf" modules-dir))
-; (defvar mail-dir
-;   (expand-file-name "mail" modules-dir))
-(defvar ledger-dir
-  (expand-file-name "ledger" modules-dir))
-(defvar prose-dir
-  (expand-file-name "prose" modules-dir))
+(defconst duck-modules-dir (concat duck-emacs-dir "modules/"))
 
-; (add-to-list 'load-path ui-dir)
-; (add-to-list 'load-path editor-dir)
+(dolist (f (directory-files duck-modules-dir))
+	(let ((name (concat duck-modules-dir f)))
+	  (when (and (file-directory-p name)
+				 (not (equal f ".."))
+				 (not (equal f ".")))
+		(add-to-list 'load-path name))))
 
-(add-to-list 'load-path "~/.config/emacs/modules/ui")
-(add-to-list 'load-path "~/.config/emacs/modules/editor")
-
-(add-to-list 'load-path organization-dir)
-(add-to-list 'load-path menu-dir)
-;; (add-to-list 'load-path correction-dir)
-;; (add-to-list 'load-path completion-dir)
-;; (add-to-list 'load-path languages-dir)
-(add-to-list 'load-path cli-dir)
-(add-to-list 'load-path vc-dir)
-; (add-to-list 'load-path notifications-dir)
-; (add-to-list 'load-path pdf-dir)
-; (add-to-list 'load-path mail-dir)
-(add-to-list 'load-path ledger-dir)
-(add-to-list 'load-path prose-dir)
-
+;; Cli
 (require 'modules-vterm)
-;; (require 'modules-flycheck)
-;; (require 'modules-yasnippets)
-;; (require 'modules-company)
 
-;; ;; (require 'modules-flymake)
-;; ; (require 'modules-flyspell)
-;; ; (require 'modules-typo)
+;; Completion
+(require 'modules-company)
+(require 'modules-yasnippets)
 
+;; Correction
+(require 'modules-flycheck)
+(require 'modules-flyspell)
+;; (require 'modules-flymake)
+;; (require 'modules-typo)
+
+;; Editor
 (require 'modules-anzu)
 (require 'modules-avy)
 (require 'modules-delimiters)
 (require 'modules-evil)
 (require 'modules-expand)
 (require 'modules-hl-todo)
+(require 'modules-hydra)
 (require 'modules-keybindings)
 (require 'modules-multi-cursor)
-(require 'modules-undo-tree)
+(require 'modules-undo)
 (require 'modules-whitespace)
 
-;; (require 'modules-go)
-;; (require 'modules-js)
-;; (require 'modules-latex)
-;; (require 'modules-lsp)
-;; (require 'modules-c)
-;; (require 'modules-markdown)
-;; (require 'modules-opengl)
-;; (require 'modules-rust)
-;; (require 'modules-web)
-;; (require 'modules-xml)
-;; (require 'modules-ledger)
-;; ; (require 'modules-notmuch)
+;; Languages
+(require 'modules-lsp)
+(require 'modules-c)
+(require 'modules-go)
+(require 'modules-js)
+(require 'modules-latex)
+(require 'modules-markdown)
+(require 'modules-opengl)
+(require 'modules-rust)
+(require 'modules-web)
+(require 'modules-xml)
+
+;; Applications
+(require 'modules-ledger)
+(require 'modules-notmuch)
+(require 'modules-pdf-tools)
+;; (require 'modules-esv)
+
+;; Menu
 (require 'modules-counsel)
-;; ; (require 'modules-fzf)
 (require 'modules-ivy)
 (require 'modules-swiper)
-;; ; (require 'modules-elcord)
+;; (require 'modules-fzf)
+
+;; Notifications
+;; (require 'modules-elcord)
+
+;; Organization
 (require 'modules-bookmarks)
 (require 'modules-buffer)
-;; ; (require 'modules-projectile)
-;; ; (require 'modules-tabs)
+(require 'modules-projectile)
 (require 'modules-treemacs)
 (require 'modules-window)
-;; ; (require 'modules-pdf-tools)
+(require 'modules-workspaces)
+;; (require 'modules-tabs)
+
+;; Prose
 (require 'modules-writeroom)
+
+;; UI
 (require 'modules-faces)
-;; ; (require 'modules-icons)
 (require 'modules-modeline)
-;; ; (require 'modules-rainbow-identifier)
 (require 'modules-theme)
-;; ; (require 'modules-tooltip)
+(require 'modules-tooltip)
+;; (require 'modules-icons)
+;; (require 'modules-rainbow-identifier)
+
+;; VC
 (require 'modules-git)
 
 (provide 'modules)

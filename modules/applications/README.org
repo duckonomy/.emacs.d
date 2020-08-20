@@ -1,0 +1,16 @@
+* Applications
+*Notmuch*
+
+Eats up too much startup time
+#+INCLUDE: "~/.config/emacs/modules/applications/modules-notmuch.el" src emacs-lisp
+
+*Ledger*
+#+INCLUDE: "~/.config/emacs/modules/applications/modules-ledger.el" src emacs-lisp
+
+*Pdf-tools*
+
+Eats up startup time
+#+INCLUDE: "~/.config/emacs/modules/applications/modules-pdf-tools.el" src emacs-lisp
+
+*ESV*
+#+INCLUDE: "~/.config/emacs/modules/applications/modules-esv.el" src emacs-lisp

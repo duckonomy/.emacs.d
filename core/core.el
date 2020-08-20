@@ -1,55 +1,36 @@
-;;; -*- lexical-binding: t; no-byte-compile: t; -*-
+(add-to-list 'load-path (file-name-directory load-file-name))
 
-(defvar core-dir
-  (expand-file-name "core" user-emacs-directory))
+(defconst duck-emacs-dir
+  (file-truename user-emacs-directory))
 
-; (defvar modules-dir
-;   (expand-file-name "modules" user-emacs-directory))
+(defconst duck-core-dir (concat duck-emacs-dir "core/"))
 
-(defvar settings-dir
-  (expand-file-name "settings" core-dir))
-(defvar ui-dir
-  (expand-file-name "ui" core-dir))
-(defvar files-dir
-  (expand-file-name "files" core-dir))
-(defvar editor-dir
-  (expand-file-name "editor" core-dir))
-(defvar org-dir
-  (expand-file-name "org" core-dir))
-(defvar remote-dir
-  (expand-file-name "remote" core-dir))
-; (defvar cli-dir
-;   (expand-file-name "cli" core-dir))
-(defvar performance-dir
-  (expand-file-name "performance" core-dir))
-(defvar media-dir
-  (expand-file-name "media" core-dir))
-(defvar buffers-dir
-  (expand-file-name "buffers" core-dir))
+(dolist (f (directory-files duck-core-dir))
+	(let ((name (concat duck-core-dir f)))
+	  (when (and (file-directory-p name)
+				 (not (equal f ".."))
+				 (not (equal f ".")))
+		(add-to-list 'load-path name))))
 
-(add-to-list 'load-path settings-dir)
-(add-to-list 'load-path ui-dir)
-(add-to-list 'load-path files-dir)
-(add-to-list 'load-path editor-dir)
-(add-to-list 'load-path org-dir)
-(add-to-list 'load-path remote-dir)
-; (add-to-list 'load-path cli-dir)
-(add-to-list 'load-path performance-dir)
-(add-to-list 'load-path media-dir)
-(add-to-list 'load-path buffers-dir)
-
+;; Buffer
 (require 'core-ibuffer)
-; (require 'core-eshell)
-; (require 'core-shell)
+
+;; Cli
+;; (require 'core-eshell)
+;; (require 'core-shell)
+
+;; Editor
 (require 'core-delsel)
 (require 'core-eldoc)
 (require 'core-format)
 (require 'core-isearch)
 (require 'core-novice)
-(require 'core-parentheses)
+(require 'core-parens)
 (require 'core-saveplace)
 (require 'core-scroll)
 (require 'core-simple)
+
+;; Files
 (require 'core-auto-revert)
 (require 'core-custom-file)
 (require 'core-dired)
@@ -58,16 +39,29 @@
 (require 'core-files)
 (require 'core-history)
 (require 'core-recentf)
+
+;; Media
 (require 'core-doc-view)
 (require 'core-image)
+(require 'core-music)
+
+;; Org
 (require 'core-org)
+
+;; Performance
 (require 'core-performance)
+
+;; Remote
 (require 'core-tramp)
 (require 'core-vc)
+
+;; Settings
 (require 'core-default)
 (require 'core-language)
 (require 'core-server)
 (require 'core-startup)
+
+;; UI
 (require 'core-buffer)
 (require 'core-cursor)
 (require 'core-frame)
@@ -75,6 +69,7 @@
 (require 'core-messages)
 (require 'core-minibuffer)
 (require 'core-modeline)
+;; (require 'core-tabs)
 (require 'core-ui)
 (require 'core-visual-bell)
 (require 'core-window)

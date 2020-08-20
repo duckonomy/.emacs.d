@@ -1,0 +1,126 @@
+#+TITLE: Keybindings
+* Philosophy
+Use as much default emacs keybindings as possible and adjust external applications and custom functionality accordingly.
+Use evil-mode and keychords when doing extensive code editing (less so in org mode and other "writing" modes).
+Group each keybinding to it's purpose and make it idiomatic to emacs
+Shouldn't have C-c global keys
+* Cheatsheets
+https://courses.cs.washington.edu/courses/cse351/16wi/sections/1/Cheatsheet-emacs.pdf
+http://www.rgrjr.com/emacs/emacs_cheat.html
+https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
+* Global
+** Internal
+*** Repeat
+ - ~C-x z~ (~repeat~) - repeat (kinda like vim dot I guess)
+*** Undo/Redo
+ - ~C-x u~ (~undo~) - Undo
+ - ~C-/~ (~undo~) - Undo
+ - ~C-_~ (~undo~) - Undo
+
+ - ~C-g C-x u~ (~redo~) - Redo
+ - ~C-g C-/~ (~redo~) - Redo
+ - ~C-g C-_~ (~redo~) - Redo
+*** Macros 
+https://www.reddit.com/r/emacs/comments/bs9qcc/keyboard_macros_usage/
+ - ~C-x (~ (kmacro-start-macro)
+ - ~F3~ (kmacro-start-macro)
+
+ - ~C-x )~ (kmacro-end-macro)
+ - ~F4~ (kmacro-end-macro)
+
+ - ~C-x e~ (kmacro-end-and-call-macro)
+ - ~F4~ (kmacro-end-and-call-macro)
+
+ - ~C-u 0 C-x e~ (execute the macro an infinite number of times until the end of the file is reached)
+
+ - ~C-x C-k n~ (kmacro-name-last-macro)
+ - ~C-x C-k b~ (kmacro-bind-to-key)
+ - ~M-x insert-kbd-macro~
+
+*** Numeric keys
+~C-u {0-9}~
+~M-{0-9}~
+~C-{0-9}~
+
+*** Rectangles
+~C-x r k~ (Kill selection)
+~C-x r M-w~ (Save selection)
+~C-x r y~ (Yank selection)
+~C-x r o~ (Insert blank space)
+~C-x r c~ (Insert line numbers)
+~C-x r N~ (Clear the region)
+~C-x r t~ (Replace rectangle contents with string)
+~C-x SPC~ (Toggle Rectangle select)
+
+*** Narrow
+~C-x n n~ (~narrow-to-region~)
+~C-x n p~ (~narrow-to-page~)
+~C-x n d~ (~narrow-to-function~ [definition])
+~C-x n s~ (~org-narrow-to-subtree~)
+~C-x n w~ (~widen~)
+
+*** Files
+ - ~C-x C-f~ (~find-file~) - find files
+ - ~C-x i~ (~insert-file~) - useful in remote sessions when you want to see stdout of file
+ - ~C-x s~ (~save-some-buffers~) - saves all open buffers
+ - ~C-x C-v~ (~find-alternate-file~) - replace file with other file
+ - ~C-x C-q~ (~read-only-mode~) - read-only
+
+*** Indentation
+ - ~C-x Tab~ or ~C-x C-i~ (~rigid tab~) (controlled by keyboard keys tho..., which is problematic) - ideally keyboards with hardware binding to keys would be nice
+   - SHOULD REPLACE
+
+*** ~delimit-columns-str-before~
+*** Insert Unicode
+*** Hippie expand
+*** Emacs stuff
+*** Counsel
+*** Window Management
+*** ISearch
+*** Ibuffer
+*** Comment
+*** Flymake
+** External
+*** Projectile
+*** Ivy/Counsel/Swiper
+*** Hl-todo
+*** Expand Region
+*** Evil
+**** Commentary
+**** Surround
+*** Hydra
+*** TRAMP
+*** Ace-Window
+*** Avy
+*** Anzu
+*** Company
+*** Yasnippets
+ - ~C-c k~ (~yas-expand~)
+*** Multiple Cursors
+*** Centaur Tabs
+*** Undo-tree
+** Custom
+*** Insert snippets/tags
+* Applications
+** Internal
+*** Org
+ - ~C-c '~ (~org-edit-special~)
+ - ~C-c C-t~ (~org-todo~)
+ - ~M-S-Ret~ (~org-insert-todo-heading~)
+*** Markdown
+*** Dired
+*** Ediff
+*** Gnus
+*** Docview
+*** Erc/Circe
+*** Sendmail/Smtpmail
+*** Epg
+*** Package.el
+** External
+*** Magit
+*** Flycheck
+*** Treemacs
+*** Pdf-tools
+*** Writeroom
+*** Lispy/Parinfer/Paredit/Smart Parens
+*** Auctex

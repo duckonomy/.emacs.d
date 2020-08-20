@@ -1,0 +1,105 @@
+* https://github.com/owl4ce/dotfiles implement notifications for volume change and brightness
+* https://dev.to/jfhbrook/multi-file-org-babel-tangles-with-include-directives-5522
+* TODO Magit/VC Mode/Git Gutter
+* TODO IBuffer
+* TODO Elisp/IELM/ByteComp
+* TODO EasyPG
+* TODO Dired
+* TODO Xref
+* TODO Imenu + Outline Minor mode for code folding
+* TODO Calc
+* TODO Calendar
+* TODO Circe/Erc
+* TODO Ivy/Counsel/Ido/Smex/Swiper/Helm/Occur
+* TODO Isearch/Query Replace
+* TODO Yank/Pop
+* TODO GOTO and Zap
+* TODO Letter Case
+* TODO Commenting (dwim)
+* TODO Help Mode/Info Mode
+* TODO Prefix Keys
+** TODO C-u
+* TODO IEdit/Rectangle/Multiple Cursor/Mark Multiple/Selection(also delsel)
+** pop-global-mark
+** exchange-point-and-mark
+* TODO Keyboard Macros/Repeat last command/Digit arguments
+* TODO Transpose
+* TODO Indentation
+** Aggressive indent mode
+* TODO Projectile
+* TODO Org
+** TODO  Org-capture
+** TODO  Org-journal
+** TODO  Org
+* TODO Eshell
+* Vterm/vterm-toggle
+* TODO Ediff
+* TODO Tramp
+* TODO Editing
+** TODO Blocks
+* TODO Checking
+** TODO Flycheck
+** TODO Flymake
+** TODO Ispell/Flyspell
+* TODO Image Mode
+* TODO Pdf Tools/DocView
+* TODO Mark
+** TODO Narrow
+** TODO Expand
+*** TODO Expand region
+*** TODO Hippie expand
+* TODO Frame/Buffer
+* TODO Wrapping/Fill-paragraph/Fill-column/Visal line mode
+* TODO Ace Window
+* TODO Evil
+** Vim Macros
+** Vim Leader
+** Vim Repeat
+** Vim Append
+** Vim Ex
+** Vim Format
+* TODO Emacs Regexp
+* TODO Modeline
+* TODO Ledger
+* TODO LSP
+* TODO AVY
+* TODO Which-Key/General.el/Hydra
+* TODO Ryo/Modalka/Kakoune.el
+* TODO Company/Yasnippet
+* TODO Paredit/Lispy/Smartparens/Parinfer
+* TODO Use-package and other package managers
+** https://github.com/raxod502/straight.el
+** elget
+* TODO Abbrev Mode && Alias
+* TODO Language-Specific
+** TODO Cider
+** TODO Slime
+** TODO LaTeX
+*** AuCTeX
+*** BibLaTeX
+* TODO Volatile Highlights
+* TODO Google Translate
+* TODO Eyebrowse/Persp/Perspective/Tab-bar-mode
+** Tab-bar has problems with posframe where the tab would show
+*** solved with hook
+*** https://gist.github.com/jclosure/e9d04250c53f899003d723945881cd21
+** https://jgkamat.gitlab.io/blog/emacs-tabs.html
+** window-configuration-to-register
+** https://www.reddit.com/r/emacs/comments/epxdoz/replace_eyebrowse_with_tab_bar_mode/
+* TODO Whitespace
+* TODO Semantic mode
+* Formatting https://github.com/lassik/emacs-format-all-the-code
+* Reduce files  https://github.com/emacscollective/no-littering
+* Beacon
+* Display Time Mode
+* Winner mode
+* https://github.com/mhayashi1120/Emacs-wgrep
+* Search/Replace in project
+* Dumb Jump/Etags
+* TODO Useful Unix Things
+** Find/Xargs
+** Grep
+** Kakoune
+** https://ec.haxx.se/cmdline/cmdline-globbing
+** Radare2
+*** https://gist.github.com/williballenthin/6857590dab3e2a6559d7

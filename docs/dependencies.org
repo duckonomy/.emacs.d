@@ -1,0 +1,20 @@
+#+TITLE: Dependencies
+* Language Servers
+** Cquery
+** Python-Language-Server
+** Bingo
+** RLS
+** Vue language server
+** typescript-language-server/typescript (both js and typescript)
+* Vterm
+* pdf-tools
+* LaTeX
+* Notmuch
+ - mbsync
+ - msmtp
+* password-store
+* Use emacs as a ~$PAGER~
+* ~mlocate~ (for ~locate~)
+* ~fzf~ (for ~counsel-fzf~)
+* ~ag~ (for ~counsel-ag~)
+

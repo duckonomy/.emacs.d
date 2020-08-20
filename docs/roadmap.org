@@ -1,0 +1,261 @@
+#+TITLE: Roadmap
+* Problem with structure
+** Projectile does not capture el files... <- biggest problem
+** I have to manually include files
+* DONE https://github.com/jixiuf/vterm-toggle
+* Better logic for new buffer (like create new buffer)
+* Get rid of most global minor modes
+* Change structuring so that core is actually core and others are other
+** like dired (it relies on external packages)
+** Get rid of ambiguous stuff like keybindings
+* Buffer Switching
+ - *Bufler*
+   - Complex Groups
+ - *My own implementations*
+   - Define IBuffer Groups
+   - Switch Window Within Current Group (~C-x b~)
+   - Switch Window Among All Groups (~C-x M-b~ or just IBuffer (~C-x C-b~))
+   - Cycle Buffer Within Group (~C-tab~, ~C-iso-lefttab~)
+   - Cycle All Buffer (~C-M-tab~, ~C-M-iso-lefttab~)
+   - Select Group (~C-x C-g~ - check availability)
+
+* Move posframe to UI
+
+* Transition into files
+ - but leave ~README.org~ for documentation on Github
+
+* External
+** NixOS Overlay?
+ - https://github.com/jwiegley/nix-config/blob/master/overlays/10-emacs.nix
+** Literate Emacs Website on https://duckonomy.com
+ - https://github.com/WolfeCub/dotfiles/tree/master/emacs/.emacs.d
+ - https://github.com/rememberYou/.emacs.d/blob/master/config.org/#alert
+ - https://ladicle.com/post/config/
+** Switch Left mod in Xkeyboard to right mod (to make it real )
++Things like ~C-M-h~ do not work right now+
+Seems to be something deeper lol  xkeyboard fix doesn't work either
+* Internal
+** Org-mode
+*** Org-roam: For notes in general
+*** Org-Agenda: For plans and todo
+*** Org-Linkz: For bookmark management
+ - https://github.com/p-kolacz/org-linkz
+ - https://karl-voit.at/2014/08/10/bookmarks-with-orgmode/
+ - https://www.reddit.com/r/emacs/comments/9bly3d/linkmarksel_use_orgmode_links_for_bookmarks/
+ - https://lists.gnu.org/archive/html/emacs-orgmode/2012-06/msg00640.html
+ - https://www.emacswiki.org/emacs/BookMarks
+ - https://github.com/scallywag/org-board
+*** Org-Journal: For Daily journal
+*** Org-protocol
+ - https://orgmode.org/worg/org-contrib/org-annotation-helper.html
+** Pos-tip
+*** Flymake
+*** Flyspell
+** Debugging
+** Emacs mode for prose
+https://tonyballantyne.com/EmacsWritingTips.html
+*** Muse
+*** Writegood mode
+ - http://bnbeckwith.com/code/writegood-mode.html
+*** Proselint
+ - http://proselint.com/
+*** Fountain mode
+*** DONE Writeroom mode
+** General
+ - https://github.com/noctuid/general.el#general-examples
+** Dimmer.el https://github.com/gonewest818/dimmer.el
+** Chording/Modality
+ - https://github.com/noctuid/dotfiles/blob/master/emacs/editing.org#why-not-kakoune
+ - https://github.com/abo-abo/hydra
+ - https://github.com/abo-abo/worf
+ - https://github.com/abo-abo/lispy
+** Parentheses
+ - lispy
+ - parinfer
+ - paredit
+** Language Specific Indentation/Spaces
+ - C/C++/Java/Go
+ - Javascript/HTML/CSS
+ - Python
+** Learn Emacs Correctly (including legacy bindings)
+** Refactor
+ - Separate GUI Configs from regular settings so guis are immutable in some sense(rather there is a clear delineation)
+ - So that I can load only the strictly cli-compatiable stuff on emacs -nw
+** Regex
+ - Just learn haha
+** Subword modules support
+ - camel case aware
+ - lisp aware
+** Debugging interface
+** Better Modeline [2/2]
+ - =DONE= Setup Github Branch [DOOM-modeline]
+ - =DONE= Setup Flycheck errors [DOOM-modeline]
+ - =TODO= Setup python venv
+ - Pretty
+ - Functional (Lazy)
+ - Tramp support
+ - Make loading when daemon seamless
+** Optimization
+ - Startup Profiler https://github.com/jschaf/esup
+ - and symon
+ - Make regular emacs launch as fast
+ - remove possible bottlenecks
+ - remove blocking issues
+** Make work in Linux/Mac/Windows
+ - Directories and Dependencies (e.g. ~/Documents)
+** Secure keys handling
+ - IRC (SASL)
+ - Password manager
+ - Lazy loading
+ - load lazy(per app basis [not init]) and make it work with password-store
+ - Use EPA
+** Split README.org into smaller files
+ - Indexing? in main elc (maybe just seqentially) like when you need to edit a single file that is at the bottom part of the whole config how do you insert that?
+ - Maybe just logical splitting
+** Better m-x
+ - https://www.reddit.com/r/emacs/comments/ehjcu2/screenshot_polishing_my_emacs_who_said_an_old/
+** Conditional Binary Compilation/External Acts and fallback
+ - pdf-tools (fallback docview)
+ - vterm
+ - Language Servers
+** Better buffer management
+ - Cycle through similar buffers(multi-term with terminals, eshell with eshell)
+ - Tabs? (centaur-tabs)
+ - https://github.com/waymondo/frog-jump-buffer
+ - Name terminals as unique buffers
+ - Better Ctrl-tab
+   - cycle within related buffers
+     - terminals with terminals
+     - text buffers with text buffers
+     - dired with dired
+     - error/messages with other messages
+     - blacklists
+ - Better kill buffer mechanism
+   - map rotation to c-r because c-s is ~swiper~ - don't know why?****** TODO map kill to c-q
+   - After kill, go to related buffer
+ - Fix kill-them-buffers
+   - make it kill frame on last tab
+   - or make a base buffer
+   - logic to make sole buffers remain even when kill when duplicate
+** Better Window Manager
+ - Resize/Move
+ - Ace Window (See Under # Applications)
+ - If window is sole window don't kill but just close buffer else kill buffer and close window [How to get number of user windows]
+** Hydra
+* Applications
+** Rectangle
+** Eldoc
+** Org-ledger/Ledger mode
+** Org
+ - Setup org agenda and capture
+   - https://www.youtube.com/watch?v=QQSaDDVP__s
+   - https://www.youtube.com/watch?v=KdcXu_RdKI0
+   - https://www.youtube.com/watch?v=7ybg3vjLQJM
+ - org-note
+   - https://sachachua.com/blog/2015/02/learn-take-notes-efficiently-org-mode/
+ - Refile https://orgmode.org/manual/Refile-and-copy.html
+ - https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
+ - Effort https://www.gnu.org/software/emacs/manual/html_node/org/Effort-estimates.html
+ - various org aliases and functions to improve workflow
+ - Set up for papers
+   - org-ref
+** Parinfer/Paredit/Lispy
+ - Setup and keybindings
+** Disable Evil by default
+** Magit
+** ERC/CIRCE
+ - Make it pretty
+ - https://github.com/hlissner/doom-emacs/issues/103
+ - Ivy for buffer/sever switch
+** Notmuch/Gnus
+ - Make it pretty
+ - Gnu config
+ - Set up emacs/notmuch/msmtp/mbsync(isync)/gnus
+ - Set up with custom mail server
+ - Make gnus asynchronous
+** TRAMP
+** Ivy/Counsel
+ - ivy buffer that hides unecessary stuff
+** Elfeed (rss)
+** Flycheck or flymake
+ - Setup keybindings
+** Ace-window
+ - Setup and keybindings (not much really todo??? not sure why this was a thing)
+ - Bug when fonts get large
+** Eshell
+ - Better tramp support
+** Vterm
+ - Tramp support https://github.com/jixiuf/vterm-toggle
+* Appearance
+** Mode-line
+ - https://www.reddit.com/r/emacs/comments/gvods7/multiline_modeline_proof_of_concept/
+   - https://gist.githubusercontent.com/rougier/f65264c0ca5e0dde22dfc684b5ea1667/raw/60c20513c552fe3b943893b4998580265c720af6/multiline-header.el
+ - https://www.reddit.com/r/emacs/comments/gumld3/svg_rounded_box_experiment/
+ - https://github.com/rougier/scientific-visualization-book
+ - https://www.labri.fr/perso/nrougier/resume.html
+ - https://github.com/rougier/elegant-emacs
+** Colors
+ - Make them work with terminal colors
+** Custom theme
+ - Berrys derivative
+ - https://github.com/andreypopp/vim-colors-plain
+ - Slime Contrast
+ - Kiwi
+ - Slate
+ - Carbonight Contrast
+ - https://daylerees.github.io/
+ - https://github.com/belak/emacs-grayscale-theme
+** Berrys implementations
+*** DONE Better todo color for dark mode
+*** DONE Search persist highlight color (reference tron)
+*** DONE Better done for dark mode
+*** TODO Current line number highlight (reference tron)
+*** DONE Darker selection color for dark mode
+*** DONE Dimmer font color for dark mode (lower contrast)
+*** slightly lighter background for darkmode (lower contrast)
+** Good looking
+ - https://www.reddit.com/r/unixporn/comments/8g2n6e/exwm_emacs_everything/
+* Application Development
+** LSP
+ - Make overlays seamless
+ - Learn basic keys
+ - Fix lsp-ui so that it is simpler
+** DONE Web
+ - Web-beautify
+ - Emacs 27
+ - Make emmet a hook to web-mode
+** Clojure 
+ - https://www.nongnu.org/geiser/
+ - Cider
+** Common Lisp
+ - Slime
+** Scala
+ - Ensime
+** R 
+ - ESS
+** Haskell
+** Java
+** PHP
+** Matlab
+** Erlang
+** Swift
+** Ruby
+** Assembly and Hex
+** Perl
+** Groovy
+** Kotlin
+* Emacs Development
+** EAF notmuch application
+** Better SSG with org
+** Use latest branch
+** LSP-ui 
+ - https://github.com/emacs-lsp/lsp-ui/issues/187
+ - https://github.com/emacs-lsp/lsp-ui/issues/285
+** Vterm
+ - https://github.com/akermu/emacs-libvterm/issues/186
+* Bugs
+** make anzu work [including with swiper] (currently not showing)
+ - Not really a problem since I now use swiper [maybe not]
+** remove deprecated functions
+** ace-window work with ~scroll-margin~
+** Linum org headers
