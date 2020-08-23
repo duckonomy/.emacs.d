@@ -4,7 +4,6 @@
   :straight org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
   :preface
-
   (defun my-org-comment-dwim (&optional arg)
     "Org-comment ARG dwim."
     (interactive "P")
@@ -15,70 +14,59 @@
     "Header info for a Emacs-org file."
     "Title: "
     "#+TITLE:" str " \n"
-    "#+AUTHOR: Ian Park\n"
-    )
-  ;; UNSAFE
-  :bind
-  (
-   ;; ("C-c i" . org-store-link)
-   ;; ("C-c c" . org-capture)
-   ;; ("C-c a" . org-agenda)
-   ;; ("C-c j" . org-clock-goto)
-   :map org-mode-map
-   ("C-]" . org-metaright)
-   ("<C-[>" . org-metaleft)
-   ("C-}" . org-shiftmetaright)
-   ("C-{" . org-shiftmetaleft)
-   ("M-]" . org-metaup)
-   ("M-[" . org-metadown)
-   ("M-}" . org-shiftmetaup)
-   ("M-{" . org-shiftmetadown)
-   ("C-)" . org-forward-element)
-   ("C-(" . org-backward-element)
-   ("<M-tab>" . org-force-cycle-archived)
-   ("<C-tab>" . nil))
-  :config
-  (general-define-key
-   :prefix "C-c r"
-   "i" 'org-store-link
-   "c" 'org-capture
-   "C" 'counsel-org-capture
-   "a" 'org-agenda
-   "h" 'counsel-org-agenda-headlines
-   "j" 'org-clock-goto
-   )
+    "#+AUTHOR: Ian Park\n")
 
   (defhydra hydra-org-mode (:color "#1098F7")
     "Org-mode"
-   ("g" counsel-org-goto "goto")
-   ("e" counsel-org-entity "entity")
-   ("i" imenu-list-smart-toggle "imenu")
-   ("s" org-sort "sort")
-   ("TAB" org-cycle "tab")
-   ("<S-iso-lefttab>" org-shifttab "shift tab")
-   ("h" org-metaleft "left")
-   ("l" org-metaright "right")
-   ("H" org-shiftmetaleft "shift left")
-   ("L" org-shiftmetaright "shift right")
-   ("j" org-metadown "down")
-   ("k" org-metaup "up")
-   ("J" org-shiftmetadown "shift down")
-   ("K" org-shiftmetaup "shift up")
-   ("P" org-backward-element "backward")
-   ("N" org-forward-element "forward")
-   ("p" org-previous-visible-heading "previous")
-   ("n" org-next-visible-heading "next"))
+    ("g" counsel-org-goto "goto")
+    ("e" counsel-org-entity "entity")
+    ("i" imenu-list-smart-toggle "imenu")
+    ("s" org-sort "sort")
+    ("TAB" org-cycle "tab")
+    ("<S-iso-lefttab>" org-shifttab "shift tab")
+    ("h" org-metaleft "left")
+    ("l" org-metaright "right")
+    ("H" org-shiftmetaleft "shift left")
+    ("L" org-shiftmetaright "shift right")
+    ("j" org-metadown "down")
+    ("k" org-metaup "up")
+    ("J" org-shiftmetadown "shift down")
+    ("K" org-shiftmetaup "shift up")
+    ("P" org-backward-element "backward")
+    ("N" org-forward-element "forward")
+    ("p" org-previous-visible-heading "previous")
+    ("n" org-next-visible-heading "next"))
 
-  (general-define-key
-   :keymaps 'org-mode-map
-   "C-c c" 'hydra-org-mode/body)
+  ;; UNSAFE
+  :general
+  (:keymaps 'org-mode-map
+	    "C-]" 'org-metaright
+	    "<C-[>" 'org-metaleft
+	    "C-}" 'org-shiftmetaright
+	    "C-{" 'org-shiftmetaleft
+	    "M-]" 'org-metaup
+	    "M-[" 'org-metadown
+	    "M-}" 'org-shiftmetaup
+	    "M-{" 'org-shiftmetadown
+	    "C-" 'org-forward-element
+	    "C-(" 'org-backward-element
+	    "<M-tab>" 'org-force-cycle-archived
+	    "<C-tab>" 'nil
+	    "C-c c" 'hydra-org-mode/body)
+  (:prefix "C-c r"
+	   "i" 'org-store-link
+	   "c" 'org-capture
+	   "C" 'counsel-org-capture
+	   "a" 'org-agenda
+	   "h" 'counsel-org-agenda-headlines
+	   "j" 'org-clock-goto)
 
+  :init
   ;; (add-hook 'after-init-hook
   ;; (lambda ()
   ;; (require 'org-indent)       ; for org-indent face
   ;; (set-face-attribute 'org-indent nil
   ;; :inherit '(org-hide fixed-pitch))))
-
   (font-lock-add-keywords 'org-mode
 			  '(("^ +\\([-*]\\) "
 			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
@@ -314,14 +302,14 @@
   (after-init . org-roam-mode)
   :config
   (setq org-roam-directory "~/Documents/Vault")
-  :bind
-  (:map org-roam-mode-map
-	(("C-c n l" . org-roam)
-	 ("C-c n f" . org-roam-find-file)
-	 ("C-c n j" . org-roam-jump-to-index)
-	 ("C-c n b" . org-roam-switch-to-buffer)
-	 ("C-c n g" . org-roam-graph))
-	:map org-mode-map
-	(("C-c n i" . org-roam-insert))))
+  :general
+  (:keymaps 'org-roam-mode-map
+	    "C-c n l" 'org-roam
+	    "C-c n f" 'org-roam-find-file
+	    "C-c n j" 'org-roam-jump-to-index
+	    "C-c n b" 'org-roam-switch-to-buffer
+	    "C-c n g" 'org-roam-graph)
+  (:keymaps 'org-mode-map
+	    "C-c n i" 'org-roam-insert))
 
 (provide 'core-org)

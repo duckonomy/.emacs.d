@@ -1,6 +1,6 @@
 ; Does not work... have to manually enable this inside html script tag
 (use-package js-mode
-  :straight t
+  :straight (:type built-in)
   :hook
   ((js-mode . lsp)))
 

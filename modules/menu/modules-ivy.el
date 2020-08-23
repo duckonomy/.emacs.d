@@ -25,12 +25,12 @@
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-display-style 'fancy)
   (setq ivy-wrap t)
-  :bind
-  (("C-x M-b" . my-also-ignore-star-buffers)
-   :map ivy-minibuffer-map
-   ("C-l" . counsel-up-directory)
-   ("C-'" . ivy-avy)
-   ("<C-m>" . ivy-done)))
+  :general
+  ("C-x M-b" 'my-also-ignore-star-buffers)
+  (:keymaps 'ivy-minibuffer-map
+	    "C-l" 'counsel-up-directory
+	    "C-'" 'ivy-avy
+	    "<C-m>" 'ivy-done))
 
 (use-package ivy-posframe
   :straight t

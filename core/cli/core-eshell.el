@@ -1,5 +1,5 @@
 (use-package eshell
-  :straight t
+  :straight (:type built-in)
   :preface
   (defun chunyang-eshell-mode-setup ()
 	(remove-hook 'eshell-output-filter-functions

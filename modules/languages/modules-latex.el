@@ -3,6 +3,7 @@
 
 
 (use-package tex-site
+  ;; :straight (:type built-in)
   :straight auctex
   :mode ("\\.tex\\'" . latex-mode)
   :config
@@ -33,22 +34,22 @@
   :config
   (setq reftex-cite-prompt-optional-args t))
 
-					;(use-package ivy-bibtex
-;  :straight t
-;  :bind
-;  ("C-c b b" . ivy-bibtex)
-;  :config
-;  (setq bibtex-completion-bibliography
-;        '("C:/Users/Nasser/OneDrive/Bibliography/references-zot.bib"))
-;  (setq bibtex-completion-library-path
-;        '("C:/Users/Nasser/OneDrive/Bibliography/references-pdf"
-;          "C:/Users/Nasser/OneDrive/Bibliography/references-etc"))
-;  ;; using bibtex path reference to pdf file
-;  (setq bibtex-completion-pdf-field "File")
-;  ;;open pdf with external viwer foxit
-;  (setq bibtex-completion-pdf-open-function
-;        (lambda (fpath)
-;          (call-process "C:\\Program Files (x86)\\Foxit Software\\Foxit Reader\\FoxitReader.exe" nil 0 nil fpath)))
-;  (setq ivy-bibtex-default-action 'bibtex-completion-insert-citation))
+;; (use-package ivy-bibtex
+;;   :straight t
+;;   :general
+;;   ("C-c b b" 'ivy-bibtex)
+;;   :config
+;;   (setq bibtex-completion-bibliography
+;;         '("C:/Users/Nasser/OneDrive/Bibliography/references-zot.bib"))
+;;   (setq bibtex-completion-library-path
+;;         '("C:/Users/Nasser/OneDrive/Bibliography/references-pdf"
+;;           "C:/Users/Nasser/OneDrive/Bibliography/references-etc"))
+;;   ;; using bibtex path reference to pdf file
+;;   (setq bibtex-completion-pdf-field "File")
+;;   ;;open pdf with external viwer foxit
+;;   (setq bibtex-completion-pdf-open-function
+;;         (lambda (fpath)
+;;           (call-process "C:\\Program Files (x86)\\Foxit Software\\Foxit Reader\\FoxitReader.exe" nil 0 nil fpath)))
+;;   (setq ivy-bibtex-default-action 'bibtex-completion-insert-citation))
 
 (provide 'modules-latex)

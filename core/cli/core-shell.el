@@ -1,4 +1,5 @@
 (use-package shell
+  :straight (:type built-in)
   :preface
   (defvar my-shebang-patterns
     (list "^#!/usr/.*/perl\\(\\( \\)\\|\\( .+ \\)\\)-w *.*"

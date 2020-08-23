@@ -1,4 +1,5 @@
 (use-package simple
+  :straight (:type built-in)
   :preface
   (defadvice keyboard-escape-quit (around my-keyboard-escape-quit activate)
     "Keyboard escape quit."
@@ -8,20 +9,19 @@
       (unwind-protect
 	  ad-do-it
 	(fset 'one-window-p (symbol-function 'orig-one-window-p)))))
-  :bind
-  (("M-z" . zap-up-to-char)
-   ([escape] . keyboard-escape-quit)
-   :map minibuffer-local-map
-   ([escape] . keyboard-escape-quit)
-   :map minibuffer-local-ns-map
-   ([escape] . keyboard-escape-quit)
-   :map minibuffer-local-completion-map
-   ([escape] . keyboard-escape-quit)
-   :map minibuffer-local-must-match-map
-   ([escape] . keyboard-escape-quit)
-   :map minibuffer-local-isearch-map
-   ([escape] . keyboard-escape-quit))
-
+  :general
+  ("M-z" 'zap-up-to-char
+   [escape] 'keyboard-escape-quit)
+  (:keymaps 'minibuffer-local-map
+	    [escape] 'keyboard-escape-quit)
+  (:keymaps 'minibuffer-local-ns-map
+	    [escape] 'keyboard-escape-quit)
+  (:keymaps 'minibuffer-local-completion-map
+	    [escape] 'keyboard-escape-quit)
+  (:keymaps 'minibuffer-local-must-match-map
+	    [escape] 'keyboard-escape-quit)
+  (:keymaps 'minibuffer-local-isearch-map
+	    [escape] 'keyboard-escape-quit)
   :config
   (setq kill-ring-max 3000)
   (setq next-line-add-newlines nil)

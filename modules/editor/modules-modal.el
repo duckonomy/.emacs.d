@@ -1,8 +1,9 @@
 (use-package modalka
   :straight t
   :demand t
-  :bind*
-  (("C-z" . modalka-mode))
+  :general
+  (:keymaps 'override
+	    "C-z" 'modalka-mode)
   :diminish (modalka-mode . "μ")
   :init
   (setq modalka-cursor-type 'box)

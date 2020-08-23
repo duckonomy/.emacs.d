@@ -1,16 +1,20 @@
 (use-package tool-bar
+  :straight (:type built-in)
   :init
   (tool-bar-mode -1))
 
 (use-package scroll-bar
+  :straight (:type built-in)
   :init
   (scroll-bar-mode -1))
 
 (use-package menu-bar
+  :straight (:type built-in)
   :init
   (menu-bar-mode -1))
 
 (use-package fringe
+  :straight (:type built-in)
   :init
   (set-fringe-style -1)
   (fringe-mode '(0 . 0))
@@ -21,6 +25,7 @@
 				     fringe-indicator-alist)))
 
 (use-package tooltip
+  :straight (:type built-in)
   :init
   (tooltip-mode -1)
   :config

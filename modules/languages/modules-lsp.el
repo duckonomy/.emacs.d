@@ -24,10 +24,10 @@
 ;;   :commands
 ;;   lsp-ui-mode
 ;;   :straight t
-;;   :bind
-;;   (:map lsp-ui-mode-map
-;;	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-;;	([remap xref-find-references] . lsp-ui-peek-find-references))
+;;   :general
+;;   (:keymaps 'lsp-ui-mode-map
+;;	([remap xref-find-definitions] 'lsp-ui-peek-find-definitions)
+;;	([remap xref-find-references] 'lsp-ui-peek-find-references))
 ;;   :init
 ;;   (setq lsp-ui-sideline-enable t
 ;;	lsp-ui-doc-use-webkit t
@@ -161,8 +161,8 @@
 ;;   :commands
 ;;   lsp-ui-mode
 ;;   :straight t
-;;   :bind
-;;   (:map lsp-ui-mode-map
+;;   :general
+;;   (:keymaps lsp-ui-mode-map
 ;;	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
 ;;	([remap xref-find-references] . lsp-ui-peek-find-references))
 ;;   :init

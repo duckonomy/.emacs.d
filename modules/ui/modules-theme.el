@@ -7,6 +7,7 @@
   (doom-themes-treemacs-config))
 
 (use-package theme
+  :straight (:type built-in)
   :defer t
   :load-path
   "themes"
@@ -15,7 +16,7 @@
   (add-to-list 'custom-theme-load-path "~/.config/emacs/modules/ui/themes/berrys-theme")
   (add-to-list 'custom-theme-load-path "~/.config/emacs/modules/ui/themes/emacs-grayscale-theme")
 
-  ;; (load-theme 'berrys t)
+  (load-theme 'berrys t)
   ;; (load-theme 'berrys-dark t)
   ;; (load-theme 'doom-gruvbox t)
   ;; (load-theme 'doom-one-light t)
@@ -25,7 +26,7 @@
   ;; (load-theme 'noctilux t)
   ;; (load-theme 'tango t)
   ;; (load-theme 'doom-tomorrow-day t)
-  (load-theme 'doom-tomorrow-night t)
+  ;; (load-theme 'doom-tomorrow-night t)
   ;; (load-theme 'doom-one-light t)
   )
 

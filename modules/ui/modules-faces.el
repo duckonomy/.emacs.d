@@ -1,4 +1,5 @@
 (use-package faces
+  :straight (:type built-in)
   :preface
   (defvar duckonomy/font "Sarasa Mono K"
     "Main font")

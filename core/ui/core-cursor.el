@@ -1,4 +1,5 @@
 (use-package cursor
+  :straight (:type built-in)
   :defer t
   :init
   (blink-cursor-mode -1)

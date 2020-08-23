@@ -8,10 +8,8 @@
     ("." flyspell-auto-correct-word "Auto Correct Word")
     (";" flyspell-auto-correct-previous-word "Auto Correct Previous Word")
     ("p" flyspell-correct-word-before-point "Correct Word Before Point"))
-
-  (general-define-key
-   :keymaps 'flyspell-mode-map
-   "C-c $" 'hydra-flyspell/body)
-  )
+  :general
+  (:keymaps 'flyspell-mode-map
+	    "C-c $" 'hydra-flyspell/body))
 
 (provide 'modules-flyspell)

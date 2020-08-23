@@ -1,4 +1,5 @@
 (use-package recentf
+  :straight (:type built-in)
   :init
   (recentf-mode)
   :config
@@ -9,7 +10,6 @@
 			      ".*\\.gz\\'"
 			      "TAGS"
 			      ".*-autoloads\\.el\\'"
-			      "ido.last"))
-  )
+			      "ido.last")))
 
 (provide 'core-recentf)

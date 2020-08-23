@@ -14,7 +14,7 @@
 	  (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
   :config
   (customize-set-variable 'tramp-default-method "ssh")
-  :bind
-  ("C-x C-a C-f" . sudo-edit))
+  :general
+  ("C-x C-a C-f" 'sudo-edit))
 
 (provide 'core-tramp)

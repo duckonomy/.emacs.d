@@ -1,16 +1,8 @@
-;; (use-package isearch
-;;   :bind (:map isearch-mode-map
-;;	      ([escape] . isearch-abort))
-;;   )
-
-  (general-define-key
-   :keymaps 'isearch-mode-map
-   [escape] 'isearch-abort)
-
-;; (general-define-key
-;;   :keymaps 'normal
-;;   :prefix "SPC m"
-;;   :prefix-map 'markdown-mode-style-map
-;;   )
+(use-package isearch
+  :straight (:type built-in)
+  :after (general)
+  :general
+  (:keymaps 'isearch-mode-map
+	    [escape] 'isearch-abort))
 
 (provide 'core-isearch)

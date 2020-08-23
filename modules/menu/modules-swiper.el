@@ -4,8 +4,8 @@
   (defun bjm-swiper-recenter (&rest args)
 	"Recenter display after swiper ARGS."
 	(recenter))
-  :bind
-  ("C-S-s" . swiper-isearch)
+  :general
+  ("C-S-s" 'swiper-isearch)
   :config
   (general-define-key
    :prefix "C-c s"

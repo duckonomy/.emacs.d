@@ -1,8 +1,8 @@
 (use-package flymake
-  :bind
-  (:map flymake-mode-map
-		("M-n" . flymake-goto-next-error)
-		("M-p". flymake-goto-prev-error)))
+  :general
+  (:keymaps flymake-mode-map
+	    "M-n" 'flymake-goto-next-error
+	    "M-p" 'flymake-goto-prev-error))
 
 (use-package flymake-diagnostic-at-point
   :disabled

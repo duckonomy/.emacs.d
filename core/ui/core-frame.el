@@ -1,6 +1,7 @@
 (use-package frame
-  :bind
-  ("C-z" . nil)
+  :straight (:type built-in)
+  :general
+  ("C-z" nil)
   :config
   (setq frame-title-format
 	'(buffer-file-name "%f"
@@ -20,7 +21,6 @@
   (setq tab-line-new-button-show nil)
 
   (set-frame-parameter (selected-frame) 'internal-border-width 40)
-  (add-to-list 'default-frame-alist '(internal-border-width . 40))
-  )
+  (add-to-list 'default-frame-alist '(internal-border-width . 40)))
 
 (provide 'core-frame)

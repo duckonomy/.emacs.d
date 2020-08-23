@@ -1,11 +1,6 @@
 (use-package vterm
   :straight t
   ;; UNSAFE
-  :bind
-  (:map vterm-mode-map
-	("M-o" . ace-window)
-	;;   (bind-key "<C-iso-lefttab>" 'centaur-tabs-backward)
-	)
   :config
   (add-hook 'vterm-exit-functions #'(lambda (buf &optional event)
 				      (kill-buffer buf)
@@ -17,14 +12,13 @@
 (use-package multi-vterm
   :straight t
   :config
-  :bind
-  (:map vterm-mode-map
-	("M-o" . ace-window)
-	;; ("C-c t n" . multi-vterm)
-	("<C-return>" . multi-vterm)
-	("<C-tab>" . multi-vterm-next)
-	("<C-backspace>" . (lambda () (interactive) (vterm-send-key (kbd "C-w"))))
-	("<C-iso-lefttab>" . multi-vterm-prev)))
+  :general
+  (:keymaps 'vterm-mode-map
+	    "M-o" 'ace-window
+	    "<C-return>" 'multi-vterm
+	    "<C-tab>" 'multi-vterm-next
+	    "<C-backspace>" '(lambda () (interactive) (vterm-send-key (kbd "C-w")))
+	    "<C-iso-lefttab>" 'multi-vterm-prev))
 
 (use-package vterm-toggle
   :straight t

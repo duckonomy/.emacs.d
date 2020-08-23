@@ -5,6 +5,7 @@
   )
 
 (use-package window-management
+  :straight (:type built-in)
   :preface
   (defun prev-window ()
 	"Previous window."
@@ -17,15 +18,15 @@
 		   (progn
 			 (window-configuration-to-register '_)
 			 (delete-other-windows))))
-  :bind
-  (("C-x O" . prev-window)
-   ("C-x w" . kill-this-buffer)
-   ("C-S-o" . toggle-maximize-buffer)
-   ("C-x M-k" . kill-this-buffer)
-   ("C-x K" . kill-this-buffer)
-   ("C-M-{" . shrink-window-horizontally)
-   ("C-M-}" . enlarge-window-horizontally)
-   ("C-M-^" . enlarge-window)))
+  :general
+  ("C-x O" 'prev-window
+   "C-x w" 'kill-this-buffer
+   "C-S-o" 'toggle-maximize-buffer
+   "C-x M-k" 'kill-this-buffer
+   "C-x K" 'kill-this-buffer
+   "C-M-{" 'shrink-window-horizontally
+   "C-M-}" 'enlarge-window-horizontally
+   "C-M-^" 'enlarge-window))
 
 (use-package ace-window
   :straight t
@@ -71,8 +72,8 @@
 	  (?? aw-show-dispatch-help))
 	"List of actions for `aw-dispatch-default'.")
   ;; UNSAFE (Enrich text)
-  :bind
-  (("M-o" . ace-window))
+  :general
+  ("M-o" 'ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (set-face-attribute 'aw-leading-char-face nil

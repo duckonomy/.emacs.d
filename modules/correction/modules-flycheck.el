@@ -8,10 +8,10 @@
 ;; ;;Syntax checking for different languages
 ;; (use-package flycheck
 ;;   :straight t
-;;   :bind
-;;   (:map flycheck-mode-map
-;;		  ("M-n" . flycheck-next-error)
-;;		  ("M-p". flycheck-prev-error))
+;;   :general
+;;   (:keymaps flycheck-mode-map
+;;		  "M-n" 'flycheck-next-error
+;;		  "M-p" 'flycheck-prev-error)
 ;;   :init
 ;;   (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;   (with-eval-after-load 'flycheck
@@ -112,14 +112,16 @@
     ("s" flycheck-select-checker "Select Checker")
     ("x" flycheck-disable-checker "Disable Checker"))
 
-  (general-define-key
-   :keymaps 'flycheck-mode-map
-   "C-c !" 'hydra-flycheck/body)
+  ;; (general-define-key
+  ;;  :keymaps 'flycheck-mode-map
+  ;;  "C-c !" 'hydra-flycheck/body)
 
-  :bind
-  (:map flycheck-mode-map
-		("M-n" . flycheck-next-error)
-		("M-p". flycheck-previous-error))
+
+  :general
+  (:keymaps 'flycheck-mode-map
+	    "M-n" 'flycheck-next-error
+	    "M-p" 'flycheck-previous-error
+	    "C-c !" 'hydra-flycheck/body)
   :init
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   (with-eval-after-load 'flycheck

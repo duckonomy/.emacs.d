@@ -1,4 +1,5 @@
 (use-package autorevert
+  :straight (:type built-in)
   :init
   (global-auto-revert-mode 1)
   ;; (add-hook 'dired-mode-hook auto-revert-mode)

@@ -45,12 +45,13 @@
     (interactive)
     (elfeed-db-save)
     (quit-window))
-  :bind ((:map elfeed-search-mode-map
-	       ("A" . bjm/elfeed-show-all)
-	       ("E" . bjm/elfeed-show-emacs)
-	       ("D" . bjm/elfeed-show-daily)
-	       ("/" . bjm/elfeed-search-live-filter-space)
-	       ("q" . bjm/elfeed-save-db-and-bury)))
+  :general
+  (:keymaps 'elfeed-search-mode-map
+	    "A" 'bjm/elfeed-show-all
+	    "E" 'bjm/elfeed-show-emacs
+	    "D" 'bjm/elfeed-show-daily
+	    "/" 'bjm/elfeed-search-live-filter-space
+	    "q" 'bjm/elfeed-save-db-and-bury)
   :config
   (defun bjm/elfeed-star ()
     "Apply starred to all selected entries."

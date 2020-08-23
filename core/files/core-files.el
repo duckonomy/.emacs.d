@@ -1,4 +1,5 @@
 (use-package files
+  :straight (:type built-in)
   :config
   (setq make-backup-files nil)
   (setq auto-save-default nil)

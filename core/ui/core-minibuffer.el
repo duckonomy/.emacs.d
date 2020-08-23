@@ -1,4 +1,5 @@
 (use-package minibuffer
+  :straight (:type built-in)
   :config
   (setq read-file-name-completion-ignore-case t)
   (setq read-buffer-completion-ignore-case t)
@@ -14,7 +15,6 @@
 	  ".class" ".exe" ".ps"
 	  ".abs" ".mx" ".~jv" ".rbc"
 	  ".pyc" ".beam" ".aux" ".out"
-	  ".pdf" ".hbc"))
-  )
+	  ".pdf" ".hbc")))
 
 (provide 'core-minibuffer)

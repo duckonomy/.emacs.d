@@ -188,9 +188,14 @@
 
    `(minibuffer-prompt ((,class (:foreground ,berrys02 :weight bold))))
    ;; `(mode-line ((,class (:foreground ,berrys02 :background "#fafafa" :box (:line-width 16 :color "#FAFAFA")))))
-   `(mode-line ((,class (:foreground ,berrys02 :background "#f7f7f7" :box (:line-width 16 :color "#f7f7f7")))))
+   ;; `(mode-line ((,class (:foreground ,berrys02 :background "#f7f7f7" :box (:line-width 16 :color "#f7f7f7")))))
+   `(mode-line ((,class (:foreground ,berrys02 :background "#f7f7f7"))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-highlight ((,class (:inherit highlight))))
+   ;; `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:color ,berrys04)))))
+   ;; `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:line-width 16 :color ,berrys01)))))
+   `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01))))
+   `(mode-line-emphasis ((,class (:weight bold :foreground, berrys05))))
 
    `(lui-time-stamp-face ((,class (:foreground "#A7A7A7"))))
    `(lui-highlight-face ((,class (:foreground "#CDCDCD"))))
@@ -213,11 +218,6 @@
    `(elfeed-search-filter-face   ((,class (:foreground "#AAAAAA"))))
    `(elfeed-search-unread-count-face ((,class (:foreground ,"#BEBEBE"))))
    `(elfeed-search-unread-title-face ((,class (:foreground ,berrys02 :weight bold)))) ;; 02
-
-   ;; `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:color ,berrys04)))))
-
-   `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:line-width 16 :color ,berrys01)))))
-   `(mode-line-emphasis ((,class (:weight bold :foreground, berrys05))))
 
    `(tab-bar ((,class (:inherit fixed-pitch :background "#FDFDFD" :foreground "#555555" :height 1.15))))
    `(tab-bar-tab ((,class (:inherit tab-bar :box (:line-width (15 . 15) :color "#FDFDFD")))))

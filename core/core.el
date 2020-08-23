@@ -35,7 +35,6 @@
 (require 'core-custom-file)
 (require 'core-dired)
 (require 'core-ediff)
-(require 'core-epa-file)
 (require 'core-files)
 (require 'core-history)
 (require 'core-recentf)

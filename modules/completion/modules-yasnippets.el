@@ -20,9 +20,9 @@
 ;; ;;	  (append (if (consp backend) backend (list backend))
 ;; ;;		  '(:with company-yasnippet))))
 ;; ;;   :requires company
-;; ;;   :bind
-;; ;;   (:map yas-minor-mode-map
-;; ;;			  ("C-c k" . yas-expand))
+;; ;;   :general
+;; ;;   (:keymaps yas-minor-mode-map
+;; ;;			  "C-c k" 'yas-expand)
 ;; ;;   :config
 ;; ;;   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 ;; ;; (defun mars/company-backend-with-yas (backends)

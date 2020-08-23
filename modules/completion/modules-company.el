@@ -1,8 +1,8 @@
 ;; (use-package company
 ;;   :straight t
 ;;   ;;Special Case in python to shift to the left use C-C <
-;;   :bind
-;;   ("TAB" . company-indent-or-complete-common)
+;;   :general
+;;   ("TAB" 'company-indent-or-complete-common)
 ;;   :init
 ;;   (add-hook 'after-init-hook 'global-company-mode)
 ;;   :config
@@ -42,16 +42,16 @@
 ;; ;;   (setq company-tooltip-align-annotations t)
 ;; ;;   ;; weight by frequency
 ;; ;;   (company-transformers '(company-sort-by-occurrence))
-;; ;;   :bind
-;; ;;   (:map company-active-map
-;; ;;	  ("M-n" . nil)
-;; ;;	  ("M-p". nil)
-;; ;;	  ("C-n" . company-select-next)
-;; ;;	  ("C-p" . company-select-previous)
-;; ;;	  ("TAB" . company-complete-common-or-cycle)
-;; ;;	  ("<tab>" . company-complete-common-or-cycle)
-;; ;;	  ("S-TAB" . company-select-previous)
-;; ;;	  ("<backtab>" . company-select-previous)))
+;; ;;   :general
+;; ;;   (:keymaps company-active-map
+;; ;;	  "M-n" 'nil
+;; ;;	  "M-p"'nil
+;; ;;	  "C-n" 'company-select-next
+;; ;;	  "C-p" 'company-select-previous
+;; ;;	  "TAB" 'company-complete-common-or-cycle
+;; ;;	  "<tab>" 'company-complete-common-or-cycle
+;; ;;	  "S-TAB" 'company-select-previous
+;; ;;	  "<backtab>" 'company-select-previous))
 
 
 ;; ; (use-package company-posframe

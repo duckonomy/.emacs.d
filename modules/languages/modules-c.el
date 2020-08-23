@@ -19,12 +19,14 @@
 ;; ;;	 (lambda () (require 'ccls) (lsp))))
 
 ;; ;; (use-package find-file
+
+;;      :straight (:type built-in)
 ;; ;;   :straight nil
 ;; ;;   ;; UNSAFE (And don't know what this does)
 ;; ;;   ;; (bind-key* "C-M-o" 'ff-find-other-file)
 ;; ;;   ;; UNSAFE (And don't know what this does)
-;; ;;   :bind
-;; ;;   ("C-c o" . ff-find-other-file))
+;; ;;   :general
+;; ;;   ("C-c o" 'ff-find-other-file))
 
 ;; ;; ; (use-package modern-cpp-font-lock
 ;; ;; ;   :straight t

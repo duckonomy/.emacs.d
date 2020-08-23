@@ -23,10 +23,10 @@
 		  (pdf-view-previous-line-or-previous-page 2)
 		  (other-window 1)))
 	(scroll-other-window-down 2))))
-  :bind
-  ("C-M-S-v" . my/scroll-other-window-down)
-  ("C-M-v" . my/scroll-other-window)
-  ("C-x C-g" . pdf-sync-forward-search)
+  :general
+  ("C-M-S-v" 'my/scroll-other-window-down
+   "C-M-v" 'my/scroll-other-window
+   "C-x C-g" 'pdf-sync-forward-search)
   :config
   (setq mouse-wheel-follow-mouse t)
   (setq pdf-view-resize-factor 1.10)
