@@ -1,5 +1,5 @@
 (use-package rainbow-identifiers
-  :ensure t
+  :straight t
   :hook
   (prog-mode . rainbow-identifiers-mode))
 

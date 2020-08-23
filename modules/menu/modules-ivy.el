@@ -1,5 +1,5 @@
 (use-package ivy
-  :ensure t
+  :straight t
   :diminish (ivy-mode . "") ; does not display ivy in the modeline
   :preface
   (defun my-ivy-switch-buffer (regex-list)
@@ -33,7 +33,7 @@
    ("<C-m>" . ivy-done)))
 
 (use-package ivy-posframe
-  :ensure t
+  :straight t
   :init
   (ivy-posframe-mode 1)
   :config
@@ -43,9 +43,9 @@
 	 (right-fringe . 10)))
   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
-; (use-package ivy-xref
-;   :ensure t
-;   :config
-;   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
+;; (use-package ivy-xref
+;;  :straight t
+;;   :config
+;;   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
 (provide 'modules-ivy)

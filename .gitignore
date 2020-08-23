@@ -9,7 +9,10 @@ places
 tramp
 smex-items
 secrets/*
+lib/*
 image-dired/*
+backup/*
+straight/*
 elpa/*
 snippets/*
 transient/*

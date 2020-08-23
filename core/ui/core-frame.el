@@ -1,11 +1,10 @@
 (use-package frame
-  :ensure nil
   :bind
   ("C-z" . nil)
   :config
   (setq frame-title-format
-   '(buffer-file-name "%f"
-					  (dired-directory dired-directory "%b")))
+	'(buffer-file-name "%f"
+			   (dired-directory dired-directory "%b")))
   (setq window-divider-default-places t)
   (setq window-divider-default-bottom-width 0)
   (setq window-divider-default-right-width 1)

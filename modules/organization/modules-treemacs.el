@@ -1,9 +1,8 @@
 (use-package treemacs
-  :ensure t
-  :defer t
+  :straight t
   :config
   (progn
-	(setq-default treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+    (setq-default treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
 		  treemacs-deferred-git-apply-delay      0.5
 		  treemacs-directory-name-transformer    #'identity
 		  treemacs-display-in-side-window        t
@@ -40,19 +39,19 @@
 		  treemacs-tag-follow-delay              1.5
 		  treemacs-width                         35)
 
-	;; The default width and height of the icons is 22 pixels. If you are
-	;; using a Hi-DPI display, uncomment this to double the icon size.
-	;;(treemacs-resize-icons 44)
+    ;; The default width and height of the icons is 22 pixels. If you are
+    ;; using a Hi-DPI display, uncomment this to double the icon size.
+    ;;(treemacs-resize-icons 44)
 
-	(treemacs-follow-mode t)
-	(treemacs-filewatch-mode t)
-	(treemacs-fringe-indicator-mode t)
-	(pcase (cons (not (null (executable-find "git")))
-				 (not (null treemacs-python-executable)))
-	  (`(t . t)
-	   (treemacs-git-mode 'deferred))
-	  (`(t . _)
-	   (treemacs-git-mode 'simple))))
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+		 (not (null treemacs-python-executable)))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
   :bind
   ;; UNSAFE
   ("M-0"       . treemacs-select-window)
@@ -64,20 +63,20 @@
 
 (use-package treemacs-evil
   :after treemacs evil
-  :ensure t)
+  :straight t)
 
 (use-package treemacs-projectile
   :after treemacs projectile
-  :ensure t)
+  :straight t)
 
 (use-package treemacs-icons-dired
   :after treemacs dired
-  :ensure t
+  :straight t
   :config
   (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
   :after treemacs magit
-  :ensure t)
+  :straight t)
 
 (provide 'modules-treemacs)

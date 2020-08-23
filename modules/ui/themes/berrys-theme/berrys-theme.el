@@ -192,6 +192,28 @@
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-highlight ((,class (:inherit highlight))))
 
+   `(lui-time-stamp-face ((,class (:foreground "#A7A7A7"))))
+   `(lui-highlight-face ((,class (:foreground "#CDCDCD"))))
+   `(lui-button-face ((,class (:foreground "#9B9FB8" :underline t))))
+
+   `(circe-fool ((,class (:foreground ,berrys03))))
+   `(circe-highlight-nick-face ((,class (:weight bold :foreground "#696969"))))
+   `(circe-prompt-face ((,class (:weight bold :foreground "#CDCDCD" :background ,berrys01))))
+   `(circe-server-face ((,class (:foreground ,berrys03))))
+   `(circe-my-message-face ((,class (:weight bold))))
+
+   `(elfeed-log-debug-level-face ((,class (:foreground ,berrys03))))
+   `(elfeed-log-error-level-face ((,class (:foreground ,berrys10))))
+   `(elfeed-log-info-level-face  ((,class (:foreground "#A7A7A7"))))
+   `(elfeed-log-warn-level-face  ((,class (:foreground ,berrys09))))
+   `(elfeed-search-date-face     ((,class (:foreground "#BBBBBB"))))
+   `(elfeed-search-feed-face     ((,class (:foreground ,"#666666" :slant italic))))
+   `(elfeed-search-tag-face      ((,class (:foreground ,berrys03))))
+   `(elfeed-search-title-face    ((,class (:foreground ,berrys03))))
+   `(elfeed-search-filter-face   ((,class (:foreground "#AAAAAA"))))
+   `(elfeed-search-unread-count-face ((,class (:foreground ,"#BEBEBE"))))
+   `(elfeed-search-unread-title-face ((,class (:foreground ,berrys02 :weight bold)))) ;; 02
+
    ;; `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:color ,berrys04)))))
 
    `(mode-line-inactive ((,class (:foreground ,berrys02 :background ,berrys01 :box (:line-width 16 :color ,berrys01)))))
@@ -487,7 +509,7 @@
    `(org-sexp-date ((,class (:foreground ,berrys-string :slant italic))))
    `(org-special-keyword ((,class (:foreground ,berrys-string))))
    `(org-table ((,class (:foreground ,berrys02 :inherit 'fixed-pitch))))
-   `(org-tag ((,class(:inherit org-level-1 :foreground ,berrys05))))
+   `(org-tag ((,class(:foreground ,berrys05))))
    `(org-time-grid ((,class (:foreground ,berrys-string :slant italic))))
    `(org-todo ((,class (:height 1.0 :foreground ,berrys10))))
    `(org-upcoming-deadline ((,class (:foreground ,berrys09 :slant italic))))

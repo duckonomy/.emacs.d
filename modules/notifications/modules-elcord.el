@@ -1,5 +1,5 @@
 (use-package elcord
-  :ensure t
+  :straight t
   :config
   (elcord-mode))
 

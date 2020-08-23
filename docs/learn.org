@@ -1,6 +1,53 @@
-* https://github.com/owl4ce/dotfiles implement notifications for volume change and brightness
+* Emacs ECP
+* Twittering mode
+* Emacs Tree Sitter
+ - https://ubolonton.github.io/emacs-tree-sitter/installation/
+* Ivy TaskRunner
+* https://www.reddit.com/r/emacs/comments/8ml6na/tip_how_to_make_erc_fun_to_use/ - this has better config lol
+* DONE Hydra & General.el & Which-key
+** Hydra
+ - Keybinding specific for Major Mode Key
+   1) All keybindings pertaining to that major mode
+      - Org-Mode/Flyspell-dictionary
+      - Prog-Modes/Flycheck
+   2) https://github.com/jerrypnz/major-mode-hydra.el
+ - Keybindings for _interactive modes_
+   - Major Modes/LSP/Flycheck/Flyspell
+   - Editing
+     - Avy
+     - Transpose/Translate
+   - Windows
+   - Movement
+   - Zoom
+   - Dired
+   - IBuffer
+   - Workspaces
+   - Flycheck
+   - PDF tools
+   - Music
+   - Numbers
+** General & Which-key
+ - Keybindings launching a mode or command immediately on invocation
+   - Projectile
+   - Compile
+   - Counsel
+   - Searching
+   - Help/Info
+   - Calculator/Calendar
+   - Themes
+   - Inserting
+   - Org-Roam/Capture/Agenda
+   - Launch
+** Hercules
+
+* DONE https://github.com/owl4ce/dotfiles implement notifications for volume change and brightness
 * https://dev.to/jfhbrook/multi-file-org-babel-tangles-with-include-directives-5522
 * TODO Magit/VC Mode/Git Gutter
+* https://github.com/cyrus-and/zoom and/or https://www.reddit.com/r/emacs/comments/idgaq1/golden_ratio_mode_is_already_incredible/
+* Pretty
+https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/
+** http://www.modernemacs.com/
+* https://github.com/domtronn/all-the-icons.el
 * TODO IBuffer
 * TODO Elisp/IELM/ByteComp
 * TODO EasyPG
@@ -8,7 +55,14 @@
 * TODO Xref
 * TODO Imenu + Outline Minor mode for code folding
 * TODO Calc
+* Outline-Mode
+** Outline mode faces
+*** https://www.modernemacs.com/post/outline-ivy/
+* BBDB
 * TODO Calendar
+** Calfw
+** Calfw-org
+** Org-gcal
 * TODO Circe/Erc
 * TODO Ivy/Counsel/Ido/Smex/Swiper/Helm/Occur
 * TODO Isearch/Query Replace
@@ -17,6 +71,7 @@
 * TODO Letter Case
 * TODO Commenting (dwim)
 * TODO Help Mode/Info Mode
+* TODO GTD
 * TODO Prefix Keys
 ** TODO C-u
 * TODO IEdit/Rectangle/Multiple Cursor/Mark Multiple/Selection(also delsel)
@@ -31,6 +86,8 @@
 ** TODO  Org-capture
 ** TODO  Org-journal
 ** TODO  Org
+** TODO Org-alert
+** DONE Org insert TODOS
 * TODO Eshell
 * Vterm/vterm-toggle
 * TODO Ediff
@@ -50,7 +107,7 @@
 *** TODO Hippie expand
 * TODO Frame/Buffer
 * TODO Wrapping/Fill-paragraph/Fill-column/Visal line mode
-* TODO Ace Window
+* TODO Ace Window - https://github.com/roman/golden-ratio.el
 * TODO Evil
 ** Vim Macros
 ** Vim Leader
@@ -77,6 +134,10 @@
 ** TODO LaTeX
 *** AuCTeX
 *** BibLaTeX
+*** Biblio
+* Prodigy
+* Colors
+ - https://github.com/hlissner/doom-emacs/tree/develop/modules/tools/rgb
 * TODO Volatile Highlights
 * TODO Google Translate
 * TODO Eyebrowse/Persp/Perspective/Tab-bar-mode
@@ -89,7 +150,8 @@
 * TODO Whitespace
 * TODO Semantic mode
 * Formatting https://github.com/lassik/emacs-format-all-the-code
-* Reduce files  https://github.com/emacscollective/no-littering
+* Clean .emacs.d directory/Reduce files  https://github.com/emacscollective/no-littering
+ - https://www.manueluberti.eu/emacs/2017/06/17/nolittering/
 * Beacon
 * Display Time Mode
 * Winner mode
@@ -103,3 +165,5 @@
 ** https://ec.haxx.se/cmdline/cmdline-globbing
 ** Radare2
 *** https://gist.github.com/williballenthin/6857590dab3e2a6559d7
+* Direnv
+ - https://direnv.net/

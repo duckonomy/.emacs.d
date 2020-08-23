@@ -1,4 +1,5 @@
 (use-package ledger-mode
-  :ensure t)
+  :straight t)
+
 
 (provide 'modules-ledger)

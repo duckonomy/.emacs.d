@@ -1,5 +1,5 @@
 ;; (use-package flycheck-pos-tip
-;;   :ensure t
+;;   :straight t
 ;;   :config
 ;;   (flycheck-pos-tip-mode t)
 ;;   (setq-default pos-tip-background-color "#ffffff")
@@ -7,7 +7,7 @@
 
 ;; ;;Syntax checking for different languages
 ;; (use-package flycheck
-;;   :ensure t
+;;   :straight t
 ;;   :bind
 ;;   (:map flycheck-mode-map
 ;;		  ("M-n" . flycheck-next-error)
@@ -59,7 +59,7 @@
 
 
 ;; ;; (use-package flycheck
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :diminish ""
 ;; ;;   :commands
 ;; ;;   (global-flycheck-mode)
@@ -71,32 +71,57 @@
 
 
 ;; ;; (use-package flycheck-pos-tip
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :init
 ;; ;;   (with-eval-after-load 'flycheck
 ;; ;;	(flycheck-pos-tip-mode)))
 
 
-;;										; (use-package flycheck-inline
-;;										;   :ensure t
-;;										;   :init
-;;										;   (with-eval-after-load 'flycheck
-;;										;     (global-flycheck-inline-mode)))
+;;; (use-package flycheck-inline
+;;;   :straight t
+;;;   :init
+;;;   (with-eval-after-load 'flycheck
+;;;     (global-flycheck-inline-mode)))
 
 (use-package flycheck-pos-tip
-  :ensure t
+  :straight t
   :config
   (flycheck-pos-tip-mode t))
 
 ;;Syntax checking for different languages
 (use-package flycheck
-  :ensure t
+  :straight t
+  :hook (prog-mode . flycheck-mode)
+  :config
+  (defhydra hydra-flycheck (:color "#1098F7")
+    "Flycheck"
+    ("m" flycheck-compile "Compile")
+    ("w" flycheck-copy-errors-as-kill "Copy Error as Kill")
+    ("?" flycheck-describe-checker "Describe Checker")
+    ("c" flycheck-buffer "Buffer")
+    ("C" flycheck-clear "Clear")
+    ("v" flycheck-verify-setup "Verify Setup")
+    ("V" flycheck-version "Version")
+    ("h" flycheck-display-error-at-point "Display Error")
+    ("H" display-local-help "Help")
+    ("e" flycheck-explain-error-at-point "Explain Error")
+    ("i" flycheck-manual "Manual")
+    ("l" flycheck-list-errors "List Errors")
+    ("n" flycheck-next-error "Next Error")
+    ("p" flycheck-previous-error "Previous Error")
+    ("s" flycheck-select-checker "Select Checker")
+    ("x" flycheck-disable-checker "Disable Checker"))
+
+  (general-define-key
+   :keymaps 'flycheck-mode-map
+   "C-c !" 'hydra-flycheck/body)
+
   :bind
   (:map flycheck-mode-map
 		("M-n" . flycheck-next-error)
 		("M-p". flycheck-previous-error))
   :init
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   (with-eval-after-load 'flycheck
 	(flycheck-pos-tip-mode))
   (setq flycheck-check-syntax-automatically '(mode-enabled save))

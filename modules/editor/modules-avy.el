@@ -1,5 +1,5 @@
 (use-package avy
-  :ensure t
+  :straight t
   :bind
   ("C-:" . avy-goto-char)
   ("M-g i" . avy-goto-char)

@@ -1,10 +1,10 @@
 (use-package rust-mode
-  :ensure t
+  :straight t
   :hook
   (rust-mode . (lambda () (setq indent-tabs-mode nil))))
 
 ;; (use-package flycheck-rust
-;;   :ensure t
+;;   :straight t
 ;;   :hook
 ;;   (rust-mode . flycheck-rust-setup))
 

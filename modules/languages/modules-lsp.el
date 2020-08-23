@@ -1,5 +1,5 @@
 ;; (use-package lsp-mode
-;;   :ensure t
+;;   :straight t
 ;;   :commands
 ;;   lsp
 ;;   :hook
@@ -23,7 +23,7 @@
 ;; (use-package lsp-ui
 ;;   :commands
 ;;   lsp-ui-mode
-;;   :ensure t
+;;   :straight t
 ;;   :bind
 ;;   (:map lsp-ui-mode-map
 ;;	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
@@ -49,21 +49,21 @@
 ;; ;;   (setq lsp-enable-file-watchers nil))
 
 ;; ;; (use-package lsp-ivy
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :commands
 ;; ;;   lsp-ivy-workspace-symbol)
 
 ;; ;; (use-package lsp-treemacs
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :commands
 ;; ;;   lsp-treemacs-errors-list)
 
 ;; ;; (use-package dap-mode
-;; ;;   :ensure t)
+;; ;;   :straight t)
 
 ;; ;; optionally
 ;; ;; (use-package lsp-ui
-;; ;; :ensure t
+;; ;; :straight t
 ;; ;; :commands
 ;; ;; lsp-ui-mode)
 ;; ;; (use-package helm-lsp
@@ -71,7 +71,7 @@
 ;; ;; helm-lsp-workspace-symbol)
 
 ;; ;; (use-package lsp-treemacs
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :commands
 ;; ;;   lsp-treemacs-errors-list) ;; on --
 
@@ -84,7 +84,7 @@
 ;; ; (use-package lsp-mode
 ;; ;   ;; :commands
 ;; ;   ;; lsp
-;; ;   :ensure t
+;; ;   :straight t
 ;; ;   :hook
 ;; ;   ((prog-major-mode . lsp-prog-major-mode-enable)
 ;; ;     (lsp-after-open-hook . lsp-enable-imenu)
@@ -108,7 +108,7 @@
 ;; ; (use-package lsp-ui
 ;; ;   ;; :commands
 ;; ;   ;; lsp-ui-mode
-;; ;   :ensure t
+;; ;   :straight t
 ;; ;   :hook
 ;; ;   (lsp-mode . lsp-ui-mode)
 ;; ;   :config
@@ -119,15 +119,15 @@
 ;; ;   (lsp-ui-sideline-update-mode 'point))
 
 ;; ;; (use-package eglot
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :config
-;; ;;   (add-hook 'prog-mode-hook 'eglot-ensure))
+;; ;;   (add-hook 'prog-mode-hook 'eglot-straight))
 
 ;; ;; Deprecated
 ;; ; (use-package company-lsp
 ;; ;   :commands
 ;; ;   company-lsp
-;; ;   :ensure t
+;; ;   :straight t
 ;; ;   :config
 ;; ;   (setq company-lsp-enable-recompletion t)
 ;; ;   (setq company-transformers nil)
@@ -137,7 +137,7 @@
 ;; ;                'company-lsp))
 
 (use-package lsp-mode
-  :ensure t
+  :straight t
   :commands
   lsp
   :hook
@@ -157,22 +157,22 @@
   (with-eval-after-load 'lsp-mode
 	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)))
 
-(use-package lsp-ui
-  :commands
-  lsp-ui-mode
-  :ensure t
-  :bind
-  (:map lsp-ui-mode-map
-	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-	([remap xref-find-references] . lsp-ui-peek-find-references))
-  :init
-  (setq lsp-ui-sideline-enable t
-	lsp-ui-doc-use-webkit t
-		lsp-ui-doc-enable t
-		lsp-prefer-flymake :none
-		lsp-ui-imenu-enable t))
+;; (use-package lsp-ui
+;;   :commands
+;;   lsp-ui-mode
+;;   :straight t
+;;   :bind
+;;   (:map lsp-ui-mode-map
+;;	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+;;	([remap xref-find-references] . lsp-ui-peek-find-references))
+;;   :init
+;;   (setq lsp-ui-sideline-enable t
+;;	lsp-ui-doc-use-webkit t
+;;		lsp-ui-doc-enable t
+;;		lsp-prefer-flymake :none
+;;		lsp-ui-imenu-enable t))
 
-(with-eval-after-load 'lsp-ui-mode
-  (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
+;; (with-eval-after-load 'lsp-ui-mode
+;;   (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
 
 (provide 'modules-lsp)

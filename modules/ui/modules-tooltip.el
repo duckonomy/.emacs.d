@@ -1,5 +1,5 @@
 (use-package pos-tip
-  :ensure t
+  :straight t
   :config
   (setq pos-tip-internal-border-width 6)
   (setq pos-tip-border-width 1)

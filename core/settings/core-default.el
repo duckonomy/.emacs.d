@@ -8,6 +8,7 @@
   (setq confirm-kill-emacs nil)
   (fset 'yes-or-no-p 'y-or-n-p)
   (put 'narrow-to-region 'disabled nil)
-  (put 'downcase-region 'disabled nil))
+  (put 'downcase-region 'disabled nil)
+  )
 
 (provide 'core-default)

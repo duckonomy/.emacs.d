@@ -1,8 +1,12 @@
 (use-package magit
-  :ensure t)
+  :straight t)
+
+(use-package forge
+  :straight t
+  :after magit)
 
 (use-package git-gutter
-  :ensure t
+  :straight t
   :hook
   (prog-mode . git-gutter-mode))
 

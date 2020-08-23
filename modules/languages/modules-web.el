@@ -1,15 +1,15 @@
 ;; No need for Emacs 27 >
 ; (use-package web-mode
-;   :ensure t)
+;   :straight t)
 
 (use-package rainbow-mode
-  :ensure t
+  :straight t
   :hook
   ((css-mode html-mode sass-mode) . rainbow-mode))
 
 ; Make work with tab
 (use-package emmet-mode
-  :ensure t
+  :straight t
   :config
   (setq emmet-expand-jsx-className? t)
   (setq emmet-self-closing-tag-style " /")

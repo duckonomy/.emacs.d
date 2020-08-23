@@ -1,5 +1,5 @@
 ;; (use-package centaur-tabs
-;;   :ensure t
+;;   :straight t
 ;;   ;; :load-path
 ;;   ;; "~/.config/emacs/tabs"
 ;;   :config

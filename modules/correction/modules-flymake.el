@@ -6,7 +6,7 @@
 
 (use-package flymake-diagnostic-at-point
   :disabled
-  :ensure t
+  :straight t
   :after flymake
   :config
   (setq flymake-diagnostic-at-point-timer-delay 0.1)
@@ -17,12 +17,11 @@
   (flymake-mode . flymake-diagnostic-at-point-mode))
 
 ;; (use-package posframe
-;;   :ensure t
+;;   :straight t
 ;; )
 
 ;; (use-package flymake-posframe
 ;;   :disabled
-;;   :defer t
 ;;   :load-path
 ;;   "~/.config/emacs/lib/flymake-posframe"
 ;;   :hook

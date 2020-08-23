@@ -1,13 +1,13 @@
 ;; (use-package yasnippet
-;;   :ensure t
+;;   :straight t
 ;;   :init
 ;;   (yas-global-mode 1))
 
 ;; (use-package yasnippet-snippets
-;;   :ensure t)
+;;   :straight t)
 
 ;; ;; (use-package yasnippet
-;; ;;   :ensure t
+;; ;;   :straight t
 ;; ;;   :hook
 ;; ;;   (prog-mode . yas-minor-mode-on)
 ;; ;;   :preface
@@ -42,14 +42,14 @@
 ;; ;;   )
 
 ;; ;; (use-package yasnippet-snippets
-;; ;;   :ensure t)
+;; ;;   :straight t)
 
 (use-package yasnippet
-  :ensure t
+  :straight t
   :init
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets
-  :ensure t)
+  :straight t)
 
 (provide 'modules-yasnippets)

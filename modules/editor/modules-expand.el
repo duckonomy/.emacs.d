@@ -1,11 +1,10 @@
 (use-package expand-region
-  :ensure t
+  :straight t
   :bind
   ("C-\\" . er/expand-region)
   ("C-|" . er/contract-region))
 
-(use-package  hippie-exp
-  :ensure nil
+(use-package  hippie-expand
   :bind
   ("C-M-|" . hippie-expand))
 

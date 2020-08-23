@@ -30,6 +30,7 @@
 (require 'modules-avy)
 (require 'modules-delimiters)
 (require 'modules-evil)
+;; (require 'modules-modal)
 (require 'modules-expand)
 (require 'modules-hl-todo)
 (require 'modules-hydra)
@@ -40,6 +41,7 @@
 
 ;; Languages
 (require 'modules-lsp)
+(require 'modules-tree-sitter)
 (require 'modules-c)
 (require 'modules-go)
 (require 'modules-js)
@@ -52,14 +54,17 @@
 
 ;; Applications
 (require 'modules-ledger)
+(require 'modules-elfeed)
 (require 'modules-notmuch)
 (require 'modules-pdf-tools)
+(require 'modules-irc)
 ;; (require 'modules-esv)
 
 ;; Menu
 (require 'modules-counsel)
 (require 'modules-ivy)
 (require 'modules-swiper)
+(require 'modules-imenu)
 ;; (require 'modules-fzf)
 
 ;; Notifications
@@ -82,6 +87,7 @@
 (require 'modules-modeline)
 (require 'modules-theme)
 (require 'modules-tooltip)
+;; (require 'modules-beacon)
 ;; (require 'modules-icons)
 ;; (require 'modules-rainbow-identifier)
 

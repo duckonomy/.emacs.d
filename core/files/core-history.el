@@ -3,10 +3,10 @@
   :init
   (savehist-mode)
   :config
-  (progn
-	(savehist-mode t)
-	(setq savehist-additional-variables '(search ring regexp-search-ring)
-		  savehist-autosave-interval 60
-		  savehist-save-minibuffer-history t)))
+  (savehist-mode t)
+  (setq savehist-additional-variables '(search ring regexp-search-ring)
+	savehist-autosave-interval 60
+	savehist-save-minibuffer-history t)
+  )
 
 (provide 'core-history)

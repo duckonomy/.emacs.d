@@ -1,5 +1,5 @@
 (use-package writeroom-mode
-  :ensure t
+  :straight t
   :config
   (with-eval-after-load 'writeroom-mode
     (define-key writeroom-mode-map (kbd "C-M-<") #'writeroom-decrease-width)

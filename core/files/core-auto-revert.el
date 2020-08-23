@@ -1,12 +1,12 @@
 (use-package autorevert
-  :ensure nil
   :init
   (global-auto-revert-mode 1)
-  :hook
-  (dired-mode . auto-revert-mode)
-  :config
-  (setq auto-revert-verbose nil)
-  (setq auto-revert-avoid-polling t)
+  ;; (add-hook 'dired-mode-hook auto-revert-mode)
+  ;; :hook
+  ;; (dired-mode . auto-revert-mode)
+  ;; :config
+  ;; (setq auto-revert-verbose nil)
+  ;; (setq auto-revert-avoid-polling t)
   )
 
 ;; (setq auto-save-timeout 99999)

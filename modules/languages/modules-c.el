@@ -1,6 +1,5 @@
 ;; (use-package ccls
-;;   :ensure t
-;;   :defer t
+;;   :straight t
 ;;   :hook
 ;;   ((c-mode c++-mode objc-mode) .
 ;;    (lambda () (require 'ccls) (lsp)))
@@ -20,7 +19,7 @@
 ;; ;;	 (lambda () (require 'ccls) (lsp))))
 
 ;; ;; (use-package find-file
-;; ;;   :ensure nil
+;; ;;   :straight nil
 ;; ;;   ;; UNSAFE (And don't know what this does)
 ;; ;;   ;; (bind-key* "C-M-o" 'ff-find-other-file)
 ;; ;;   ;; UNSAFE (And don't know what this does)
@@ -28,12 +27,12 @@
 ;; ;;   ("C-c o" . ff-find-other-file))
 
 ;; ;; ; (use-package modern-cpp-font-lock
-;; ;; ;   :ensure t
+;; ;; ;   :straight t
 ;; ;; ;   :init
 ;; ;; ;   (modern-c++-font-lock-global-mode t))
 
 ;; ;; ; (use-package font-lock
-;; ;; ;   :ensure nil
+;; ;; ;   :straight nil
 ;; ;; ;   :config
 ;; ;; ;   (font-lock-add-keywords 'c-mode
 ;; ;; ;                           '(("\\(\\w+\\)\\s-*\("
@@ -41,8 +40,7 @@
 ;; ;; ;                           t))
 
 (use-package ccls
-  :ensure t
-  :defer t
+  :straight t
   :hook
   ((c-mode c++-mode objc-mode) .
    (lambda () (require 'ccls) (lsp)))

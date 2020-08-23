@@ -1,5 +1,4 @@
-(use-package saveplace 
-  :ensure nil
+(use-package saveplace
   :init
   (save-place-mode 1))
 

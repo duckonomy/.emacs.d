@@ -1,7 +1,6 @@
 (use-package pdf-tools
-  :ensure t
+  :straight t
   :mode ("\\.pdf\\'" . pdf-tools-install)
-  :defer t
   :preface
   (defun my/scroll-other-window ()
 	"Scroll other window up."

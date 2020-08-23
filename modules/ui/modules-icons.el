@@ -1,5 +1,5 @@
 (use-package all-the-icons
-  :ensure t
+  :straight t
   :config
   (setq inhibit-compacting-font-caches t))
 

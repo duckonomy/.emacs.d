@@ -1,5 +1,5 @@
 (use-package go-mode
-  :ensure t
+  :straight t
   :hook
   (go-mode . lsp-deferred))
 

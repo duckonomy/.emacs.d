@@ -1,6 +1,10 @@
+(use-package winner
+  :straight t
+  :init
+  (winner-mode t)
+  )
+
 (use-package window-management
-  :ensure nil
-  :defer t
   :preface
   (defun prev-window ()
 	"Previous window."
@@ -24,7 +28,7 @@
    ("C-M-^" . enlarge-window)))
 
 (use-package ace-window
-  :ensure t
+  :straight t
   :preface
   (require 'ace-window)
 

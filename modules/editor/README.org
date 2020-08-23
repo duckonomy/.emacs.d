@@ -32,3 +32,18 @@ Have to set up other mc commands (not just set ha ha)
 *Whitespace*
 #+INCLUDE: "~/.config/emacs/modules/editor/modules-whitespace.el" src emacs-lisp
 
+*Hydra*
+
+This mode is for interactive commands that stick around rather than mode launches. Mode launches can be handled with ~which-key~ and ~general.el~. Or maybe in the future ~major-mode-hydra~ for faster indexing.
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-hydra.el" src emacs-lisp
+
+*Which-key*
+
+Helper for launching modes.
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-which-key.el" src emacs-lisp
+
+
+*General*
+
+Helper for binding keys.
+#+INCLUDE: "~/.config/emacs/modules/editor/modules-general.el" src emacs-lisp

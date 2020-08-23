@@ -2,7 +2,23 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("awesome"
+(("elfeed-starred"
+ (location . "+starred")
+ (tags "starred")
+ (handler . elfeed-search-bookmark-handler))
+("elfeed-daily"
+ (location . "+daily")
+ (tags "daily")
+ (handler . elfeed-search-bookmark-handler))
+("elfeed-emacs"
+ (location . "+emacs")
+ (tags "emacs")
+ (handler . elfeed-search-bookmark-handler))
+("elfeed-all"
+ (location . "")
+ (tags)
+ (handler . elfeed-search-bookmark-handler))
+("awesome"
  (filename . "~/.config/awesome/rc.lua")
  (front-context-string . "-- If LuaRocks i")
  (rear-context-string)

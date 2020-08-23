@@ -1,5 +1,5 @@
 (use-package notmuch
-  :ensure t
+  :straight t
   :config
   (setq user-full-name "Ian Park")
   (setq user-mail-address "contact@duckonomy.com")
@@ -11,6 +11,6 @@
 					message-sendmail-envelope-from 'header))
 
 (use-package counsel-notmuch
-  :ensure t)
+  :straight t)
 
 (provide 'modules-notmuch)

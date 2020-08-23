@@ -1,5 +1,5 @@
 (use-package mpdel
-  :ensure t
+  :straight t
 )
 
 (provide 'core-music)

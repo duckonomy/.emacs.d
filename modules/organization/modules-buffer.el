@@ -1,12 +1,12 @@
 ;; (use-package stripe-buffer
-;;   :ensure t
+;;   :straight t
 ;;   :commands
 ;;   stripe-buffer-mode
 ;;   :hook
 ;;   (dired-mode . stripe-buffer-mode))
 
 (use-package bufler
-  :ensure t
+  :straight t
   :config
   (bufler-mode))
 

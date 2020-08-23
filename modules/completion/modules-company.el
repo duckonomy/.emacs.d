@@ -1,5 +1,5 @@
 ;; (use-package company
-;;   :ensure t
+;;   :straight t
 ;;   ;;Special Case in python to shift to the left use C-C <
 ;;   :bind
 ;;   ("TAB" . company-indent-or-complete-common)
@@ -55,36 +55,22 @@
 
 
 ;; ; (use-package company-posframe
-;; ;   :ensure t
+;; ;   :straight t
 ;; ;   :config
 ;; ;   (company-posframe-mode 1))
 
 (use-package company
-  :ensure t
-  ;;Special Case in python to shift to the left use C-C <
-  ;; :bind
-  ;; ("TAB" . company-indent-or-complete-common)
+  :straight t
+  ;; Special Case in python to shift to the left use C-C <
   :hook
   (prog-mode . company-mode)
-  :bind
-  (:map company-active-map
-		("M-n" . nil)
-		("M-p". nil)
-		("C-n" . company-select-next)
-		("C-p" . company-select-previous)
-		("TAB" . company-complete-common-or-cycle)
-		("<tab>" . company-complete-common-or-cycle)
-		("S-TAB" . company-select-previous)
-		("<backtab>" . company-select-previous))
-  ;; :init
-  ;; (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
   (push 'company-files company-backends))
 
 (use-package company-box
-  :ensure t
+  :straight t
   :hook
   (company-mode . company-box-mode))
 

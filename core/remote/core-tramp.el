@@ -1,4 +1,5 @@
 (use-package tramp
+  :straight t
   :preface
   (defun sudo-edit (&optional arg)
 	"Edit currently visited file as ARG root.

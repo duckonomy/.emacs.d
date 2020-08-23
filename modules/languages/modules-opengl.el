@@ -1,7 +1,7 @@
 (use-package company-glsl
-  :ensure t)
+  :straight t)
 
 (use-package glsl-mode
-  :ensure t)
+  :straight t)
 
 (provide 'modules-opengl)

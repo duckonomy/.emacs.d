@@ -1,5 +1,5 @@
 (use-package anzu
-  :ensure t
+  :straight t
   :diminish anzu-mode
   :init
   (global-anzu-mode +1)

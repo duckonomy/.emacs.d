@@ -1,5 +1,5 @@
 ;; (use-package undo-tree
-;;   :ensure t
+;;   :straight t
 ;;   :diminish undo-tree-mode
 ;;   :config
 ;;   (global-undo-tree-mode 1)
@@ -15,7 +15,7 @@
 ;;    ("C-x u" . undo)))
 
 (use-package undo-fu
-  :ensure t
+  :straight t
   :bind
   (("C-/" . undo-fu-only-undo)
    ("C-S-/" . undo-fu-only-redo)

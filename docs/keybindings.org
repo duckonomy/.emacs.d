@@ -2,8 +2,166 @@
 * Philosophy
 Use as much default emacs keybindings as possible and adjust external applications and custom functionality accordingly.
 Use evil-mode and keychords when doing extensive code editing (less so in org mode and other "writing" modes).
-Group each keybinding to it's purpose and make it idiomatic to emacs
-Shouldn't have C-c global keys
+Group each keybinding to it's purpose and make it idiomatic to emacs.
+** ~M-n~, ~M-p~
+ - Never bind these with bind-key in any other mode but Prog-mode because it is used for Compilation, REPL, and MiniBuffer History.
+ - ~Isearch~, ~Eshell~, ~Shell~, ~IELM~
+ - =NOTE= Make ~Ivy~ and ~Company~ do this as well.
+ - I currently have it as ~flycheck-next-error~ and ~flycheck-previous-error~ so only hook ~flycheck-mode~ to ~prog-mode~
+** Replace Keys
+ - Change ~M-=~ (/Count Words/) / ~C-c l~ (/Count Lines/) into ~C-c =~ (/Count Prefix/)
+ - Change ~C-x p~ (project prefix) to Projectile command prefix
+** Prefix Keys for Various Utilities
+These start with ~C-c <alpha>~
+*** Hydra Variants
+ - Zoom
+ - Windows
+ - Workspaces
+ - MPDel
+*** Traditional Prefix Variants
+ - Counsel
+ - Org-roam
+ - Org-agenda
+ - Projectile
+ - Flycheck
+ - Flyspell
+** Editing/Default Keys
+ - Transpose
+ - Jump/Goto
+ - Register
+ - Macros
+ - Digit Keys
+ - Repeat Key (~C-x z~)
+   - =NOTE=: replace this with a single binding
+ - Rectangle/Multi-cursor
+ - Search
+** In-mode keys
+These are keys that are specific to particular Major Modes
+*** Dired
+*** IBuffer
+*** MPDel
+*** EDiff
+*** Magit
+*** Treemacs
+*** Elfeed
+*** Notmuch/Gnus
+*** Circe/Erc
+*** ISearch
+*** Ivy/Counsel
+*** Eshell
+*** IELM
+*** Compile Buffers
+** Language-mode keys
+~C-c c~ variants and ~C-c C-~ variants
+All ~conf/prog modes~ should include a ~C-c c s~ ~sudo-edit~
+*** Elisp
+**** ~C-c c~ Variants
+**** ~C-c C-~ Variants
+ - Org-Todo
+ - Evaluation
+* Globals (https://github.com/Ladicle/hydra-posframe &https://github.com/yanghaoxie/which-key-posframe)
+** C-c Based (Mostly Extensions and stuff)
+*** Workspaces (Could replace with tabs)
+~C-c w~ ("W"orkspaces)
+*** Windows
+~C-c o~ (for the default ~C-x o~ ~other-window~ key)
+*** Zoom
+~C-c z~ (z for zoom)
+*** Counsel
+~C-c f~ (like find-file)
+*** Org-Agenda/Capture
+~C-c r~ (O"r"g)
+*** Org-Roam
+~C-c n~ (Was default like this)
+*** Simpler Projectile
+~C-c p~
+*** MPDel
+~C-c d~ ("P"layer)
+*** Mail (might just use the C-x variant)
+~C-c m~ ("M"ail)
+*** Flycheck/Flymake
+~C-c k~ (Chec"k")
+~C-c !~ (Chec"k")
+*** Flyspell
+~C-c l~ (spel"l")
+*** TODO Buffer (this was replaced by ~C-x b~)
+~C-c b~ (Buffer)
+*** Major-Mode
+~C-c c~ (consistent)
+*** Terminal (vterm & multi-vterm)
+~C-c t~
+*** Tramp (edit-as)
+~C-c a~
+*** Magit
+~C-c g~
+*** Dired
+~C-c i~
+*** Compile
+~C-c e~
+*** Numbers
+*** Customizations (Configurations)
+~C-c h~
+*** LSP/Insertions/TODO insertions/Calendar/Calculator/Elfeed/ERC(or CIRCE)/Magit/eww/Image-mode/EDiff/Eshell/Shell/pdf-tools/Prose/Tramp/Ledger/Formatting/Macros/Repeat/Elisp-related
+C-c q
+C-c v
+C-c x
+C-c y
+*** Delims(paredit/smartparens/lispy)
+~C-c j~
+*** Editing
+ - Everything Else
+ - Whitespace
+ - Highlight
+ - Delims (delete-in/around)
+ - Case switching
+ - Undo-redo (~undo-fu~)
+ - Indentation
+ - Narrow
+ - Expand-region/Hippie expand
+ - Zap
+ - Macros
+ - Translate
+ - Transpose
+ - Digit Keys
+ - Commenting
+ - Selection
+ - Multi-cursor
+ - Search/replace
+ - Jumping around
+** C-x Based (Emacs Defaults)
+~C-x a~ (=abbrev=)
+~C-x b~ (=buffer=)
+~C-x c~ (undefined)
+~C-x d~ (dired)
+~C-x e~ (macro)
+~C-x f~ (fill-column/format)
+~C-x g~ (Magit)
+~C-x h~ (select all)
+~C-x i~ (insert file)
+~C-x j~ (undefined)
+~C-x k~ (kill buffer)
+~C-x l~ (count lines page)
+~C-x m~ (mail)
+~C-x n~ (narrow)
+~C-x o~ (other window)
+~C-x p~ (projectile)
+~C-x q~ (macro)
+~C-x r~ (rectangle register and bookmark)
+~C-x s~ (save)
+~C-x t~ (tabs)
+~C-x u~ (undo)
+~C-x v~ (VC)
+~C-x w~ (kill current window)
+~C-x y~ (undefined)
+~C-x z~ (repeat)
+** C-h Based (Help)
+** Digit Keys
+* Applications
+** IBuffer
+** IEdit
+** Dired
+** LaTeX
+** LSP
 * Cheatsheets
 https://courses.cs.washington.edu/courses/cse351/16wi/sections/1/Cheatsheet-emacs.pdf
 http://www.rgrjr.com/emacs/emacs_cheat.html
